@@ -1,4 +1,4 @@
-shell相关
+linux 服务器上的一些issueshell相关
 ===
 
 #使用zsh
