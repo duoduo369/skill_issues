@@ -129,3 +129,41 @@ font中的line-height是指这行字的高度。如果想要垂直居中，把li
     text-overflow:ellipsis;
     white-space:nowrap;
     overflow:hidden; 
+
+分页或者导航ul li a
+----
+
+1.li上加float:left
+
+2.a上一定加display:block;color，并且在a上设置字体。
+
+    .zarkfx_pagination_default .zarkfx_pagination_current_page {color:#000;}
+    .zarkfx_pagination_default ul li {float:left;}
+    .zarkfx_pagination_default ul li a {display:block;color:#6F6F6F; font-size:12px; }
+
+添加其余样式美化
+
+1.a上可以用padding来美化
+
+    .zarkfx_pagination_default{
+        width:500px ;
+        margin:0 auto;
+        padding-bottom: 40px;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .zarkfx_pagination_default ul li{
+        margin: 0 5px;
+    }
+    .zarkfx_pagination_default ul li a{
+        color:#CCCCAA;
+        font-weight:bold;
+        border:1px solid #CCCCCC;
+        padding:10px;
+        text-decoration:none;
+    }
+    .zarkfx_pagination_default ul li a:hover{
+        color:#F7739F;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,0.4);
+    }
