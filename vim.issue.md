@@ -3,34 +3,26 @@ vim相关issure
 
 请下载 janus 节省不必要的配置时间
 
+https://github.com/carlhuda/janus
+
 自定义的配置放在~/.vimrc.after里面
 
-合并两行
---- 
+以下的很多操作默认使用janus安装的插件
 
-    大写J（shift + j）
+例如快速跳转\\w \\b，注释\cc,格式化等等
 
-加注释
----
-\cc
+个人可能会按照使用的频率来写这个issue,有些可能会比较基本，但是确实常用。
 
-ctrl+v 可视块,大写I插入
-
-跳回之前编辑的文章
+可视化
 ---
 
+行级别 shift + v
+列级别 ctrl + v
 
-例如vim 编辑a文章，然后你用ctrl+p跳到了别的地方，跳回a的方法
-
-    ctrl + shift + 6
-
-记录位置，迅速跳转
----
-
-s指任意字母 S是大写
-
-记录 m{Ss}
-跳回 '{Ss}
+可视化是很重要的一个部分，还记得你在记事本里面用鼠标选中某些文字，
+然后复制粘贴么？在vim里面只要ctrl + v 然后拉动 h l
+等选中文字，y可以复制选中的文字，x可以删除选中的文字,大写I进行插入
+按Esc之后会有惊喜(多行注释常用)
 
 打开tab,来回切换
 ---
@@ -39,8 +31,9 @@ s指任意字母 S是大写
 
 切换ctrl + pageup/pagedown
 
-tab映射
+tab映射,让你的vim变的更加方便
 ----
+有了tab功能，并且可以方便的切换，vim的易用性显得更高了。
 
 http://www.douban.com/group/topic/23129658/
 
@@ -56,6 +49,85 @@ http://www.douban.com/group/topic/23129658/
     :map <C-l> :tabn<CR>
 
     :map <C-c> :tabclose<CR>
+
+
+迅速找到并打开当前vim文件夹下的文件
+---
+
+    ctrl + p 
+
+例如:
+    文件目录如下,你正在编辑 /home/duoduo/proj/A.txt:
+
+    /home/duoduo/proj/A.txt
+    /home/duoduo/proj/B.txt
+    /home/duoduo/proj/test/A.txt
+    /home/duoduo/proj/test2/B.txt
+    /home/duoduo/proj/test2/B/A.txt
+
+    当按下ctrl + p
+    的时候，vim下面会出现一个条，如果你输入b,会出现下面这几个路径，可以迅速选择打开文件，非常方便。
+    /home/duoduo/proj/B.txt
+    /home/duoduo/proj/test2/B.txt
+    /home/duoduo/proj/test2/B/A.txt
+
+
+在行上添加或者减少缩进
+---
+
+    向左 shift + < 
+    向右 shift + >
+
+    html python  markdown等需要缩进的地方非常常用.
+
+
+替换字符，并且依然在normal模式
+---
+    小写r,换一个字
+    大写R,从光标位置开始替换后面的字符
+
+    知道这个命令之前都是x i 插入 Esc按这4次的。
+
+移动当前行
+---
+
+    下移ctrl + j
+    下移ctrl + k
+
+    可以用可视模式移动一个块
+
+合并两行
+--- 
+
+    大写J（shift + j）
+    可以用可视模式合并一个块
+
+快速跳转单词
+---
+\\w 向后跳转
+\\b 向前跳转
+
+例如vim 编辑a文章，然后你用ctrl+p跳到了别的地方，跳回a的方法
+
+    ctrl + shift + 6
+
+记录位置，迅速跳转
+---
+
+s指任意字母 S是大写,例如ma 用a记录下一个位置,然后光标随意移动,
+'a即可跳回。大写的话即使你在别的tab下也可以很方便的跳回这个位置。
+
+记录 m{Ss}
+跳回 '{Ss}
+
+
+注释
+---
+添加\cc
+取消\cu
+
+经常与shift+v 可视块一起使用
+
 
 粘贴模式
 ---
