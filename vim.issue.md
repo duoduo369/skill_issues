@@ -259,3 +259,23 @@ https://github.com/honza/vim-snippets/blob/master/snippets/javascript-jquery.sni
 ####python
 
 https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets
+
+添加自己的issue
+
+在janus里面这个插件在~/.vim/janus/vim/tools/vim-snippets/snippets下
+
+例如：当写zarkpy继承model的时候就可以新建以下的模板,在.py文件中输入clm按下tab就会补全
+
+    snippet clm
+        class ${1:ClassName}(Model):
+            table_name = '$1'
+            column_names = [${2}]
+
+            template = \ 
+                ''' CREATE TABLE {$table_name} (
+                    {$table_name}id int unsigned  not null auto_increment,
+                    ${3}
+                    primary key ({$table_name}id)
+                )ENGINE=InnoDB; ''' 
+            ${0}
+
