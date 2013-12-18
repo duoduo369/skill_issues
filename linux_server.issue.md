@@ -178,6 +178,26 @@ unzip apache-tomcat-6.0.37.zip -d ../tomcats/
       392  history
 
 
+weblogic 安装
+----
+参考文章
+https://blogs.oracle.com/brunoborges/entry/how_to_install_weblogic_12c
+
+    1.在oracle上下载wls1211_dev.zip文件
+    2.export MW_HOME=/opt/weblogic
+    mkdir -p $MW_HOME/mydomain
+    3.确保你之前已经安装了jdk和export了JAVA_HOME(参照java安装),但是无论你之前有没有export过JAVA_HOME,在这个bash里面必须export
+    一次 export JAVA_HOME=/opt/jdk1.6.0_45
+    4.unzip wls1211_dev.zip -d $MW_HOME
+    5.cd $MW_HOME
+    ./configure.sh
+    6. $MW_HOME/wlserver/server/bin/setWLSEnv.sh
+    7.cd $MW_HOME/mydomain
+    $JAVA_HOME/bin/java $JAVA_OPTIONS -Xms1024m -Xmx1024m
+    -XX:MaxPermSize=256m -Dweblogic.management.allowPasswordEcho=true
+    weblogic.Server
+
+
 nginx 安装
 ---
 
