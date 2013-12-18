@@ -399,6 +399,9 @@ The server quit without updating PID file (/mydb/mysql/aft.develop.pid)的问题
 
 http://blog.rekfan.com/articles/186.html
 
+###允许远程访问
+    注释掉#bind-address           = 127.0.0.1
+
 ###解决utf-8的问题
 
 http://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf8-in-my-cnf
@@ -581,3 +584,8 @@ vi /etc/my.cnf
 
     [mysqlhotcopy]
     interactive-timeout
+
+###数据库导出
+
+mysqldump --extended-insert=FALSE --complete-insert=TRUE -uroot -p -h
+115.28.17.93(远程数据库ip)  health(远程数据库名字) > ~/health.sql
