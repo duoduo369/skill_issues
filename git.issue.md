@@ -16,3 +16,8 @@ ssh不用输入密码直接push
     git config --global alias.alog "log --all --decorate --graph --color" 
 
 使用 git alog 命令
+
+把master移动到HEAD
+---
+    有的时候你会不小心在一个空白节点提交，这时候只要将master移动到head即可
+    git branch -f master # 
