@@ -279,3 +279,7 @@ https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets
                 )ENGINE=InnoDB; ''' 
             ${0}
 
+单词大小写转化
+---
+    选中单词 ctrl + v  w 
+    转换大小写 gu(小写)    gU(大写)

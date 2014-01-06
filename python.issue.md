@@ -91,6 +91,14 @@ join
     s = 'duoduo     duoduo'
     pieces = [s[i:j] for i,j in zip([0]+cuts,cuts+[None])]
 
+split分割字符串
+---
+    当split的规则有多个时，使用re的split
+
+    tring = "the,rain;in,spain"
+    pattern = re.compile(',|;')
+    words = pattern.split(string)
+
 同行间隔字符串会自动连接
 ---
     'Hello, world' == "Hello" ", " "world" 
@@ -124,3 +132,11 @@ join
     小数点
     string = "The square root of 5 is {0:.{1}f}".format(math.sqrt(5), 4)
 
+r字符的一些问题
+---
+    len('\n') == 1
+    len(r'\n') == 2
+
+    '\n' != r'\n'
+
+    raw string 常用于 正则，文件路径，url
