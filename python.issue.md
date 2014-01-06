@@ -140,3 +140,27 @@ r字符的一些问题
     '\n' != r'\n'
 
     raw string 常用于 正则，文件路径，url
+
+python新旧class
+---
+
+    class OldStyleClass:
+        "An old style class"
+
+    class NewStyleClass(object):
+        "A new style class"
+        pass
+
+    type(OldStyleClass).__name__ ==  'classobj' #old class 没有__class__
+    type(NewStyleClass) == NewStyleClass.__class__ == type
+
+    old_style = OldStyleClass()
+    new_style = NewStyleClass()
+
+    old_style.__class__.__name__ == 'OldStyleClass'
+    new_style.__class__.__name__ == 'NewStyleClass'
+
+    type(old_style).__name__ == 'instance'
+    type(new_style).__name__ == 'NewStyleClass'
+    
+
