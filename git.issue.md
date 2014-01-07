@@ -31,6 +31,8 @@ git 配置
     ---
     git config --global alias.st 'status'
     git config --global alias.co 'checkout'
+    git config --global alias.br branch  # 注意 后面命令的引号可以不写
+    git config --global alias.cm commit
 
 ssh不用输入密码直接push
 ---
@@ -99,3 +101,11 @@ git log
     在git status中都会有提示
     git reset HEAD <file>  # 将add的文件从暂存区移除
     git checkout -- <file> # 将工作区域文件的修改撤销掉
+
+标签
+---
+    git tag #显示标签
+    git tag -a v0.1 -m "标签描述 -m和描述可以不写"
+    git push origin v0.1  # 手动push标签才可以push到服务器 
+    git push origin --tags # push所有标签
+
