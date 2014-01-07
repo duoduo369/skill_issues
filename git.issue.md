@@ -95,6 +95,10 @@ git log
     git log -p [-数字] #加p显示diff
     git log --stat [-数字] #显示曾改行数
 
+git reflog
+---
+    git 的引用日志命令
+
 取消对文件的修改
 ---
     push之前
@@ -109,3 +113,8 @@ git log
     git push origin v0.1  # 手动push标签才可以push到服务器 
     git push origin --tags # push所有标签
 
+git自带web
+---
+    需要安装 lighttpd
+    git instaweb  # 启动
+    git instaweb --stop # 停止
