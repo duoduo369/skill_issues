@@ -76,7 +76,26 @@ git commit
     #先git add 忘记的文件,然后用amend参数
     git commit --amend
 
+fast-forwards
+---
+fast-forwards指有直接从属关系(log --graph上是一条直线)的分支
+
+演示图
+    ——————*——————*——————*——————  # fast-forwards 一条直线
+
+             —————*——
+            /        \ 
+    ————*——— ——*————————*——    # none fast-forwards
+        
+
 git log
 ---
     git log -p [-数字] #加p显示diff
     git log --stat [-数字] #显示曾改行数
+
+取消对文件的修改
+---
+    push之前
+    在git status中都会有提示
+    git reset HEAD <file>  # 将add的文件从暂存区移除
+    git checkout -- <file> # 将工作区域文件的修改撤销掉
