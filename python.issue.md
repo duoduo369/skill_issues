@@ -167,3 +167,32 @@ python新旧class
 ----
     import functools
     functools.partial(func,部分参数) ==> 新的方法
+
+from XXX import *
+---
+    控制*时，需要在脚本中添加
+    __all__ = (XXX,XXX) # 此时improt * 时只会导入 XXX,XXX
+
+类方法，静态方法，普通方法
+---
+    1.普通方法 第一个参数是self(对象)
+    2.类方法 第一个参数是cls(类)
+    3.静态方法 没有第一个参数
+
+    从第一个参数的默认命名规范上就可以基本
+    猜出这几个方法的不同之处
+
+    1.普通方法需要新建一个实例，用obj.fun调用
+    2.@classmethod @staticmethod 类方法和静态
+    方法即可以通过类直接调用， 也可以通过实例
+    调用,需要注意一点，当他们与普通方法重名的
+    时候会覆盖普通方法。
+    3.类方法类似java和c++类里面的静态方法
+
+property
+---
+    property(fget=None, fset=None, fdel=None, doc=None)
+
+    类里面用property装饰器的时候，如果不加参数
+    就是get,加的话一般是设置getter/setter,
+    注意先get,后set
