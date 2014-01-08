@@ -163,4 +163,7 @@ python新旧class
     type(old_style).__name__ == 'instance'
     type(new_style).__name__ == 'NewStyleClass'
     
-
+函数式
+----
+    import functools
+    functools.partial(func,部分参数) ==> 新的方法

@@ -5,6 +5,21 @@ git书籍
 ---
 progit http://git.oschina.net/progit/
 
+zsh增强git
+---
+    https://github.com/olivierverdier/zsh-git-prompt
+
+    配置方法
+    ---
+    新建文件夹 ~/.zsh/git-prompt
+    将项目里面的 gitstatus.py  zshrc.sh cp到这个文件夹里
+    编辑你的 zshrc
+
+    # source  ~/.zsh/git-prompt/zshrc.sh 
+    source /home/duoduo/.zsh/git-prompt/zshrc.sh 
+    PROMPT='%B%m%~%b$(git_super_status)%# '
+    
+
 git 配置
 ---
     查看配置列表
