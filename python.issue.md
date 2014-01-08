@@ -49,6 +49,65 @@ import this
     如果你无法向人描述你的方案，那肯定不是一个好方案；反之亦然（方案测评标准） 
     命名空间是一种绝妙的理念，我们应当多加利用（倡导与号召)
 
+python 编码规范
+---
+    PEP8
+    ---
+
+    4个空格而不是制表符
+    ---
+
+    每行最多79个字符,文档注释每行最多72个
+    合适使用\(长with,assert),在运算符后面换行，而不是前面
+    ---
+
+    一级函数和类定义用两行隔开
+    类内函数定义用一行隔开
+    ---
+
+    import需要分开写，from XX import的时候可以写在一行,
+    import总是写在文件的顶行(文档注释和模块注释下面),
+    import按照下面的顺序,并且用空行隔开这三组
+    1.标准库
+    2.三方库
+    3.自定义的模块
+    import os
+    import sys
+    from subprocess import Popen, PIPE
+
+    import 后面写 __all__
+
+    Absolute imports are recommended
+    import mypkg.sibling
+    from mypkg import sibling
+    from mypkg.sibling import example
+
+    尽量避免 from <module> import * 
+    ---
+
+    多行对齐的时候，如果第一行有字，则下移行与第一行左
+    对齐,如果使用'悬挂'式对齐，则第一行不要有字，注意左
+    侧要在一条竖线上。
+
+    # Aligned with opening delimiter
+    foo = long_function_name(var_one, var_two,
+                             var_three, var_four)
+
+    # More indentation included to distinguish this from the rest.
+    def long_function_name(
+            var_one, var_two, var_three,
+            var_four):
+        print(var_one)
+
+    my_list = [
+        1, 2, 3,
+        4, 5, 6,
+        ]
+    result = some_function_that_takes_arguments(
+        'a', 'b', 'c',
+        'd', 'e', 'f',
+        )
+    ---
 
 用交互模式执行脚本
 ---
