@@ -55,9 +55,8 @@
 
     * vim(一切为了效率)
     * git
-    * zarkpy(10倍于java的一个python web框架,
-    *        webpy上有经验积累的二次开发, 作
-    *        者有大量互联网外包经验。)
+    * zarkpy(10倍于java的一个python web框架,webpy的
+    * 二次开发, 作者有大量互联网外包经验。)
     * css
     * linux-server(linux 服务器上的一些issue)
     * nginx
