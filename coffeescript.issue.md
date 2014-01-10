@@ -1,16 +1,15 @@
 CoffeeScript issue
----
+===
     
 安装
-    1.安装npm 
-    # Node Packaged Modules
-    # https://npmjs.org/
-    # http://stackoverflow.com/questions/16302436/install-nodejs-on-ubuntu-12-10
-    sudo apt-get install python-software-properties python g++ make
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs
-
-    2.安装coffee
+---
+    之前需要先安装npm
     sudo npm install -g coffee-script
 
+学习资源
+---
+    官网直接就有可以运行的东西
+    http://coffeescript.org/
+
+    google coffeescript小书(有中文版，而且有在线版)
+    http://island205.github.io/tlboc/
