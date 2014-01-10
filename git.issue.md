@@ -18,7 +18,7 @@ zsh增强git
     # source  ~/.zsh/git-prompt/zshrc.sh 
     source /home/duoduo/.zsh/git-prompt/zshrc.sh 
     PROMPT='%B%m%~%b$(git_super_status)%# '
-    
+
 
 git 配置
 ---
@@ -133,3 +133,8 @@ git自带web
     需要安装 lighttpd
     git instaweb  # 启动
     git instaweb --stop # 停止
+
+git 和python
+---
+    pyflakes 检查代码语法
+    pep8 检查代码风格

@@ -51,6 +51,12 @@ import this
 
 python 编码规范
 ---
+    安装pep8 easy_install pep8
+    安装autopep8 easy_install autopep8
+
+    用法：pep8 XXX.py，就会告诉你哪些行不符pep8的什么规范
+          autopep8 XXX.py, 就会直接在shell中显示符合pep8的脚本的代码
+
     PEP8
     ---
 
@@ -108,6 +114,69 @@ python 编码规范
         'd', 'e', 'f',
         )
     ---
+
+    空格
+
+    Yes: spam(ham[1], {eggs: 2}) # 各种括号内部紧接着的地方不加空格
+
+    i = i + 1 # 双目运算符两边都要有空格
+    submitted += 1
+    x = x*2 - 1
+    hypot2 = x*x + y*y # 如果有优先级不同的运算时，低优先级的双目不加空格
+    c = (a+b) * (a-b)
+
+    def complex(real, imag=0.0):   # 方法中参数的=前后没有空格
+        return magic(r=real, i=imag)
+
+    Yes: if x == 4: print x, y; x, y = y, x # 标点符号(,:;)后加空格，
+
+    Yes: spam(1) # 函数调用的时候()紧接着函数，不加空格
+
+    Yes: dict['key'] = list[index] #字典和数组也是一样
+    ---
+
+    注释
+
+    段落注释每行以# 开头
+    行注释最少两个空格隔开语句
+
+    文档注释 共有的类，方法需要写，私有的可以不写.
+    单行注释，做什么返回什么
+    """Do X and return a list."""
+
+    第一行紧接着写简短 描述，空开一行写详细描述，空开一行结尾
+    """Return a foobang
+
+    Optional plotz says to frobnicate the bizbaz first.
+
+    """
+
+    命名
+    ---
+    _single_leading_underscore  # 私有的，from M import * 不会导入
+    single_trailing_underscore_  # 最后的下滑线防止与关键字等重名
+    __double_leading_underscore  # 类内部使用双下滑线的时候会重命名，
+                                 # 类FooBar内部, __boo ->  _FooBar__boo
+    __double_leading_and_trailing_underscore__  # 双下划线是magic方法
+
+    不要使用单个l O 做变量名字 可能会看成 1 0
+
+    模块名和包名需要简短而且都是小写字母命名,如果能提高可读性，模块名
+    可以加下划线，模块名必须简短，因为模块名是文件夹的名字，有些操作系统会
+    截短文件夹名
+
+    类名使用驼峰式 CapWords
+    异常类后面加Error后缀
+    因为有from M import * ,使用 __all__ 的机制
+
+    方法名用小写下滑线分隔
+    如果是private方法和变量的话使用单下划线，双下滑线是为了防止在子类中的命名
+    冲突（python会自动重命名，子类只用双下滑线掉不到的）,这样就防止子类继承这个
+    属性了。
+
+    为继承设计
+    如果开始搞不清楚使用private还是public的时候，设置为private(python没有真正的
+    private)
 
 用交互模式执行脚本
 ---
@@ -248,6 +317,42 @@ from XXX import *
     时候会覆盖普通方法。
     3.类方法类似java和c++类里面的静态方法
 
+
+python私有方法
+---
+
+    class Dog
+        def __method(self):
+            pass
+
+    Dog()._Dog__method() # 依然可以调用
+
+异常
+---
+    抓到的异常的[0] 为异常信息message
+    except RuntimeError as ex:
+        print ex[0]
+
+python解析
+---
+    以前只知道有里表解析，好吧涨见识了
+
+    列表解析 []
+    ---
+    c = [(i,j) for i,j in enumerate(range(5))]
+    ==> [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+
+    字典解析 {key:value XXXX}
+    ---
+    c = {i:j for i,j in enumerate(range(5))}
+    ==> {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
+
+    集合解析 {value XXXX}
+    ---
+    c = {i for i,j in enumerate(range(5))}
+    ==> set([0, 1, 2, 3, 4])
+
+
 property
 ---
     property(fget=None, fset=None, fdel=None, doc=None)
@@ -255,3 +360,23 @@ property
     类里面用property装饰器的时候，如果不加参数
     就是get,加的话一般是设置getter/setter,
     注意先get,后set
+
+__getattr__ __getattribute__ getattr
+---
+    __getattribute__  # 只用户新式类(继承自object),只要有任何属性访问，
+    就会调用
+    __getattr__  # 只有在不包含某个属性的时候才会被调用，也就是说
+    是在__getattribute__发生AttributeError之后才会调用
+
+    getattr  # 有这么一个解释 
+             # You use __getattr__ to define how to handle attributes that are not found 
+             # and 
+             # getattr to get the attributes 
+             # 可见 getattr与__getattribute__类似
+
+__setattr__的递归问题
+---
+    __setattr__会在每次进行赋值操作的时候被调用，
+    即 self.foo = bar 这样会导致递归
+    解决的办法是使用self.__dict__['foo'] = bar
+    新式类使用 object.__setattr__(self, item, value)
