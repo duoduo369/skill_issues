@@ -285,37 +285,3 @@ https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets
     转换大小写 gu(小写)    gU(大写)
     2. guw gUw
 
-python私有方法
----
-
-    class Dog
-        def __method(self):
-            pass
-
-    Dog()._Dog__method() # 依然可以调用
-
-异常
----
-    抓到的异常的[0] 为异常信息message
-    except RuntimeError as ex:
-        print ex[0]
-
-python解析
----
-    以前只知道有里表解析，好吧涨见识了
-
-    列表解析 []
-    ---
-    c = [(i,j) for i,j in enumerate(range(5))]
-    ==> [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
-
-    字典解析 {key:value XXXX}
-    ---
-    c = {i:j for i,j in enumerate(range(5))}
-    ==> {0: 0, 1: 1, 2: 2, 3: 3, 4: 4}
-
-    集合解析 {value XXXX}
-    ---
-    c = {i for i,j in enumerate(range(5))}
-    ==> set([0, 1, 2, 3, 4])
-
