@@ -285,3 +285,26 @@ https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets
     转换大小写 gu(小写)    gU(大写)
     2. guw gUw
 
+vim 编译coffeescript
+---
+    vim的一个插件
+    https://github.com/kchmck/vim-coffee-script
+
+    安装
+    Install pathogen.vim into ~/.vim/autoload/ 
+    http://www.vim.org/scripts/script.php?script_id=2332
+
+    Enable pathogen in your vimrc. Here's a bare-minimum vimrc that enables all the features of vim-coffee-script:
+
+        call pathogen#infect()
+        syntax enable
+        filetype plugin indent on
+        
+        :map <F3> :CoffeeCompile vert<CR>  # 安F3编译 并且右边显示
+
+    Create the directory ~/.vim/bundle/:
+
+    mkdir ~/.vim/bundle
+    Clone the vim-coffee-script repo into ~/.vim/bundle/:
+
+    git clone https://github.com/kchmck/vim-coffee-script.git ~/.vim/bundle/vim-coffee-script/
