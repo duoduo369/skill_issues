@@ -93,6 +93,13 @@ git commit
     #先git add 忘记的文件,然后用amend参数
     git commit --amend
 
+git 抓回远程分支
+---
+    git checkout master
+    git pull
+    # 上面两不是重点
+    git checkout -b 分支名 远程分支名
+
 fast-forwards
 ---
 fast-forwards指有直接从属关系(log --graph上是一条直线)的分支
@@ -104,6 +111,31 @@ fast-forwards指有直接从属关系(log --graph上是一条直线)的分支
             /        \ 
     ————*——— ——*————————*——    # none fast-forwards
         
+
+git rebase
+---
+    在开发中有下面的分支结构 master,develop,feature/f1,feature/f2
+    因改保持master,develop是一条直线的，
+
+    ———*—————*—— (master)
+                \
+                 ——*—————*————(develop)
+                    \
+                     —*—————*————(feature/f1)
+    假设你在开发特性f1,commit后到如图的节点状态(注意不提交),
+    可以看到develop是领先与你的分支的，这时候需要checkout 到
+    develop 分支，pull一把，保证develop是最新状态，然后checkout
+    回自己的feature/f1,这个时候git rebase develop
+
+    ———*—————*—— (master)
+                \
+                 ——*—————*————(develop)————*(feature/f1)
+
+    git的节点图变成这个样子了，发现feature/f1会到develop后面，
+    变成一条直线，没有以前merge的各种合并状态，这个时候
+    git push origin feature/f1, 然后你可以发起一个merge-request
+    让你的管理员合并你的feature/f1分支和develop分支了，这时候
+    develop是fast-forward
 
 git log
 ---
