@@ -13,3 +13,10 @@ CoffeeScript issue
 
     google coffeescript小书(有中文版，而且有在线版)
     http://island205.github.io/tlboc/
+
+    cookbook
+    http://coffeescriptcookbook.com/
+
+    
+
+
