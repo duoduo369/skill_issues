@@ -1,6 +1,63 @@
 python的相关问题
 =====
 
+切换活内豆瓣源
+---
+    pip 或者easy_install安装的时候会用国外的源，这个
+    东西不时会被墙掉，因此换豆瓣的源
+
+    linux下,修改~/.pip/pip.conf，如果没这文件则创建。
+    windows下，修改%HOMEPATH%\pip\pip.ini。
+    内容为：
+    [global]
+    index-url = http://pypi.douban.com/simple
+
+virtualenv
+---
+    http://www.virtualenv.org
+    类似虚拟机的一种环境，控制你python安装的好东西
+
+    保持你python的版本干净，例如一次开发,项目一django
+    使用1.5.0版本，项目二版本是用1.6，你同时负责这两个
+    项目的时候会非常痛苦，传统的方式可以说是无解的(莫非
+    装了卸卸了装？) 而用virtualenv可以完美解决这个问题，
+    虚拟环境1用1.5.0,虚拟环境二使用1.6，需要用那个环境
+    直接切过去就ok～
+    
+    安装
+    sudo pip install virtualenv
+
+    新建总的虚拟环境文件夹
+    mkdir ~/python_env
+    sudo ln -s ~/python_env /opt
+
+    cd到你python虚拟环境的文件夹下
+    cd /opt/python_env
+
+    virtualenv ENV # 新建名字叫ENV的虚拟环境
+    virtualenv django1.6.1  # 新建名字叫django1.6.1的虚拟环境
+
+    例如我想用django这个环境
+    source django1.6.1/bin/activate
+
+    结束使用
+    deactivate
+
+    参考自
+    http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+pip安装
+---
+    requirements.txt里面有一行一行的需要的代码
+    # 例如 
+    Django==1.6
+    MySQL-python==1.2.4
+    South==0.8.2
+    djangorestframework==2.3.9
+    ipython==1.1.0
+
+    pip install -r requirements.txt
+
 学习脚本 python_koans
 ---
 https://github.com/gregmalcolm/python_koans
