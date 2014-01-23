@@ -111,6 +111,12 @@ python 编码规范
     安装pep8 easy_install pep8
     安装autopep8 easy_install autopep8
 
+    安装pyflakes 检查语法
+    pip install pyflakes
+
+    可以将pep8和pyflakes放到.git的hacks里面提交前自动检查,
+    参见git issue,
+
     用法：pep8 XXX.py，就会告诉你哪些行不符pep8的什么规范
           autopep8 XXX.py, 就会直接在shell中显示符合pep8的脚本的代码
 

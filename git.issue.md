@@ -170,3 +170,47 @@ git 和python
 ---
     pyflakes 检查代码语法
     pep8 检查代码风格
+
+    在git项目下的.git/hooks添加pre-commit,chmod 755 pre-commit
+
+    #!/usr/bin/env python
+    from __future__ import with_statement
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+
+
+    def system(*args, **kwargs):
+        kwargs.setdefault('stdout', subprocess.PIPE)
+        proc = subprocess.Popen(args, **kwargs)
+        out, err = proc.communicate()
+        return out
+
+
+    def main():
+        files = (file for file in system('git', 'diff', '--name-only', '--staged', '--diff-filter=AM').splitlines() if file.endswith('.py'))
+
+        tempdir = tempfile.mkdtemp()
+        for name in files:
+            filename = os.path.join(tempdir, name)
+            filepath = os.path.dirname(filename)
+            if not os.path.exists(filepath):
+                os.makedirs(filepath)
+            with file(filename, 'w') as f:
+                system('git', 'show', ':' + name, stdout=f)
+        check_list = ['pep8', 'pyflakes']
+        outputs = [system(cl, '.', cwd=tempdir) for cl in check_list]
+        shutil.rmtree(tempdir)
+        if outputs:
+            for out in outputs:
+                print out
+            sys.exit(1)
+
+        sys.exit(0)
+
+
+    if __name__ == '__main__':
+        main()
+
