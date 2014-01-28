@@ -44,3 +44,21 @@ django rest
            \
              —— permission_classes 控制权限
 
+QuerySet
+---
+    像Entry.Objects.all(),这些操作返回的是一个QuerySet对象，这个对象
+    比较特别，并不是执行Objects.all(),或者filter之后就会与数据库交互，
+    具体参看官方文档,与数据库交互的情况：
+
+    https://docs.djangoproject.com/en/dev/ref/models/querysets/
+
+    Internally, a QuerySet can be constructed, filtered, sliced, and generally passed around without actually hitting the database. No database activity actually occurs until you do something to evaluate the queryset.
+
+    可以print queryset对象的query属性查看具体sql
+
+    1. list(Entry.Objects.all())
+    2. for e in Entry.Objects.all():pass  
+    # 便利第一个元素的时候会触发数据库操作
+    3. Entry.Objects.all()[2:10] 
+    # 这种情况不会返回所有元素，sql中会加上limit的，分页可以利用这一点
+
