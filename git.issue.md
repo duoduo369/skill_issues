@@ -58,7 +58,9 @@ ssh不用输入密码直接push
     自己有服务器的话
     ssh-keygen -t rsa scp ~/.ssh/id*.pub 远程:~/.ssh/authorized_keys 
 
-
+git ssh_key 用xclip粘贴
+---
+    xclip -sel clip < ~/.ssh/id_rsa.pub
 
 
 把master移动到HEAD
