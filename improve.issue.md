@@ -63,3 +63,13 @@ shell 操作命令 生成gif
     （在系统托盘右键chrome图标退出，如果直接点击窗口关闭按键无效）
 
     http://lyericwang.blog.163.com/blog/static/716901742012626156844/
+
+浏览器快捷键
+---
+    Ctrl+T            # 打开新标签页
+    Ctrl+Shift+T      # 重新打开上次关闭的标签页。 
+    Ctrl+1 ~ Ctrl+8   # 切换到指定位置编号的标签页。
+    Ctrl+9            # 切换到最后一个标签页
+    Ctrl+Tab          # 切换到下一个标签页
+    Ctrl+Shift+Tab    # 切换到上一个标签页
+    Ctrl+W or Ctrl+F4 # 关闭当前标签页或窗口
