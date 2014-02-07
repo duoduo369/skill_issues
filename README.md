@@ -65,4 +65,5 @@
     * python
     * python-script(用到的一些脚本)
     * spring mvc(个人应该这个部分不会更新)
+    * 各种前端相关issue, coffeescript, nodejs, angular, backbone
 

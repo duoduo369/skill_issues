@@ -114,11 +114,35 @@ python 编码规范
     安装pyflakes 检查语法
     pip install pyflakes
 
-    可以将pep8和pyflakes放到.git的hacks里面提交前自动检查,
-    参见git issue,
-
     用法：pep8 XXX.py，就会告诉你哪些行不符pep8的什么规范
           autopep8 XXX.py, 就会直接在shell中显示符合pep8的脚本的代码
+
+
+    可以将pep8和pyflakes放到.git的hacks里面提交前自动检查, 参见git issue
+
+    或者编写如下脚本pycheck,然后将这个脚本在bin下建立一个软链接，
+    sudo ln -s ~/path/pycheck /usr/local/bin/
+
+        #!/usr/bin/env python
+        # -*- coding: utf-8 -*-
+
+
+        import os
+        import sys
+
+        if len(sys.argv) <= 1:
+            print 'Usage: pycheck file'
+            sys.exit(-1)
+
+        file_ = sys.argv[1]
+
+        if not file_.endswith('.py'):
+            print 'only accept *.py file'
+            sys.exit(-1)
+
+        os.system("pyflakes %s" % file_)
+        os.system("pep8 %s" % file_)
+
 
     PEP8
     ---
@@ -443,3 +467,9 @@ __setattr__的递归问题
     即 self.foo = bar 这样会导致递归
     解决的办法是使用self.__dict__['foo'] = bar
     新式类使用 object.__setattr__(self, item, value)
+
+向文件添加一行 print
+---
+    http://www.python.org/dev/peps/pep-0214/
+    print >> fileobj, "line str"
+    PEP 214 http://www.python.org/dev/peps/pep-0214/

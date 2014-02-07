@@ -102,6 +102,11 @@ git 抓回远程分支
     # 上面两不是重点
     git checkout -b 分支名 远程分支名
 
+git 删除远程分支
+---
+    git push origin --delete <branchName>
+    git push origin :<branchName>
+
 fast-forwards
 ---
 fast-forwards指有直接从属关系(log --graph上是一条直线)的分支
@@ -170,49 +175,10 @@ git自带web
 
 git 和python
 ---
-    pyflakes 检查代码语法
     pep8 检查代码风格
 
     在git项目下的.git/hooks添加pre-commit,chmod 755 pre-commit
+    https://gist.github.com/lentil/810399
 
-    #!/usr/bin/env python
-    from __future__ import with_statement
-    import os
-    import shutil
-    import subprocess
-    import sys
-    import tempfile
-
-
-    def system(*args, **kwargs):
-        kwargs.setdefault('stdout', subprocess.PIPE)
-        proc = subprocess.Popen(args, **kwargs)
-        out, err = proc.communicate()
-        return out
-
-
-    def main():
-        files = (file for file in system('git', 'diff', '--name-only', '--staged', '--diff-filter=AM').splitlines() if file.endswith('.py'))
-
-        tempdir = tempfile.mkdtemp()
-        for name in files:
-            filename = os.path.join(tempdir, name)
-            filepath = os.path.dirname(filename)
-            if not os.path.exists(filepath):
-                os.makedirs(filepath)
-            with file(filename, 'w') as f:
-                system('git', 'show', ':' + name, stdout=f)
-        check_list = ['pep8', 'pyflakes']
-        outputs = [system(cl, '.', cwd=tempdir) for cl in check_list]
-        shutil.rmtree(tempdir)
-        if outputs:
-            for out in outputs:
-                print out
-            sys.exit(1)
-
-        sys.exit(0)
-
-
-    if __name__ == '__main__':
-        main()
+    pyflakes检查代码语法
 
