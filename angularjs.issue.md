@@ -13,13 +13,19 @@ angularjs
     在scripts中可以发现有compile-html.sh(请阅读README,非常详细的说明)
     ./scripts/compile-html.sh
 
+    ps:现在我用的这个版本angular 是1.2.5 有点老了，把bower.js angular
+    相关的部分都改成*就会下载最新版本
+
+
 
 learning demo
 ---
     使用官网那个关于手机的app tutorial,结合brunch新建的
     项目，节省自己的时间(我用coffee)。
 
-    第一个问题，在controller那一关,brunch demo的controller
+    problems
+
+    1. 在controller那一关,brunch demo的controller
     代码如下,开始我已为可以直接在后面接 
     `.controller('xxxCtrl',[...])`,结果页面报错，原来应该这样
 
@@ -93,3 +99,31 @@ learning demo
       ]
     ])
 
+    2. 在step-12需要用动画,jquery需要用1.10.X,angular > 1.2.10
+    在bower.js更改相应配置
+
+angular初步感觉
+---
+
+    1. app.js是程序的入口,读代码的时候从这个文件下手
+    app.js 做了这些事情:
+        * 声明了命名空间，以及需要加载的各个其他模块
+        * 定义了路由表，而路由表又是链接controller和view的桥梁
+
+    2. services 和 controller
+        * controller 和以前其他mvc里面controller相同，处理业务逻辑,
+          而angularjs由于为了让controller处理的事情更少，而且不同的
+          页面对应的业务也不同，controller主要处理数据，view里面也会
+          有一些和数据显示有关的业务处理(directive),这样controller就
+          更容易测试
+        * services 则是真正想服务器请求资源的组建，还暴露对象的名字
+          # phonecatServices.factory('Phone', ['$resource', ....])
+          例如factory暴露出的名字就可以供controller来引用
+
+    3. filter
+        * filter类似linux的管道符，对后台传来的原生数据做一步处理，
+          使得view里面显示的时候可以更加的人性化(而不是显示true,null
+          或者其他不符和自己心意的数据)
+
+    4. animate
+        * angularjs提供的动画

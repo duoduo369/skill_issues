@@ -589,3 +589,7 @@ vi /etc/my.cnf
 
 mysqldump --extended-insert=FALSE --complete-insert=TRUE -uroot -p -h
 115.28.17.93(远程数据库ip)  health(远程数据库名字) > ~/health.sql
+
+dump出特定的表
+mysqldump --extended-insert=FALSE --complete-insert=TRUE -uroot -p -h
+115.28.17.93(远程数据库ip)  health tb1 tb2 tb3 > ~/health.sql

@@ -473,3 +473,42 @@ __setattr__的递归问题
     http://www.python.org/dev/peps/pep-0214/
     print >> fileobj, "line str"
     PEP 214 http://www.python.org/dev/peps/pep-0214/
+
+python cook
+---
+    collection.deque rotate 列表旋转
+        q = deque([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+        q.rotate(2)  # -> deque([8, 9, 0, 1, 2, 3, 4, 5, 6, 7])
+
+
+    sorted sort key
+        里面有个key=XXX参数，使用这个参数时会在第一次比较的时候
+        应用这个方法，比在cmp里面使用一些方法处理要快，因为cmp每次
+        比较的时候都会调用一次
+
+        In [32]: sorted("bqwDAdasf",key=str.lower)
+        Out[32]: ['A', 'a', 'b', 'D', 'd', 'f', 'q', 's', 'w']
+
+    operator
+        attrgetter,itemgetter是取出指定某元素的好方法
+
+        attrgetter 这个方法是取某个属性，类似object.getattr(obj,attr)
+        不同的是attrgetter先将attr取出来做回调，obj后来再传
+
+        class attrgetter(__builtin__.object)
+         |  attrgetter(attr, ...) --> attrgetter object
+         |  
+         |  Return a callable object that fetches the given attribute(s) from its operand.
+         |  After, f=attrgetter('name'), the call f(r) returns r.name.
+         |  After, g=attrgetter('name', 'date'), the call g(r) returns (r.name, r.date).
+         |  After, h=attrgetter('name.first', 'name.last'), the call h(r) returns
+         |  (r.name.first, r.name.last).
+
+        itemgetter 则是取数组指定下表
+
+        class itemgetter(__builtin__.object)
+         |  itemgetter(item, ...) --> itemgetter object
+         |  
+         |  Return a callable object that fetches the given item(s) from its operand.
+         |  After, f=itemgetter(2), the call f(r) returns r[2].
+         |  After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])
