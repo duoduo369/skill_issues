@@ -127,3 +127,19 @@ angular初步感觉
 
     4. animate
         * angularjs提供的动画
+
+angularjs 新浪微博跨域解决办法
+---
+    问题：oauth跨域
+    angularjs jsonp只能是get方式，而http.post和resouce oauth时都会引发跨域问题
+
+    解决办法，让跨域变成非跨域
+    跨域是前端问题，javascript访问非本域的东西的时候会有这个问题，因此后端实现
+    oauth然后让前端访问本域内的地址就可以解决这个问题。
+
+    方法有下面：
+       1.后端服务器做个代理(公司牛人给的解决方案，具体怎么样实现没有深入研究) 
+       2.使用新浪的sdk，后端解决oauth, <a href="/oauth2/sina/authorize">
+         http://open.weibo.com/wiki/SDK(新浪) 
+         http://michaelliao.github.io/sinaweibopy/(python sdk)
+         https://github.com/tianyu0915/django-sina-login(python sdk 例子)
