@@ -512,3 +512,49 @@ python cook
          |  Return a callable object that fetches the given item(s) from its operand.
          |  After, f=itemgetter(2), the call f(r) returns r[2].
          |  After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])
+
+groupby的用法
+---
+    groupby与sql的groupby不太一样，返回的k,v中的v比较特别，
+    groupby(iter,func),当func的值改变的时候，groupby认为是另一个
+    分组:
+        groupby: [1,2,2,3,1] --> [(1,iter),(2,iter),(3,iter),(1,iter)]
+        有两点和sql以及想想的可能不同
+            上例中最后诡异的1,
+            上例中除了最后一个每个iter是空的
+        groupby: [1,1,2,2,3] --> [(1,iter),(2,iter),(3,iter)]
+
+    因此使用groupby之前必须先排序，而且排序的规则(sorted的key)
+    就是groupby中的func,参考代码如下
+
+    # -*- coding: utf-8 -*-
+    from itertools import groupby
+    from operator import attrgetter
+    from collections import defaultdict
+
+
+    class Model(object):
+        def __init__(self, id):
+            super(Model, self).__init__()
+            self.id = id
+        def __unicode__(self):
+            return unicode(self.id)
+
+    test = []
+
+    for i in xrange(5):
+        test.append(Model(i))
+
+    for i in xrange(10):
+        test.append(Model(i))
+
+    # 可以修改此处，直接groupby不排序
+
+    keyfunc = attrgetter('id')
+    test = sorted(test, key=keyfunc)
+    gb = groupby(test, keyfunc)
+
+    result = defaultdict(list)
+
+    for k, g in gb:
+        result[k].extend(list(g))
