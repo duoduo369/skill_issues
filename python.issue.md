@@ -265,6 +265,21 @@ python 编码规范
     如果开始搞不清楚使用private还是public的时候，设置为private(python没有真正的
     private)
 
+
+pylint代码评估
+---
+    pylint 比pep8要求更高的python代码分析
+
+    pip install pylint
+    pip install pylint-django # django插件
+    pylint --load-plugins pylint_django tasks.py # 启用django插件
+    # 配置法启用pylint_django
+    pylint --generate-rcfile > ~/.pylintrc
+    vim ~/.pylintrc
+    找到 load-plugins= 填上插件名字pylint_django
+
+    pylint task.py # 此时启用了插件
+
 用交互模式执行脚本
 ---
 python -i XXX.py

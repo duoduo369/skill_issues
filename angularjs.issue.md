@@ -143,3 +143,12 @@ angularjs 新浪微博跨域解决办法
          http://open.weibo.com/wiki/SDK(新浪) 
          http://michaelliao.github.io/sinaweibopy/(python sdk)
          https://github.com/tianyu0915/django-sina-login(python sdk 例子)
+
+最佳实践
+---
+    from ng-book
+
+1. $scope绑定的时候将数据绑定到model的属性上
+    $scope.clock  --> $scope.clock.now
+
+2. controller命名使用XXController而不是XXCtrl
