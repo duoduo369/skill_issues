@@ -404,6 +404,8 @@ http://blog.rekfan.com/articles/186.html
 
 ###解决utf-8的问题
 
+show variables like 'character%';
+
 http://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf8-in-my-cnf
 
 在mysql5.5之后 不能在mysqld中使用 `default-character-set=utf8`，否则会启动异常的

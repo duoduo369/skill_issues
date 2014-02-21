@@ -15,5 +15,10 @@ chrome
 ---
     在火狐里面打开google,搜索chrome，安装
 
+
+zsh
+---
+   chsh -s $(which zsh)
+
 mysql
 ---

@@ -573,3 +573,13 @@ groupby的用法
 
     for k, g in gb:
         result[k].extend(list(g))
+
+
+PIL 安装
+---
+sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
+sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
+
+	pip install PIL
