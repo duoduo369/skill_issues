@@ -584,7 +584,7 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
 sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
 sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
 
-	pip install PIL
+    pip install PIL  --allow-unverified PIL --allow-all-external
 
 
 python写的脚本
