@@ -354,3 +354,70 @@ vim 编译coffeescript
     Clone the vim-coffee-script repo into ~/.vim/bundle/:
 
     git clone https://github.com/kchmck/vim-coffee-script.git ~/.vim/bundle/vim-coffee-script/
+
+~/.vimrc.after
+---
+
+    set tabstop=4       " A four-space tab indent width is the prefered coding style
+                        " for Python (and everything else!), although of course some
+                        " disagree. This page generally assumes you want 4-space
+                        " indents.
+
+    set shiftwidth=4    " This allows you to use the < and > keys from VIM's visual
+                        " (marking) mode to block indent/unindent regions
+
+    set smarttab        " Use the "shiftwidth" setting for inserting <TAB>s instead
+                        " of the "tabstop" setting, when at the beginning of a
+                        " line. This may be redundant for most people, but some
+                        " poeple like to keep their tabstop=8 for compatability
+                        " when loading files, but setting shiftwidth=4 for nicer
+                        " coding style.
+
+    set expandtab       " expandtab    et    Insert spaces instead of <TAB>
+                        " character when the <TAB> key is pressed. This is also
+                        " the prefered method of Python coding, since Python is
+                        " especially sensitive to problems with indenting which can
+                        " occur when people load files in different editors with
+                        " different tab settings, and also cutting and pasting
+                        " between applications (ie email/news for example) can
+                        " result in problems. It is safer and more portable to
+                        " use spaces for indenting.
+
+    set softtabstop=4   " softtabstop=4    sts    People like using real tab
+                        " character instead of spaces because it makes it easier
+                        " when pressing BACKSPACE or DELETE, since if the indent
+                        " is using spaces it will take 4 keystrokes to delete
+                        " the indent. Using this setting, however, makes VIM see
+                        " multiple space characters as tabstops, and so <BS> does
+                        " the right thing and will delete four spaces (assuming
+                        " 4 is your setting).
+
+    set autoindent      " autoindent    ai    Very painful to live without this
+                        " (especially with Python)! It means that when you press
+                        " RETURN and a new line is created, the indent of the new
+                        " line will match that of the previous line. 
+    set textwidth=79
+
+    autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+    set noswapfile
+
+    :map <F1> :wa
+    :! /usr/local/bin/launch-curr.py %:p 
+
+
+    :map <F2> :! /usr/local/bin/error-curr.py %:p 
+
+    :map <F3> :CoffeeCompile vert<CR>
+
+    :map <C-t> :tabedit ./
+    :map <C-n> :tabnew ./
+    :map <C-h> :tabp<CR>
+    :map <C-i> :tabn<CR>
+    :map <C-c> :tabclose<CR>
+
+    :imap <C-l> <C-x><C-o>
+
+    call pathogen#infect()
+    syntax enable
+    filetype plugin indent on
