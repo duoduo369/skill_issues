@@ -278,6 +278,8 @@ pylint代码评估
     vim ~/.pylintrc
     找到 load-plugins= 填上插件名字pylint_django
 
+    disable=E1101,R0904,W0142,W0622,R0201
+
     pylint task.py # 此时启用了插件
 
 用交互模式执行脚本
