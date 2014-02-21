@@ -1,3 +1,31 @@
+node issue
+===
+
+学习资源
+---
+    类似python koans的一种东西,安装后命令行里面有
+    题目，按照题目往下走
+    http://nodeschool.io/
+
+CoffeeScript issue
+===
+    
+安装
+---
+    之前需要先安装npm
+    sudo npm install -g coffee-script
+
+学习资源
+---
+    官网直接就有可以运行的东西
+    http://coffeescript.org/
+
+    google coffeescript小书(有中文版，而且有在线版)
+    http://island205.github.io/tlboc/
+
+    cookbook
+    http://coffeescriptcookbook.com/
+
 chaplin issue
 ===
 

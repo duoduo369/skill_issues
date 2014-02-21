@@ -1,3 +1,16 @@
+npm issue
+====
+
+安装
+---
+    # Node Packaged Modules
+    # https://npmjs.org/
+    # http://stackoverflow.com/questions/16302436/install-nodejs-on-ubuntu-12-10
+    sudo apt-get install python-software-properties python g++ make
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
+
 brunch issue
 ===
 
@@ -22,5 +35,11 @@ brunch issue
     brunch watch --server --production  # 会按照生产环境来编译，
                                         # js,css会压缩
     
+bower issue
+===
 
+https://github.com/bower/bower
 
+安装
+---
+    之前需要先安装npm
