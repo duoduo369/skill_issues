@@ -68,6 +68,10 @@ git ssh_key 用xclip粘贴
     有的时候你会不小心在一个空白节点提交，这时候只要将master移动到head即可
     git branch -f master # 
 
+git branch
+---
+    git branch --merged# 查看分支的直接上游
+
 git diff
 ---
     git diff 
@@ -94,6 +98,12 @@ git commit
     #当提交之后发现漏了文件之后
     #先git add 忘记的文件,然后用amend参数
     git commit --amend
+
+git remote
+---
+    git remote add 分支名 地址 # 添加分支
+    git remote -v # 查看分支
+    git remote show 分支名 # 查看分支状态
 
 git 抓回远程分支
 ---
@@ -146,7 +156,8 @@ git rebase
 
 git log
 ---
-    git log -p [-数字] #加p显示diff
+    git log -[数字] 显示几条log
+    git log -p [-数字] #加p显示diff,展开commit
     git log --stat [-数字] #显示曾改行数
 
 git reflog
