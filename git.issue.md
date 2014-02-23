@@ -159,6 +159,16 @@ git log
     git log -[数字] 显示几条log
     git log -p [-数字] #加p显示diff,展开commit
     git log --stat [-数字] #显示曾改行数
+    gitk 图形界面查看git log的节点情况 需要安装
+
+git stash
+---
+    储藏修改
+    git stash
+    git stash list 查看stash列表
+    git stash apply 应用储藏
+    git stash show -p | git apply -R 取消应用
+    git stash clear 清除储藏
 
 git reflog
 ---
