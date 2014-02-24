@@ -9,6 +9,11 @@ http://sethrobertson.github.io/GitBestPractices/
 
 zsh增强git
 ---
+    zsh bug
+        git show HEAD^
+        ^显示找不到 使用\^转义或者引号扩起来
+        git show HEAD\^    or   git show 'HEAD^'
+
     https://github.com/olivierverdier/zsh-git-prompt
 
     配置方法
