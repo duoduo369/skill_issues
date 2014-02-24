@@ -23,7 +23,7 @@ virtualenv
     装了卸卸了装？) 而用virtualenv可以完美解决这个问题，
     虚拟环境1用1.5.0,虚拟环境二使用1.6，需要用那个环境
     直接切过去就ok～
-    
+
     安装
     sudo pip install virtualenv
 
@@ -57,6 +57,8 @@ pip安装
     ipython==1.1.0
 
     pip install -r requirements.txt
+
+    pip freeze > ~/requirements.txt # 导出已将安装的requirements
 
 学习脚本 python_koans
 ---
