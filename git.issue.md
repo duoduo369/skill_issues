@@ -50,6 +50,8 @@ git 配置
     git config --global alias.co 'checkout'
     git config --global alias.br branch  # 注意 后面命令的引号可以不写
     git config --global alias.cm commit
+    git config --global alias.stash-unapply '!git stash show -p | git
+    apply -R'
 
 ssh不用输入密码直接push
 ---
