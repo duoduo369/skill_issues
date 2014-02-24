@@ -776,3 +776,8 @@ tomcat集群启动关闭脚本
                     os.system("%s_%s/bin/%s"% (first_tomcat_path,i,cmd)) 
         else:
             print "Usage: python tomcats.py (start|shutdown) first_tomcat_path nums(int) "
+
+文章
+---
+    http://www.oschina.net/question/12_78983 # Python 开发者应该知道的 7
+    个开发库
