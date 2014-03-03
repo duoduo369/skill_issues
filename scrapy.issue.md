@@ -7,3 +7,7 @@ scrapy
     libxslt-dev
 
     pip install Scrapy
+
+抓取
+---
+    scrapy crawl douban_book
