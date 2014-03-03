@@ -71,6 +71,10 @@ git ssh_key 用xclip粘贴
 ---
     xclip -sel clip < ~/.ssh/id_rsa.pub
 
+    或者在zsh里面添加alias
+    alias xclip='xclip -selection clipboard'
+    cat ~/.ssh/id_rsa.pub | xclip
+
 
 把master移动到HEAD
 ---
