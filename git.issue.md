@@ -67,6 +67,14 @@ ssh不用输入密码直接push
     自己有服务器的话
     ssh-keygen -t rsa scp ~/.ssh/id*.pub 远程:~/.ssh/authorized_keys
 
+修改所有commit的作者信息
+---
+    git filter-branch --commit-filter 'export GIT_AUTHOR_NAME="duoduo369" ;
+    export GIT_AUTHOR_EMAIL=duoduo3369@gmail.com; git commit-tree "$@"'
+
+    git filter-branch --commit-filter 'export GIT_AUTHOR_NAME="duoduo3_69" ;
+    export GIT_AUTHOR_EMAIL=duoduo3_69@163.com; git commit-tree "$@"'
+
 git ssh_key 用xclip粘贴
 ---
     xclip -sel clip < ~/.ssh/id_rsa.pub
