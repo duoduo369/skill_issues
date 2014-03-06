@@ -1,6 +1,16 @@
 python的相关问题
 =====
 
+###
+结构
+    * python安装相关
+    * python编码规范
+    * python语法技巧
+    * python部分脚本
+    * python部分资源|文章
+
+##python安装相关
+
 切换活内豆瓣源
 ---
     pip 或者easy_install安装的时候会用国外的源，这个
@@ -60,9 +70,24 @@ pip安装
 
     pip freeze > ~/requirements.txt # 导出已将安装的requirements
 
-学习脚本 python_koans
+
+PIL 安装
 ---
-https://github.com/gregmalcolm/python_koans
+sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
+sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
+
+    pip install PIL  --allow-unverified PIL --allow-all-external
+
+
+用交互模式执行脚本
+---
+python -i XXX.py
+ipython -i XXX.py
+或者开启ipython后 %run 脚本路径
+
+##python编码规范
 
 import this
 ----
@@ -284,10 +309,7 @@ pylint代码评估
 
     pylint task.py # 此时启用了插件
 
-用交互模式执行脚本
----
-python -i XXX.py
-ipython -i XXX.py
+##python语法技巧
 
 按字符处理字符串
 ---
@@ -333,9 +355,27 @@ split分割字符串
     pattern = re.compile(',|;')
     words = pattern.split(string)
 
+对象比较
+---
+    tuple, list比较时候可以这样
+    (1, 2, 3) < (1, 2, 4) # True
+    # http://stackoverflow.com/questions/5292303/python-tuple-comparison
+
 同行间隔字符串会自动连接
 ---
-    'Hello, world' == "Hello" ", " "world" 
+    'Hello, world' == "Hello" ", " "world"
+    不同行的字符串也会链接
+    a = 'aabc'
+        'def'
+
+    a == 'aabcdef' # True,
+                   # 有一次因为这个原因出的bug找了好久才发现
+                   # 类似这样,元组每行需要','分隔，第二行漏了
+                   # some_tuple = (
+                        'abc',
+                        'bed'
+                        'edf',
+                   )
 
 三个引号注意最后的引号
 ---
@@ -396,11 +436,12 @@ python新旧class
 
     type(old_style).__name__ == 'instance'
     type(new_style).__name__ == 'NewStyleClass'
-    
+
 函数式
 ----
     import functools
     functools.partial(func,部分参数) ==> 新的方法
+    对于 fun(a,b,c=None)这种方法，暂时没找到如何只设置b的方法
 
 from XXX import *
 ---
@@ -578,16 +619,7 @@ groupby的用法
     for k, g in gb:
         result[k].extend(list(g))
 
-
-PIL 安装
----
-sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
-sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
-sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
-sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
-
-    pip install PIL  --allow-unverified PIL --allow-all-external
-
+##python部分脚本
 
 python写的脚本
 ===
@@ -714,7 +746,7 @@ tomcat复制脚本，复制之后会进行server.xml的端口重命名，用到�
             except:
                 print '为%s/bin/*.sh文件添加权限时发生错误，请检查你tomcat的路径是否输入正确' % (tomcat_path)
                 exit(1)
-            
+
             for i in xrange(1,cp_nums+1):
                 cp_tomcat_path = '%s_%s' % (tomcat_path,i)
                 print '复制tomcat文件 %s  to %s' % (tomcat_path,cp_tomcat_path)
@@ -777,7 +809,19 @@ tomcat集群启动关闭脚本
         else:
             print "Usage: python tomcats.py (start|shutdown) first_tomcat_path nums(int) "
 
+##python部分资源|文章
+
 文章
 ---
-    http://www.oschina.net/question/12_78983 # Python 开发者应该知道的 7
-    个开发库
+    # Python 开发者应该知道的 7个开发库
+    http://www.oschina.net/question/12_78983
+
+    # Python Best Practice
+    http://stevenloria.com/python-best-practice-patterns-by-vladimir-keleshev-notes/?utm_content=buffer98fb1&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+
+    # python协程，超棒的帖子各种例子
+    http://www.dabeaz.com/coroutines/
+
+学习脚本 python_koans
+---
+https://github.com/gregmalcolm/python_koans
