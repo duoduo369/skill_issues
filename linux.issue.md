@@ -610,7 +610,7 @@ vi /etc/my.cnf
     [mysqlhotcopy]
     interactive-timeout
 
-###数据库导出
+###数据库导出导入
 
     mysqldump --extended-insert=FALSE --complete-insert=TRUE -uroot -p -h
     115.28.17.93(远程数据库ip)  health(远程数据库名字) > ~/health.sql
@@ -619,6 +619,13 @@ vi /etc/my.cnf
     mysqldump --extended-insert=FALSE --complete-insert=TRUE -uroot -p -h
     115.28.17.93(远程数据库ip)  health tb1 tb2 tb3 > ~/health.sql
 
+    导出部分数据(where)
+    mysqldump -uroot -p  -h 115.28.17.93 social_crm topic_topic_26 --where="type='tweet' order by created_at desc limit 0,10000" > ~/opic_topic_3.sql
+
+    导入
+    登录进mysql后用source
+    mysql -uroot -p social_crm
+    source ~/文件路径
 
 
 工具增强
