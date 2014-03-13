@@ -20,8 +20,17 @@ south
 curl测试api
 ---
     curl -H 'Accept: application/json; indent=4' -u admin:password
-    http://127.0.0.1:8000/users/ 
+    http://127.0.0.1:8000/users/
 
+
+django加速单元测试
+---
+    测试时使用内存数据库 sqlite
+    在DATABASES参数下面加上如下几行，当单元测试的时候使用内存数据库
+    if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+    }
 
 django rest
 --- 
