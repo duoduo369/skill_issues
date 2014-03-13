@@ -84,7 +84,7 @@ git ssh_key 用xclip粘贴
 把master移动到HEAD
 ---
     有的时候你会不小心在一个空白节点提交，这时候只要将master移动到head即可
-    git branch -f master #
+    git branch -f master # 将master分支强制移动到你当前的这个节点
 
 git branch
 ---
@@ -146,6 +146,26 @@ fast-forwards指有直接从属关系(log --graph上是一条直线)的分支
             /        \
     ————*——— ——*————————*——    # none fast-forwards
 
+git ..
+---
+
+                           D---E-------F
+                          /     \       \
+                         B---C---G---H---I---J
+                        /                     \
+                       A-------K---------------L--M
+
+    A regular D..M computes the set of commits that are ancestors of M, but excludes the
+    ones that are ancestors of D. This is useful to see what happened to the history
+    leading to M since D, in the sense that "what does M have that did not exist in D".
+
+    D..M M在D之后做了什么
+
+                               E-------F
+                                \       \
+                                 G---H---I---J
+                                              \
+                                               L--M
 
 git rebase
 ---
