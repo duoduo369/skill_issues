@@ -21,9 +21,6 @@ zsh
     sudo chsh -s $(which zsh)
 
 
-linux服务器的相关问题
-===
-
 ssh登录服务器
 ---
 http://blog.csdn.net/hugeheadhuge/article/details/6719405
@@ -1061,3 +1058,27 @@ shell 操作命令 生成gif
     Ctrl+Tab          # 切换到下一个标签页
     Ctrl+Shift+Tab    # 切换到上一个标签页
     Ctrl+W or Ctrl+F4 # 关闭当前标签页或窗口
+
+tree
+---
+    显示文件加结构
+    sudo apt-get install tree
+    tree
+
+    .
+    ├── angularjs.issue.md
+    ├── build.issue.md
+    ├── css.issue.md
+    ├── django.issue.md
+    ├── git.issue.md
+    ├── heroku.issue.md
+    ├── js.issue.md
+    ├── linux.issue.md
+    ├── nginx.issue.md
+    ├── oauth.issue.md
+    ├── python.issue.md
+    ├── README.md
+    ├── scrapy.issue.md
+    ├── springmvc.issue.md
+    ├── vim.issue.md
+    └── zarkpy.issue.md
