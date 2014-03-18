@@ -50,7 +50,8 @@
     1.基本命名规范 XXX.issue.md
     2.请使用markdown格式
     3.写一些能帮你节约时间的东西即可
-    4.索要开发者权限请给我发邮件，duoduo3_69@163.com
+    4.fork代码，发pull request
+    5.索要开发者权限请给我发邮件，duoduo3369@gmail.com
 
 已有issue分类
 ---
