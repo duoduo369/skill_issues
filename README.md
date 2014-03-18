@@ -3,6 +3,8 @@
 
 平时开发时的经验积累，有高级用法，也有简单用法，都是干货。为的是增加开发效率！
 
+![issue](https://raw.github.com/duoduo369/skill_issues/master/logo/issue.png)
+
 为什么要有这个东西？
 ---
     为了节约时间
