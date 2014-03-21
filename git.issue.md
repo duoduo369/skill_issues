@@ -58,6 +58,21 @@ git 配置
     git config --global alias.stash-unapply '!git stash show -p | git
     apply -R'
 
+    工作机器个人项目的配置
+    工作时你可能在~/.gitconfig下的配置里面
+    [user]
+        name = duoduo
+        email = duoduo@工作邮箱
+    而你个人项目的个人配置可能是
+    [user]
+        name = duoduo369
+        email = duoduo@个人邮箱
+    由于git config配置的优先级
+        /etc/.gitconfig < ~/.gitconfig < 项目 .git/config
+    因此在个人项目的.git/config下加上个人配置就ok了,否则每次
+    commit的时候需要加上--author 参数
+
+
 ssh不用输入密码直接push
 ---
     使用http的git比较烦,每次push需要输入用户名密码
