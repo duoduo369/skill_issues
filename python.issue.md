@@ -620,6 +620,51 @@ groupby的用法
     for k, g in gb:
         result[k].extend(list(g))
 
+wraps
+---
+使用wrap写装饰器的时候会把doc之类的东西带上
+
+Python: Why to use @wraps with decorators?
+http://artemrudenko.wordpress.com/2013/04/15/python-why-you-need-to-use-wraps-with-decorators/
+
+    __author__ = 'artemr'
+
+    from functools import wraps
+
+
+    def without_wraps(func):
+        def __wrapper(*args, **kwargs):
+            return func(*args, **kwargs)
+        return __wrapper
+
+    def with_wraps(func):
+        @wraps(func)
+        def __wrapper(*args, **kwargs):
+            return func(*args, **kwargs)
+        return __wrapper
+
+    @without_wraps
+    def my_func_a():
+        """Here is my_func_a doc string text."""
+        pass
+
+    @with_wraps
+    def my_func_b():
+        """Here is my_func_b doc string text."""
+        pass
+
+    # Below are the results without using @wraps decorator
+    print my_func_a.__doc__
+    >>> None
+    print my_func_a.__name__
+    >>> __wrapper
+
+    # Below are the results with using @wraps decorator
+    print my_func_b.__doc__
+    >>> Here is my_func_b doc string text.
+    print my_func_b.__name__
+    >>> my_func_b
+
 ##python部分脚本
 
 python写的脚本
