@@ -31,6 +31,8 @@ http://blog.csdn.net/hugeheadhuge/article/details/6719405
 
 接下来会提示输入密码，然后就能成功登录到服务器上了。
 
+ssh [-l login_name] [-p port] [user@]hostname
+
 在linux下一般用scp这个命令来通过ssh传输文件。
 ---
 
