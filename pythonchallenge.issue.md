@@ -56,3 +56,11 @@ python changle issue
 
     rare --> aeilquty --> equality
 
+3
+---
+    标题是re，明显是正则,hit又提示一个小写字母在三个大写中间
+    继续看源码，里面又有一堆注释
+    import re
+    p = re.compile('[A-Z]{3}[a-z][A-Z]{3}')
+    m = p.search(s)
+    m.group() --> WDZjUZM
