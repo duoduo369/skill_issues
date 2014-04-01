@@ -55,12 +55,34 @@ python changle issue
     1})
 
     rare --> aeilquty --> equality
+    http://www.pythonchallenge.com/pc/def/equality.html
 
 3
 ---
     标题是re，明显是正则,hit又提示一个小写字母在三个大写中间
     继续看源码，里面又有一堆注释
     import re
-    p = re.compile('[A-Z]{3}[a-z][A-Z]{3}')
+    p = re.compile('[^A-Z][A-Z]{3}[a-z][A-Z]{3}[^A-Z]')
     m = p.search(s)
-    m.group() --> WDZjUZM
+    res = p.findall(s)
+    text = ''.join(t[4] for t in res)
+    -->
+    linkedlist
+
+    http://www.pythonchallenge.com/pc/def/linkedlist.html
+    http://www.pythonchallenge.com/pc/def/linkedlist.php
+
+4
+---
+    import requests
+    import re
+    p = re.compile('\d+')
+    url = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing='
+    next_num = '92730'
+    with open('pych', 'aw') as f:
+        while 1:
+            r = requests.get(url + next_num)
+            f.write(r.text)
+            next_num = p.search(r.text).group()
+            print r.text
+            print url + next_num
