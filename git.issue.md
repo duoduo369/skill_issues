@@ -87,6 +87,10 @@ ssh不用输入密码直接push
     git filter-branch --commit-filter 'export GIT_AUTHOR_NAME="duoduo369" ;
     export GIT_AUTHOR_EMAIL=duoduo3369@gmail.com; git commit-tree "$@"'
 
+删除所有分支中的大文件
+---
+    git filter-branch --tree-filter "rm -fr scrapy.pdf" -f HEAD --all
+
 git ssh_key 用xclip粘贴
 ---
     xclip -sel clip < ~/.ssh/id_rsa.pub
