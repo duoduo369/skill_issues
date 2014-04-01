@@ -152,3 +152,42 @@ angularjs 新浪微博跨域解决办法
     $scope.clock  --> $scope.clock.now
 
 2. controller命名使用XXController而不是XXCtrl
+
+service and controller Demo
+---
+
+    'use strict'
+
+    angular.module('authServices', [])
+    .service('authService',['$resource',
+      ($resource) ->
+        {
+          'login': (user) ->
+            $resource('/api/auth/login', null, {
+              'login': {
+                method: 'POST'
+              }
+            })
+          'logout': ->
+            $resource('/api/auth/logout', null, {
+              'logout': {
+                method: 'GET'
+              }
+            })
+        }
+
+    ])
+
+    angular.module('authControllers', [])
+
+    .controller('loginController', [
+      '$scope'
+      '$resource'
+      'authService'
+    ($scope, $resource, loginService) ->
+      $scope.login = (user) ->
+        loginService.login(user).login({'username':user.name, 'password':user.password})
+      $scope.logout = ->
+        loginService.logout().logout()
+    ])
+
