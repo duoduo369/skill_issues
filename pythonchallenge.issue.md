@@ -241,4 +241,30 @@ python changle issue
 
     http://www.pythonchallenge.com/pc/def/oxygen.html
 
+7
+---
+    这一关是用pil
+    学了下pil的库,不过不想做这个题怎么办
+    http://danmcewan.com/python-challenge-7
+    http://holger.thoelking.name/python-challenge/7
 
+    http://www.pythonchallenge.com/pc/def/integrity.html
+
+8
+---
+    看了下源代码，里面有个链接，打开需要用户名密码，
+    源代码下面有用户名密码的东西，不过貌似是加密的，
+    不过都有BZh91AY&SY这个东西，应该是某种算法的格式
+    google了下原来是python的bz2模块
+
+    import bz2
+    un = 'BZh91AY&SYA\xaf\x82\r\x00\x00\x01\x01\x80\x02\xc0\x02\x00 \x00!\x9ah3M\x07<]\xc9\x14\xe1BA\x06\xbe\x084'
+    pw = 'BZh91AY&SY\x94$|\x0e\x00\x00\x00\x81\x00\x03$ \x00!\x9ah3M\x13<]\xc9\x14\xe1BBP\x91\xf08'
+    un = bz2.decompress(un)
+    pw = bz2.decompress(pw)
+    print un, pw --> huge file
+    登录进去之后是
+    http://www.pythonchallenge.com/pc/return/good.html
+
+9
+---

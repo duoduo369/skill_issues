@@ -665,6 +665,26 @@ http://artemrudenko.wordpress.com/2013/04/15/python-why-you-need-to-use-wraps-wi
     print my_func_b.__name__
     >>> my_func_b
 
+PIL
+---
+    import Image
+    im = Image.open('file.jpg')
+    im.show() # 显示图片
+    im.thumbnail(size)  # 缩略图
+    im.save(outfile, "JPEG") # 存文件
+    box = (100, 100, 400, 400)
+    region = im.crop(box) # 切文件,(left, upper, right, lower)
+                          # 左边的竖线...right > left, lower > upper
+                          # (0, 0) in the upper left corner
+    r, g, b = im.split() # 把图片的r, g, b分出来
+    im = Image.merge("RGB", (b, g, b)) # 按照任意顺序合回去,颜色会变
+    out = im.resize((128, 128)) # 缩放
+    out = im.rotate(45) # 旋转
+    im.transpose(Image.ROTATE_90) # 旋转
+    out = im.transpose(Image.FLIP_LEFT_RIGHT) # 反转
+    out = im.transpose(Image.FLIP_TOP_BOTTOM) # 反转
+
+
 ##python部分脚本
 
 python写的脚本
