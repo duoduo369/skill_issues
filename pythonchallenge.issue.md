@@ -268,3 +268,142 @@ python changle issue
 
 9
 ---
+    依然是pil的题目
+    http://holger.thoelking.name/python-challenge/9
+
+    http://www.pythonchallenge.com/pc/return/bull.html
+
+10
+---
+    读出来的数字
+
+    1 11 21
+
+    1个1 --> 11
+    两个1 --> 21
+    一个2一个1 --> 1211
+
+    ch n
+    [(n,ch),....]
+
+    from itertools import groupby
+
+    next = '1'
+    result = ['1']
+    for i in xrange(30):
+        _generator = groupby(next)
+        stat = [str(len(list(_iter))) + key for key, _iter in _generator]
+        next = ''.join(stat)
+        result.append(next)
+    print len(result[30])
+
+    http://www.pythonchallenge.com/pc/return/5808.html
+
+11
+---
+    import Image
+
+    # download the image from: http://www.pythonchallenge.com/pc/return/cave.jpg
+
+    image = Image.open("cave.jpg")
+    nsize = tuple([x / 2 for x in image.size])
+    odd = even = Image.new(image.mode, nsize)
+
+    for x in range(image.size[0]):
+        for y in range(image.size[1]):
+            if x % 2 == 0 and y % 2 == 0:
+                even.putpixel((x / 2, y / 2), image.getpixel((x, y)))
+            elif x % 2 == 0 and y % 2 == 1:
+                odd.putpixel((x / 2, (y - 1) / 2), image.getpixel((x, y)))
+            elif x % 2 == 1 and y % 2 == 0:
+                even.putpixel(((x - 1) / 2, y / 2), image.getpixel((x, y)))
+            else:
+                odd.putpixel(((x - 1) / 2, (y - 1) / 2), image.getpixel((x, y)))
+
+    even.save("even.jpg")
+    odd.save("odd.jpg")
+
+    http://www.pythonchallenge.com/pc/return/evil.html
+
+12
+---
+
+    查看源代码，发现里面图片为evil1.jpg说明还有2,3,4
+    第二张里面说not jpg --> gfx,将url后缀改为gfx
+
+    下面是网上的解决方案，不知道为毛是5
+    evil = open('evil2.gfx','r').read()
+    img1 = open('img1.jpg','w')
+    img2 = open('img2.jpg','w')
+    img3 = open('img3.jpg','w')
+    img4 = open('img4.jpg','w')
+    img5 = open('img5.jpg','w')
+
+    for b in range(0,len(evil),5):
+        img1.write(evil[b])
+        img2.write(evil[b+1])
+        img3.write(evil[b+2])
+        img4.write(evil[b+3])
+        img5.write(evil[b+4])
+
+    img1.close()
+    img2.close()
+    img3.close()
+    img4.close()
+    img5.close()
+
+    图片需要用火狐打开
+    dis pro port ional ity
+    disproportionality
+    ity被一条线画掉了
+    disproportional
+
+13
+---
+    #! /usr/bin/env python
+    '''python challenge level 13
+    question url: http://www.pythonchallenge.com/pc/return/disproportional.html
+    answer url: http://www.pythonchallenge.com/pcc/return/italy.html
+    '''
+
+    import xmlrpclib
+    xmlrpc = xmlrpclib.ServerProxy("http://www.pythonchallenge.com/pc/phonebook.php")
+    print xmlrpc.system.listMethods()
+    print xmlrpc.system.methodHelp('phone')
+    print xmlrpc.phone('Bert')
+
+    http://www.pythonchallenge.com/pc/return/italy.html
+
+14
+---
+    import Image, math
+
+    def get_pixel(t):
+        t = (100 * 100 - 1) - t
+        shell = int((math.sqrt(t) + 1) / 2)
+        leg = 0 if (shell == 0) else int((t - (2 * shell - 1) ** 2) / 2 / shell)
+        elt = t - (2 * shell - 1) ** 2 - 2 * shell * leg - shell + 1
+
+        if leg == 0:
+            x, y = shell, elt
+        elif leg == 1:
+            x, y = -elt, shell
+        elif leg == 2:
+            x, y = -shell, -elt
+        else:
+            x, y = elt, -shell
+
+        return (49 + x, 50 - y)
+
+    # Download the image from: http://www.pythonchallenge.com/pc/return/wire.png
+
+    input = Image.open("wire.png")
+    output = Image.new("RGB", (100, 100))
+
+    for i, px in enumerate(input.getdata()):
+        output.putpixel(get_pixel(i), px)
+
+    output.save("new.jpg")
+
+    http://www.pythonchallenge.com/pc/return/cat.html
+    cat
