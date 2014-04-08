@@ -6,23 +6,19 @@
     * [angularjs](front/angularjs.issue.md)
     * [js](front/js.issue.md)
     * [css](front/css.issue.md)
-
 * [python](python/README.md)
     * [python](python/python.issue.md)
     * [django](python/django.issue.md)
     * [scrapy](python/scrapy.issue.md)
     * [pythonchallenge](python/pythonchallenge.issue.md)
     * [zarkpy](python/zarkpy.issue.md)
-
 * [git](git/README.md)
     * [git](git/git.issue.md)
     * [gitbook](git/gitbook.issue.md)
-
 * [tools](tools/README.md)
     * [vim](tools/vim.issue.md)
     * [build](tools/build.issue.md)
     * [heroku](tools/heroku.issue.md)
-
 * [skill](skill/README.md)
     * [linux](skill/linux.issue.md)
     * [nginx](skill/nginx.issue.md)
