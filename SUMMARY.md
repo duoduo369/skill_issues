@@ -1,0 +1,30 @@
+# skill_issues
+
+平时开发时的经验积累，有高级用法，也有简单用法，都是干货。为的是增加开发效率！
+
+* [前端](front/README.md)
+    * [angularjs](front/angularjs.issue.md)
+    * [js](front/js.issue.md)
+    * [css](front/css.issue.md)
+
+* [python](python/README.md)
+    * [python](python/python.issue.md)
+    * [django](python/django.issue.md)
+    * [scrapy](python/scrapy.issue.md)
+    * [pythonchallenge](python/pythonchallenge.issue.md)
+    * [zarkpy](python/zarkpy.issue.md)
+
+* [git](git/README.md)
+    * [git](git/git.issue.md)
+    * [gitbook](git/gitbook.issue.md)
+
+* [tools](tools/README.md)
+    * [vim](tools/vim.issue.md)
+    * [build](tools/build.issue.md)
+    * [heroku](tools/heroku.issue.md)
+
+* [skill](skill/README.md)
+    * [linux](skill/linux.issue.md)
+    * [nginx](skill/nginx.issue.md)
+    * [oauth](skill/oauth.issue.md)
+    * [springmvc](skill/springmvc.issue.md)
