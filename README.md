@@ -5,6 +5,8 @@
 
 ![issue](https://raw.github.com/duoduo369/skill_issues/master/logo/issue.png)
 
+##[gitbook阅读][gitbook]
+
 为什么要有这个东西？
 ---
     为了节约时间
@@ -70,3 +72,4 @@
     * spring mvc(个人应该这个部分不会更新)
     * 各种前端相关issue, coffeescript, nodejs, angular, backbone
 
+[gitbook]: http://duoduo369.github.io/skill_issues/
