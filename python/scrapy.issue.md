@@ -11,7 +11,19 @@ scrapy
 抓取
 ---
     scrapy crawl douban_book
+    参数
 
+    scrapy crawl myspider -a category=electronics -a domain=system
+
+    Spiders receive arguments in their constructors:
+
+    class MySpider(BaseSpider):
+        name = 'myspider'
+
+        def __init__(self, category='', domain=None):
+            self.start_urls = ['http://www.example.com/categories/%s' % category]
+            self.domain = domain
+        ...
 
 selector
 ---
