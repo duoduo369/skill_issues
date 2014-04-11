@@ -736,3 +736,30 @@ PIL
     im.transpose(Image.ROTATE_90) # 旋转
     out = im.transpose(Image.FLIP_LEFT_RIGHT) # 反转
     out = im.transpose(Image.FLIP_TOP_BOTTOM) # 反转
+
+ipython
+---
+    * store 保存变量，下次直接载入，方便调试
+
+    In [1]: l = ['hello',10,'world']
+    In [2]: %store l
+    In [3]: exit
+
+    (IPython session is closed and started again...)
+
+    ville@badger:~$ ipython
+    In [1]: l
+    NameError: name 'l' is not defined
+    In [2]: %store -r
+    In [3]: l
+    Out[3]: ['hello', 10, 'world']
+
+    * save file X-Y
+    保存X-Y行
+
+    * python/ipython交互模式历史记录搜索
+    $cat ~/.inputrc
+    ## arrow up
+    "\e[A":history-search-backward
+    ## arrow down
+    "\e[B":history-search-forward
