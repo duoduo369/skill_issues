@@ -228,3 +228,15 @@ ps: 可以关注下这个项目 https://github.com/yueyoum/django-siteuser
         @property
         def is_staff(self):
             return self.is_admin
+
+发送邮件
+---
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = 'duoduodev@gmail.com' # google帐号
+    EMAIL_HOST_PASSWORD = '你的密码'
+
+    from django.core.mail import EmailMessage
+    email = EmailMessage('主题', '正文', to=['duoduo3369@gmail.com'])
+    email.send()
