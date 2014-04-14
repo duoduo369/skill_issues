@@ -32,6 +32,12 @@ backbone issue
             │       └── README.md
             └── README.md
 
+修改页面的dom使用render
+---
+    注意，取属性值的时候需要用双引号,因为解释器不识别单引号
+
+    $('ul').append "<li>item  #{@counter}</li>"
+
 view el
 ---
     el必须是**pre exist**，也就是在调用前必须存在此元素
