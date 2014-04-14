@@ -1,6 +1,15 @@
 css相关
 ===
 
+code style
+---
+
+https://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml
+
+* 写属性时使用字母序
+* indent两格
+* css使用'' html使用""
+
 背景background
 ---------
 
