@@ -4,6 +4,7 @@
 
 * [前端](front/README.md)
     * [angularjs](front/angularjs.issue.md)
+    * [backbone](front/backbone.issue.md)
     * [js](front/js.issue.md)
     * [css](front/css.issue.md)
 * [python](python/README.md)
@@ -12,6 +13,7 @@
     * [scrapy](python/scrapy.issue.md)
     * [pythonchallenge](python/pythonchallenge.issue.md)
     * [zarkpy](python/zarkpy.issue.md)
+    * [article](python/article.issue.md)
 * [git](git/README.md)
     * [git](git/git.issue.md)
     * [gitbook](git/gitbook.issue.md)
@@ -23,4 +25,5 @@
     * [linux](skill/linux.issue.md)
     * [nginx](skill/nginx.issue.md)
     * [oauth](skill/oauth.issue.md)
+    * [host](skill/host.issue.md)
     * [springmvc](skill/springmvc.issue.md)

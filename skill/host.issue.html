@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>oauth | Skill_issues</title>
+        <title>host | Skill_issues</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../skill/host.issue.html" />
+        <link rel="next" href="../skill/springmvc.issue.html" />
         
         
-        <link rel="prev" href="../skill/nginx.issue.html" />
+        <link rel="prev" href="../skill/oauth.issue.html" />
         
 
-        <meta property="og:title" content="oauth | Skill_issues">
+        <meta property="og:title" content="host | Skill_issues">
         <meta property="og:site_name" content="Skill_issues">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,7 +40,7 @@
     </head>
     <body>
         
-<div class="book" data-github="duoduo369/skill_issues" data-level="5.3">
+<div class="book" data-github="duoduo369/skill_issues" data-level="5.4">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="https://github.com/duoduo369/skill_issues" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
@@ -68,7 +68,7 @@
             <a href="https://github.com/duoduo369/skill_issues/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/duoduo369/skill_issues/edit/master/skill/oauth.issue.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/duoduo369/skill_issues/edit/master/skill/host.issue.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         <li data-level="0">
@@ -307,7 +307,7 @@
         <div class="page-wrapper">
             <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 92%;min-width: 88%;"></div>
+        <div class="inner" style="width: 96%;min-width: 92%;"></div>
     </div>
     <div class="chapters">
     
@@ -359,7 +359,7 @@
     
         <a href="../skill/oauth.issue.html" title="oauth" class="chapter done " data-progress="5.3" style="left: 92%;"></a>
     
-        <a href="../skill/host.issue.html" title="host" class="chapter  " data-progress="5.4" style="left: 96%;"></a>
+        <a href="../skill/host.issue.html" title="host" class="chapter done " data-progress="5.4" style="left: 96%;"></a>
     
         <a href="../skill/springmvc.issue.html" title="springmvc" class="chapter  " data-progress="5.5" style="left: 100%;"></a>
     
@@ -368,67 +368,14 @@
 
             <div class="page-inner">
             
-                <section class="normal" id="section-gitbook_20">
+                <section class="normal" id="section-gitbook_17">
                 
-                    <h1 id="oauth-issue">oauth issue</h1>
-<h2 id="-">认证和授权过程(来自维基百科)</h2>
-<pre><code>在认证和授权的过程中涉及的三方包括：
-    1.服务提供方，用户使用服务提供方来存储受保护的资源，如照片，视频，联系人列表。
-    2.用户 ，存放在服务提供方的受保护的资源的拥有者。
-    3.客户端 ，要访问服务提供方资源的第三方应用。在认证过程之前，客户端要向服务提供者申请客户端标识。
-
-使用OAuth进行认证和授权的过程如下所示:
-1.用户访问客户端的网站，想操作自己存放在服务提供方的资源。
-2.客户端向服务提供方请求一个临时令牌。
-3.服务提供方验证客户端的身份后，授予一个临时令牌。
-4.客户端获得临时令牌后，将用户引导至服务提供方的授权页面请求用户授权。在这个过程中将临时令牌和客户端的回调连接发送给服务提供方。
-5.用户在服务提供方的网页上输入用户名和密码，然后授权该客户端访问所请求的资源。
-6.授权成功后，服务提供方引导用户返回客户端的网页。
-7.客户端根据临时令牌从服务提供方那里获取访问令牌 。
-8.服务提供方根据临时令牌和用户的授权情况授予客户端访问令牌。
-9.客户端使用获取的访问令牌访问存放在服务提供方上的受保护的资源。
-</code></pre><h2 id="python-openmaster-">python获得授权(以openmaster为例)</h2>
-<pre><code>文档
-<span class="hljs-keyword">http</span>://dev.admaster.com.cn/doc/openmaster/v1/cn/oauth.html
-
-由于使用测试的地址，直接把id贴上了，没有什么用处。
-
-<span class="hljs-number">1.</span>页面有一个链接让用户来点击登录,点击之后就会打开一个
-页面让用户登录，这里会是openmaster的页面，如果使用新浪微博
-则会打开新浪的登录页面，成功后会返回到redirect_uri指定的地址,
-并且在url中会带有code的信息。
-&lt;<span class="hljs-operator">a</span>
-href=<span class="hljs-string">"http://testopen.admasterapi.com/oauth/authorize?client_id=0839e9663d20068e44dd&amp;response_type=code&amp;redirect_uri=http://127.0.0.1:8000/oauth/authorize"</span>&gt;
-oauth &lt;/<span class="hljs-operator">a</span>&gt;
-
-<span class="hljs-number">2.</span>后台取下code,将文档中需要添加的参数打包用urllib
-<span class="hljs-built_in">post</span>到服务器上，这样会返回需要的access_token,有了access_token后就可以根据
-文档做一些事情了，例如取得用户的信息(<span class="hljs-built_in">get</span>下数据即可)
-
-完整代码如下 (以django为例):
-
-def authorize(request):
-    code = request.GET[<span class="hljs-string">'code'</span>]
-    req = urllib2.Request(<span class="hljs-string">"http://testopen.admasterapi.com/oauth/access_token"</span>)
-    <span class="hljs-built_in">param</span> = {
-            <span class="hljs-string">'client_id'</span>:<span class="hljs-string">'0839e9663d20068e44dd'</span>,
-            <span class="hljs-string">'client_secret'</span>:<span class="hljs-string">'b446ddb809070a47236673cc8a54525c58aab9d4'</span>,
-            <span class="hljs-string">'grant_type'</span>:<span class="hljs-string">'authorization_code'</span>,
-            <span class="hljs-string">'code'</span>:code,
-            <span class="hljs-string">'redirect_uri'</span>:<span class="hljs-string">'http://127.0.0.1:8000/'</span>,
-           }.
-    req.add_data(json.dumps(<span class="hljs-built_in">param</span>))
-
-    tokens = urllib2.urlopen(req).<span class="hljs-built_in">read</span>()
-    tokens = json.loads(tokens)
-    access_token = tokens[<span class="hljs-string">"access_token"</span>]
-    request.session[<span class="hljs-string">"access_token"</span>] = access_token
-
-    get_url = <span class="hljs-string">"http://testopen.admasterapi.com/user?access_token={0}"</span>.<span class="hljs-built_in">format</span>(access_token)
-    user = urllib2.urlopen(get_url).<span class="hljs-built_in">read</span>()
-    user = json.loads(user)
-
-    <span class="hljs-constant">return</span> render(request,<span class="hljs-string">'oauthapp/index.html'</span>,{<span class="hljs-string">"access_token"</span>:access_token,<span class="hljs-string">"user"</span>:user})
+                    <h1 id="host-issue">host issue</h1>
+<h2 id="-host">加速host</h2>
+<pre><code>手动改host
+<span class="hljs-label">https:</span>//code<span class="hljs-preprocessor">.google</span><span class="hljs-preprocessor">.com</span>/p/smarthosts/
+下载工具
+<span class="hljs-label">https:</span>//hosts<span class="hljs-preprocessor">.huhamhire</span><span class="hljs-preprocessor">.com</span>/
 </code></pre>
                 
                 </section>
@@ -439,7 +386,7 @@ def authorize(request):
     
         
             
-            <a href="../skill/host.issue.html" class="navigation-link next">Next</a>
+            <a href="../skill/springmvc.issue.html" class="navigation-link next">Next</a>
             
         
     
