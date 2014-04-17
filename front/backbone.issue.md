@@ -143,3 +143,87 @@ MVC
 
       appendItem: (item) ->
         $('ul').append "<li>#{item.get 'part1'}  #{item.get 'part2'}</li>"
+
+chaplin
+===
+使用chaplin后有一些变化,以及用法
+
+view
+---
+根据源码
+https://github.com/chaplinjs/chaplin/blob/master/src/chaplin/views/view.coffee
+
+* backbone view中的el现在为container
+    constructor: @el = @container if @container
+
+* autoRender是否在constructor里面调用一次render
+    constructor: @render() if @autoRender
+
+item-view
+---
+item-view继承自Chaplin.View,以前使用render添加dom，现在可以直接使用
+hbs模板,不过根据源码getTemplateFunction必须重写
+* getTemplateFunction ->
+    throw new Error 'View#getTemplateFunction must be overridden'
+
+重写成,可以放在你自定义的View基类里面
+  getTemplateFunction: ->
+      @template
+
+hbs模板使用双括号引用model中的属性 {{attr}}
+
+list-view
+---
+与item-view相同，也是需要重写getTemplateFunction
+list view中的itemView指明具体的ItemView,当list view的collection中
+有变化时会自动渲染dom,此例中的addItem在collection里面调用add会处发
+这个事件，注意container和listSelector的不同
+
+源码中listSelector的注释:
+  # as the container of the item views. If you specify `listSelector`, the
+  # item views will be appended to this element. If empty, $el is used.
+  listSelector: null
+
+例如本例子中的模板里面有一个ul，注意listSelector是在**本模板的dom中选择**,
+即:
+    最初
+    <div id="test">listview会加在这里</div>
+    加载listview后
+    <div id="test"><button ...><ul></ul></button></div>
+    如果listSelector为 'div ul'会选不中这个ul的
+    使用ul才可以选中
+
+    View = require 'common/views/base/view'
+    CollectionView = require 'common/views/base/collection-view'
+    List = require 'tutorial/models/list'
+    Item = require 'tutorial/models/item'
+    ItemView = require './item-view'
+
+    module.exports = class ListView extends CollectionView
+
+      autoRender: true
+      container: '#test'
+      itemView: ItemView
+      listSelector: 'ul'
+      template: require './templates/list'
+
+      events:
+        'click button': 'addItem'
+
+      initialize: ->
+        @collection = new List
+        @counter = 0
+        super
+
+      addItem: ->
+        @counter++
+        item = new Item
+        item.set
+          part2: "#{item.get 'part2'} #{@counter}"
+        @collection.add item
+
+    模板list.hbs
+
+    <button class="pure-button pure-button-primary">Add List Item</button>
+    <ul></ul>
+
