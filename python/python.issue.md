@@ -73,10 +73,11 @@ pip安装
 
 PIL 安装
 ---
-sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
-sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
-sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
-sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
+
+    sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
 
     pip install PIL  --allow-unverified PIL --allow-all-external
 
