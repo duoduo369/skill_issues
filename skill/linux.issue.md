@@ -20,6 +20,76 @@ zsh
 ---
     sudo chsh -s $(which zsh)
 
+tmux切屏
+---
+tmux在ssh的时候会显现出功力，因为某些费时操作会阻塞主ssh shell,用tmux解决这个问题
+视频
+    http://happycasts.net/episodes/41
+
+第一见事情,改配置,更改为如下配置
+
+###常用指令
+
+主要分为两种，一种是在tmux外，一种是tmux内
+
+概念
+    session | window | pane
+    一个session可以有多个window，一个window有可以被切为多个pane
+
+tmux外
+
+    tmux new-session  # 新建一个session最好加 -s参数保存一个名字,方便之后attach
+    tmux list-sessions # 显示所有的session
+    tmux a # 可以加-t session名字  attach具体某个session,此操作是
+           # tmux deattach之后运行的
+
+进入tmux后
+    prefix的意思是按下某个组合键，tmux默认是Ctrl+b,更改为下面的配置为Ctrl+a
+    prefix d的意思是先按下prefix组合键，手指都抬起来，然后按下d
+    prefix d deattach当前session，这样会回到tmux外的状态(可以tmux a attach回来)
+    prefix c 新建一个window
+    prefix 数字 跳转到某个window,下方状态栏会有当前window的标号，名字，是否选中
+    prefix p 跳转到前一个window
+    prefix n 跳转到下一个window
+    prefix , 重命名当前的window,这个在你选择window的时候会有帮助
+    prefix s 切屏，左右两块pane
+    prefix v 切屏，上下两块pane
+    prefix x 关闭当前pane(或者Ctrl+d)
+    prefix h | j | k | l 类似vim上下左右切换pane
+    prefix < 如果有左右屏的话，在又屏按下这个组合键，则右屏面积变大，左屏变小
+    prefix + 如果有上下屏的话，在又屏按下这个组合键，屏下屏面积变大，上屏变小
+             同理可以对应prefix > prefix -
+             >向右变大 | <向左变大 |+向上变大 | -向下变大
+    prefix ? 查看快捷键
+
+
+~/.tmux.conf
+
+    unbind C-b
+    set -g prefix C-a
+    setw -g mode-keys vi
+
+    # split window like vim
+    # vim's defination of a horizontal/vertical split is revised from tumx's
+    bind s split-window -h
+    bind v split-window -v
+    # move arount panes wiht hjkl, as one would in vim after C-w
+    bind h select-pane -L
+    bind j select-pane -D
+    bind k select-pane -U
+    bind l select-pane -R
+
+    # resize panes like vim
+    # feel free to change the "1" to however many lines you want to resize by,
+    # only one at a time can be slow
+    bind < resize-pane -L 10
+    bind > resize-pane -R 10
+    bind - resize-pane -D 10
+    bind + resize-pane -U 10
+
+    # bind : to command-prompt like vim
+    # this is the default in tmux already
+    bind : command-prompt
 
 ssh登录服务器
 ---

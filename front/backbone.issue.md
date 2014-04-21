@@ -159,6 +159,7 @@ https://github.com/chaplinjs/chaplin/blob/master/src/chaplin/views/view.coffee
 * autoRender是否在constructor里面调用一次render
     constructor: @render() if @autoRender
 
+不要在使用_bindAll会出现问题
 item-view
 ---
 item-view继承自Chaplin.View,以前使用render添加dom，现在可以直接使用
@@ -226,4 +227,3 @@ list view中的itemView指明具体的ItemView,当list view的collection中
 
     <button class="pure-button pure-button-primary">Add List Item</button>
     <ul></ul>
-
