@@ -34,7 +34,8 @@ backbone issue
 
 修改页面的dom使用render
 ---
-    注意，取属性值的时候需要用双引号,因为解释器不识别单引号
+
+注意，取属性值的时候需要用双引号,因为解释器不识别单引号
 
     $('ul').append "<li>item  #{@counter}</li>"
 
@@ -83,7 +84,8 @@ view el
 
 MVC
 ---
-1.定义model|collection
+
+###1.定义model|collection
 
     # app/tutorial/models/item.coffee
 
@@ -105,11 +107,9 @@ MVC
 
       model: Item
 
-2.定义view
+###2.定义view
 
-* new collection
-* 绑定事件、events中和init中绑定
-* render添加dom初始元素
+new collection; 绑定事件、events中和init中绑定; render添加dom初始元素
 
     View = require 'common/views/base/view'
     List = require 'tutorial/models/list'
@@ -144,6 +144,7 @@ MVC
       appendItem: (item) ->
         $('ul').append "<li>#{item.get 'part1'}  #{item.get 'part2'}</li>"
 
+
 chaplin
 ===
 使用chaplin后有一些变化,以及用法
@@ -153,40 +154,49 @@ view
 根据源码
 https://github.com/chaplinjs/chaplin/blob/master/src/chaplin/views/view.coffee
 
-* backbone view中的el现在为container
+backbone view中的el现在为container
+
     constructor: @el = @container if @container
 
-* autoRender是否在constructor里面调用一次render
+autoRender是否在constructor里面调用一次render
+
     constructor: @render() if @autoRender
 
+
 不要在使用_bindAll会出现问题
+
 item-view
 ---
 item-view继承自Chaplin.View,以前使用render添加dom，现在可以直接使用
 hbs模板,不过根据源码getTemplateFunction必须重写
-* getTemplateFunction ->
-    throw new Error 'View#getTemplateFunction must be overridden'
+
+    getTemplateFunction ->
+      throw new Error 'View#getTemplateFunction must be overridden'
 
 重写成,可以放在你自定义的View基类里面
-  getTemplateFunction: ->
+
+    getTemplateFunction: ->
       @template
 
 hbs模板使用双括号引用model中的属性 {{attr}}
 
 list-view
 ---
+
 与item-view相同，也是需要重写getTemplateFunction
 list view中的itemView指明具体的ItemView,当list view的collection中
 有变化时会自动渲染dom,此例中的addItem在collection里面调用add会处发
 这个事件，注意container和listSelector的不同
 
 源码中listSelector的注释:
-  # as the container of the item views. If you specify `listSelector`, the
-  # item views will be appended to this element. If empty, $el is used.
-  listSelector: null
+
+    # as the container of the item views. If you specify `listSelector`, the
+    # item views will be appended to this element. If empty, $el is used.
+    listSelector: null
 
 例如本例子中的模板里面有一个ul，注意listSelector是在**本模板的dom中选择**,
 即:
+
     最初
     <div id="test">listview会加在这里</div>
     加载listview后

@@ -44,6 +44,7 @@ tmux外
            # tmux deattach之后运行的
 
 进入tmux后
+
     prefix的意思是按下某个组合键，tmux默认是Ctrl+b,更改为下面的配置为Ctrl+a
     prefix d的意思是先按下prefix组合键，手指都抬起来，然后按下d
     prefix d deattach当前session，这样会回到tmux外的状态(可以tmux a attach回来)
