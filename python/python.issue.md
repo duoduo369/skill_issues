@@ -770,6 +770,9 @@ ipython
 
 fabric(ssh工具)
 ---
+
+突然发现了一篇好[博客](http://wklken.me/posts/2013/03/25/python-tool-fabric.html)
+
 fabric命令需要在一个module里面,因此在文件夹里需要有__init__.py
 
 fab 命令默认找此模块下的`fabfile.py文件`,如果没有这个文件需要使用
@@ -790,3 +793,14 @@ fabfile.py
 
 可以直接`fab hello`,执行fabfile.py里面的hello方法
 如果没有fabfile.py而是有一个hello.py 则`fab hello -f hello.py`
+
+如果有多个参数得话用`,`隔开,可以直接指明参数,例如下面的代码
+
+    def hello(name='name', say='hi'):
+        print("{name} say:{say}".format(name=name, say=say))
+
+可以
+    fab hello:name=1,say=2
+    fab hello:1,2
+    fab hello:1,say=2 # 与python的用法一样，kwarg要在arg后面
+

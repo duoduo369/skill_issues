@@ -127,6 +127,9 @@ git diff
     @@ -1,4 +1,5 @@  # -1,4 a状态从第一行开始向下4行，  +1,5
     b状态从第一行开始向下5行
 
+git add -p
+---
+
 git commit
 ---
     git commit -m "简短注释"
