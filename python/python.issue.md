@@ -804,3 +804,35 @@ fabfile.py
     fab hello:1,2
     fab hello:1,say=2 # 与python的用法一样，kwarg要在arg后面
 
+demo
+
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
+    #
+    # 本地命令使用local
+    # 远程命令使用run
+    #
+    from fabric.api import *
+
+    env.roledefs = {
+        'test_crm_server': ['usename@ip:port',],
+    }
+
+    # env.password='xxxxxx' # 如果所有host秘密都相同，用这个参数
+
+    env.passwords = {
+        'usename@ip:port': 'password',
+    }
+
+    COMAND = 'ls -l | wc'
+
+    @roles('test_crm_server')
+    def test_remote():
+        run(COMAND)
+
+    def test_local():
+        local(COMAND)
+
+    def do():
+        execute(test_local)
+        execute(test_remote)
