@@ -738,6 +738,9 @@ PIL
     out = im.transpose(Image.FLIP_LEFT_RIGHT) # 反转
     out = im.transpose(Image.FLIP_TOP_BOTTOM) # 反转
 
+
+###python工具
+
 ipython
 ---
     * store 保存变量，下次直接载入，方便调试
@@ -764,3 +767,26 @@ ipython
     "\e[A":history-search-backward
     ## arrow down
     "\e[B":history-search-forward
+
+fabric(ssh工具)
+---
+fabric命令需要在一个module里面,因此在文件夹里需要有__init__.py
+
+fab 命令默认找此模块下的`fabfile.py文件`,如果没有这个文件需要使用
+-f 指明脚本路径
+
+    fab_module
+      ├── fabfile.py
+      ├── fabfile.pyc
+      └── __init__.py
+
+fabfile.py
+
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
+
+    def hello():
+        print("Hello world!")
+
+可以直接`fab hello`,执行fabfile.py里面的hello方法
+如果没有fabfile.py而是有一个hello.py 则`fab hello -f hello.py`
