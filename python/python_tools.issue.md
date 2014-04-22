@@ -192,3 +192,153 @@ demo
     def do():
         execute(test_local)
         execute(test_remote)
+
+supervisor
+---
+[supervisor中文博客](http://blog.yangyubo.com/2009/05/14/supervisor-introduce/)
+[unix domian socket](http://zh.wikipedia.org/wiki/Unix_domain_socket)
+
+supervisor配置文件,[文档](http://supervisord.org/configuration.html)
+
+    注释用;
+
+    [unix_http_server]
+    file=/home/duoduo/supervisor/supervisor.sock   ; (the path to the socket file)
+
+        文档中有这一句
+
+        If the configuration file has no [unix_http_server] section,
+        a UNIX domain socket HTTP server will not be started.
+
+    [supervisord]
+    定义这个supervisord的pid log等
+
+    [rpcinterface:supervisor](使用supervisorctl需要copy此段)
+    supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+    [supervisorctl](想用supervisorctl的话必填)
+
+        注意serverurl应与unix_http_server的file地址对应
+        这样使得supervisorctl可以与supervisord通过相同的socket通信
+        (unix domain socket, 见上方链接)
+
+    serverurl=unix:///home/duoduo/supervisor/supervisor.sock
+
+    [program:name] 定义一个program，配置是自解释的
+
+
+
+###demo(用了python的SimpleHTTPServer)
+
+####文件结构
+
+    ├── demo
+    │   ├── stderr.log
+    │   └── stdout.log
+    ├── supervisord.conf
+    └── supervisord.log
+
+
+####supervisord.conf
+
+    [unix_http_server]
+    file=%(here)s/supervisor.sock ; (the path to the socket file)
+    chmod=0700                       ; sockef file mode (default 0700)
+
+    [supervisord]
+    logfile=%(here)s/supervisord.log ; (main log file;default $CWD/supervisord.log)
+    pidfile=%(here)s/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+    childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)
+
+
+    [rpcinterface:supervisor]
+    supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+    [supervisorctl]
+    serverurl=unix://%(here)s/supervisor.sock
+
+    [program:learn_demo]
+    command=python -m SimpleHTTPServer 5678
+    numprocs=1
+    stdout_logfile=%(here)s/demo/stdout.log
+    stderr_logfile=%(here)s/demo/stderr.log
+    autostart=true
+    autorestart=true
+    startsecs=5
+    priority=999
+
+####用法
+
+在这个目录下运行supervisord,会发现多出几个文件
+运行supervisorctl,进入交互模式，输入help可以看到能用的指令
+
+###另一个长一点的配置文件
+
+    ; supervisor config file
+
+    [unix_http_server]
+    file=/home/duoduo/supervisor/supervisor.sock   ; (the path to the socket file)
+    chmod=0700                       ; sockef file mode (default 0700)
+
+    [supervisord]
+    logfile=/home/duoduo/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)
+    pidfile=/home/duoduo/supervisor/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+    childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)
+
+    [rpcinterface:supervisor]
+    supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+    [supervisorctl]
+    serverurl=unix:///home/duoduo/supervisor/supervisor.sock
+
+
+    [include]
+    files = /etc/supervisor/conf.d/*.conf
+
+    [program:api_celerybeat]
+    command=python manage.py celerybeat --loglevel=DEBUG
+    directory=/home/duoduo/project_api/
+    numprocs=1
+    stdout_logfile=/home/duoduo/project_log/celery_beat.log
+    stderr_logfile=/home/duoduo/project_log/celery_beat.log
+    autostart=true
+    autorestart=true
+    startsecs=5
+    priority=999
+    environment=PATH="/home/duoduo/project_env/bin/"
+
+    [program:api_celerycam]
+    command=python manage.py celerycam -F 30
+    directory=/home/duoduo/project_api/
+    numprocs=1
+    stdout_logfile=/home/duoduo/project_log/celery_cam.log
+    stderr_logfile=/home/duoduo/project_log/celery_cam.log
+    autostart=true
+    autorestart=true
+    startsecs=5
+    priority=999
+    environment=PATH="/home/duoduo/project_env/bin/"
+
+    [program:api_celeryd_publish]
+    command=python manage.py celeryd -E --loglevel=INFO -Q publish -c 2
+    directory=/home/duoduo/project_api/
+    numprocs=1
+    stdout_logfile=/home/duoduo/project_log/celery_worker.log
+    stderr_logfile=/home/duoduo/project_log/celery_worker.log
+    autostart=true
+    autorestart=true
+    startsecs=5
+    priority=999
+    environment=PATH="/home/duoduo/project_env/bin/"
+
+    [program:api_celeryd_backend_cleanup]
+    command=python manage.py celeryd -E --loglevel=INFO -Q backend_cleanup -c 1
+    directory=/home/duoduo/project_api/
+    numprocs=1
+    stdout_logfile=/home/duoduo/project_log/celery_worker.log
+    stderr_logfile=/home/duoduo/project_log/celery_worker.log
+    autostart=true
+    autorestart=true
+    startsecs=5
+    priority=999
+    environment=PATH="/home/duoduo/project_env/bin/"
