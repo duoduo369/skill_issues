@@ -833,6 +833,10 @@ demo
     def test_local():
         local(COMAND)
 
+    @roles('test_crm_server')
+    def download(remote_path, local_path='~/download'):
+        get(remote_path, local_path)
+
     def do():
         execute(test_local)
         execute(test_remote)
