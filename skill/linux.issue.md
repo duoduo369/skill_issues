@@ -1080,11 +1080,11 @@ shell增强
 
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-    source ~/.zsh/git-prompt/zshrc.sh
-    PROMPT='%B%m%~%b$(git_super_status)%# '
+    # source ~/.zsh/git-prompt/zshrc.sh  # 如果安装git-prompt就开启，包括下行
+    # PROMPT='%B%m%~%b$(git_super_status)%# '
 
-    source ~/.nvm/nvm.sh
-    source /opt/python_env/django1.6.1/bin/activate
+    # source ~/.nvm/nvm.sh  # 如果安装nvm则取消注释, nvm是node的一个包管理
+    # source /opt/python_env/django1.6.1/bin/activate # 如果有这个python evn
 
 #source /opt/python_env/heroku/bin/activate 
 

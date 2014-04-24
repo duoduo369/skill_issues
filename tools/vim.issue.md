@@ -399,16 +399,19 @@ vim 编译coffeescript
     set textwidth=79
 
     autocmd FileType coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType styl setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 
     set noswapfile
 
-    :map <F1> :wa
-    :! /usr/local/bin/launch-curr.py %:p 
+    " :map <F1> :wa  " zarkpy 的一个配置
+    " :! /usr/local/bin/launch-curr.py %:p " zarkpy 的一个配置
 
+    " :map <F2> :! /usr/local/bin/error-curr.py %:p " zarkpy 的一个配置
 
-    :map <F2> :! /usr/local/bin/error-curr.py %:p 
-
-    :map <F3> :CoffeeCompile vert<CR>
+    " :map <F3> :CoffeeCompile vert<CR> " coffee complie的一个插件
 
     :map <C-t> :tabedit ./
     :map <C-n> :tabnew ./
