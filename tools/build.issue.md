@@ -3,13 +3,25 @@ npm issue
 
 安装
 ---
-    # Node Packaged Modules
-    # https://npmjs.org/
-    # http://stackoverflow.com/questions/16302436/install-nodejs-on-ubuntu-12-10
-    sudo apt-get install python-software-properties python g++ make
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs
+
+用apt-get 安装nodejs的时候会有问题，就是命令行里面没有node这个指令，
+而npm安装又会用到，因此先正确安装node
+
+安装node到官网下载对应系统的包
+
+    比如下载node-v0.10.26-linux-x64.tar.gz到 /home/duoduo/download
+
+    sudo cd /usr/local && tar --strip-components 1 -xzf \
+        /home/duoduo/download/node-v0.10.26-linux-x64.tar.gz
+
+安装cnpm加速,国内的人使用npm有的时候是一种煎熬
+
+    可以直接
+    sudo npm install -g cnpm
+
+    或者使用阿里云
+    sudo npm install -g cnpm --registry=http://registry.npm.taobao.org
+
 
 brunch issue
 ===
