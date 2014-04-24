@@ -240,3 +240,141 @@ ps: 可以关注下这个项目 https://github.com/yueyoum/django-siteuser
     from django.core.mail import EmailMessage
     email = EmailMessage('主题', '正文', to=['duoduo3369@gmail.com'])
     email.send()
+
+django celery
+---
+[简单blog](http://simondlr.com/post/24479818721/basic-django-celery-and-rabbitmq-example)
+
+### 安装依赖
+ubuntu下直接用包管理器安装 erlang rabbitmq-server
+
+    sudo apt-get install erlang rabbitmq-server
+
+### rabbitmq 配置
+
+    rabbitmqctl  add_vhost  duoduo_host # 添加一个host
+    rabbitmqctl  add_user  duoduo duoduo # 添加一个用户，用户名 密码
+    rabbitmqctl  set_permissions -p duoduo_host duoduo  '.*'  '.*'  '.*'
+
+### django celery使用
+
+1. python manage.py celeryd # 启动celeryd服务
+2. python manage.py celerybeat # 查看心跳
+
+### django celery配置(settings文件下方)
+
+    # ----------------------------  celery ------------
+    import djcelery
+    djcelery.setup_loader()
+
+    # broker 用的rabbitmq
+    #BROKER_URL = 'amqp://用户名:密码@127.0.0.1:5672/host'
+    BROKER_URL = 'amqp://duoduo:duoduo@127.0.0.1:5672/duoduo_host'
+
+    # 这是使用了django-celery默认的数据库调度模型,任务执行周期都被存在你指定的orm数据库中
+    CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+    CELERYD_CONCURRENCY = 2  # celery worker的并发数 也是命令行-c指定的数目
+    CELERYD_PREFETCH_MULTIPLIER = 1  # celery worker 每次去rabbitmq取任务的数量
+    CELERYD_MAX_TASKS_PER_CHILD = 100 # 每个worker执行了多少任务就会死掉
+
+    CELERY_RESULT_BACKEND = "amqp" # 官网优化的地方也推荐使用c的librabbitmq
+    CELERY_RESULT_SERIALIZER = 'json' # 默认是pickle
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_DEFAULT_QUEUE = 'default' # 默认队列名称
+    CELERY_DEFAULT_EXCHANGE = 'default'  # 默认交换
+    CELERY_DEFAULT_EXCHANGE_TYPE = 'direct'  # 默认交换类型
+    CELERY_DEFAULT_ROUTING_KEY = 'default'  # 默认路由key
+
+    CELERY_IGNORE_RESULT = True
+    CELERY_STORE_ERRORS_EVEN_IF_IGNORED = False
+    CELERY_AMQP_TASK_RESULT_EXPIRES = 18000
+
+    CELERY_EXPIRES_TIME = 18000 # 过期时间 单位s
+
+    CONN_MAX_AGE = 10
+
+    CELERY_IMPORTS = ('paper_edu',) # celery会在那些模块中找@task
+                                    # 需要是INSTALLED_APPS中安装的
+
+    # 队列配置
+    keys = list(CELERY_IMPORTS)
+    keys.extend(['default', 'backend_cleanup'])
+    CELERY_QUEUES = {}
+    for key in keys:
+        CELERY_QUEUES[key] = {
+            'exchange': key,
+            'exchange_type': 'direct',
+            'routing_key': key,
+        }
+
+    class MyRouter(object):
+
+        def route_for_task(self, task, args=None, kwargs=None):
+
+            _mapper = {
+                'paper_edu.tasks': {'queue': 'paper_edu'},
+                # 自定义各种队列, 格式就是这种
+                'celery.backend_cleanup': {'queue': 'backend_cleanup'},
+            }
+
+            queue = None
+            for key in _mapper:
+                if task.startswith(key):
+                    queue = _mapper[key]
+                    break
+
+            if not queue:
+                print 'DEFAULT_TASK_%s' % task
+
+            return queue
+
+    CELERY_ROUTES = (MyRouter(), )
+
+### 具体的模块tasks编写
+
+例如有个模块为paper_edu,新建tasks.py
+
+    from celery.task import task
+
+    @task
+    def you_task_func():
+        ...
+
+### 用django admin管理tasks
+
+在django admin会有Djcelery模块
+从上倒下有Crontabs、Intervals、Periodic tasks、Tasks、Workers
+
+#### 首先讲Workers, 点进去会看到有几个worker
+
+只有celeryd && celerybeat都启动了而且还活着的时候才会显示online
+
+#### Crontabs|Intervals
+
+执行周期
+    Crontabs 就是类似linux中Crontab的配置方式
+    Intervals 比较人性化，每多少小时，天等等
+
+#### Periodic tasks就是日常新建任务，由django管理的一个任务列表
+
+点击右上角的新建,进入新建任务的表单
+
+    name: 任务名字，虽然可以随便起，但是建议和registered的task同名
+    Tasks(registered): 这个地方用的就是celery配置和各个模块tasks的任务
+    Tasks(custom): 这个字段不要填
+    enabled: 是否启用这个任务
+
+    Schedule周期模块
+    Interval, 或者Crontab二选一,一般用Interval
+
+    Arguments模块
+    tasks任务的方法里面可以传的参数
+
+    Execution这个没有用到过
+
+### 最后的建议
+
+由于celery启用的守护进程比较多,建议使用supervisor来管理
+supervisor的使用方式可以见 python_tools.issue.md中查看
+
