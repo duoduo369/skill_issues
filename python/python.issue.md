@@ -630,3 +630,11 @@ PIL
     im.transpose(Image.ROTATE_90) # 旋转
     out = im.transpose(Image.FLIP_LEFT_RIGHT) # 反转
     out = im.transpose(Image.FLIP_TOP_BOTTOM) # 反转
+
+mysqldb problem
+---
+
+problem: mysql_config not found when installing mysqldb python interface
+
+    sudo apt-get install libmysqlclient16-dev
+
