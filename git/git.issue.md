@@ -270,3 +270,11 @@ github readme添加图片
     ![d3](https://raw.github.com/duoduo369/spiders/master/logo/d3.jpg)
     规则如下
     ![alt tag](https://raw.github.com/username/projectname/branch/path/to/img.png)
+
+git  不使用中文
+---
+~/.zshrc中添加如下
+
+    # Set Git language to English
+    #alias git='LC_ALL=en_US git'
+    alias git='LC_ALL=en_GB git'
