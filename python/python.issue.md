@@ -631,10 +631,17 @@ PIL
     out = im.transpose(Image.FLIP_LEFT_RIGHT) # 反转
     out = im.transpose(Image.FLIP_TOP_BOTTOM) # 反转
 
-mysqldb problem
+mysqldb intall problem
 ---
 
 problem: mysql_config not found when installing mysqldb python interface
 
     sudo apt-get install libmysqlclient16-dev
+
+scrapy intall problem
+---
+
+problem: cryptography安装问题
+
+     sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 
