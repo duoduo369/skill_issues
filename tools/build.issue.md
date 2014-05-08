@@ -1,6 +1,9 @@
 npm issue
 ====
 
+npm安装时候注意tmp文件的问题chmod 177 /tmp/
+将npm的bin复制到用户的 ~/下 ~/tmp mod 为177
+
 安装
 ---
 
