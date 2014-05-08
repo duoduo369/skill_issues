@@ -1132,6 +1132,10 @@ shell 操作命令 生成gif
     Ctrl+Shift+Tab    # 切换到上一个标签页
     Ctrl+W or Ctrl+F4 # 关闭当前标签页或窗口
 
+cp all yes
+---
+yes | cp -rf xxx yyy
+
 tree
 ---
     显示文件加结构
