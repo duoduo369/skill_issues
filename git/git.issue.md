@@ -38,8 +38,8 @@ git 配置
 
     用户名邮箱
     ---
-    git config --global user.name yangyang
-    git config --global user.email yangyang@admaster.com.cn
+    git config --global user.name duoduo
+    git config --global user.email duoduo3369@gmail.com
 
     https方式长期存储密码：
     git config --global credential.helper store
@@ -49,6 +49,10 @@ git 配置
     git config --global color.branch 'auto'
     git config --global color.ui 'auto'
     git config --global color.status 'auto'
+
+    编辑器
+    ---
+    git config --global core.editor vim
 
     配置友好的log
     ---
@@ -61,8 +65,7 @@ git 配置
     git config --global alias.co 'checkout'
     git config --global alias.br branch  # 注意 后面命令的引号可以不写
     git config --global alias.cm commit
-    git config --global alias.stash-unapply '!git stash show -p | git
-    apply -R'
+    git config --global alias.stash-unapply '!git stash show -p | git apply -R'
 
 
     工作机器个人项目的配置
