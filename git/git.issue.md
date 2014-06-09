@@ -26,6 +26,9 @@ zsh增强git
     source /home/duoduo/.zsh/git-prompt/zshrc.sh
     PROMPT='%B%m%~%b$(git_super_status)%# '
 
+    或者更简单的方法使用oh-my-zsh
+    https://github.com/robbyrussell/oh-my-zsh
+
 
 git 配置
 ---
