@@ -38,6 +38,9 @@ git 配置
     git config --global user.name yangyang
     git config --global user.email yangyang@admaster.com.cn
 
+    https方式长期存储密码：
+    git config --global credential.helper store
+
     颜色
     ---
     git config --global color.branch 'auto'
@@ -57,6 +60,7 @@ git 配置
     git config --global alias.cm commit
     git config --global alias.stash-unapply '!git stash show -p | git
     apply -R'
+
 
     工作机器个人项目的配置
     工作时你可能在~/.gitconfig下的配置里面
