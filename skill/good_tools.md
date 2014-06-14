@@ -130,6 +130,11 @@ backbone资料众多，并且可以直接从dom上进行一些操作，推荐
 
 [脚手架](https://github.com/duoduo369/chaplin_boilerplate)
 
+
+数据可视化
+---
+[d3js](http://d3js.org/) 用d3画图是再好不过了，当年学数据结构的时候怎么不知道呢
+
 构建工具和包管理器
 ---
 
