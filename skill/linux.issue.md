@@ -1159,3 +1159,8 @@ tree
     ├── springmvc.issue.md
     ├── vim.issue.md
     └── zarkpy.issue.md
+
+桌面通知
+---
+  notify-send 跑步
+  可以与crontab配合做提醒
