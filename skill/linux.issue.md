@@ -1099,16 +1099,30 @@ shell 操作命令 生成gif
     按照ttygif里面的方式make完后，将ttygif,和concat.sh cp 到/usr/bin下
     sudo cp make的路径/{ttygif,concat.sh} /usr/bin
 
-    ttyrec tmp # 开始录像 
+    ttyrec tmp # 开始录像
     # 进行录像命令...
     # 点击Ctrl+D 或者输入exit结束录像
     ttygif tmp # 生成gif贞
-    concat.sh terminal.gif # 生成gif图片 
+    concat.sh terminal.gif # 生成gif图片
+
+chrome安装SwitchySharp
+---
+
+问题，在新机器上没翻墙前是登陆不了chrome的，也就拿不到书签和扩展，没有扩展就没法翻墙，
+鸡生蛋蛋生鸡的问题。好在goagent自带电池，在goagent local 下有SwitchySharp.crx
+
+第一步是装SwitchySharp
+
+1. 如果最近google没被墙，自然可以商店里面直接安装；
+2. windows用户直接在chrome中打开extensions(扩展程序), 把SwitchySharp.crx拖进去即可安装;
+3. linux用户比较蛋疼，总之ubuntu是很蛋疼的，不能托到chrome里面去，需要将SwitchySharp.crx
+   重命名为SwitchySharp.zip,解压，然后在chrome extensions里面点开开发这模式，Load unpacked
+   extension 将解压的文件夹加过来即可安装。
 
 解决goagent翻墙后上twitter等无效
 ----
-    Ubuntu 系统： 
-    打开 Chrome 浏览器 首选项 > 高级选项 > 管理证书… 
+    Ubuntu 系统：
+    打开 Chrome 浏览器 首选项 > 高级选项 > 管理证书…
     在授权中心导入 GoAgent/local 目录下的 CA.crt
     证书（注意不要导入到服务器，否则不起作用） 在 
     授权中心 找到 GoAgent CA 并点击 修改… 
