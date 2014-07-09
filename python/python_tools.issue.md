@@ -342,3 +342,12 @@ supervisor配置文件,[文档](http://supervisord.org/configuration.html)
     startsecs=5
     priority=999
     environment=PATH="/home/duoduo/project_env/bin/"
+
+蛋疼的lxml安装问题
+---
+
+碰到过不止一次了
+
+  sudo apt-get install libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev
+
+  pip install lxml
