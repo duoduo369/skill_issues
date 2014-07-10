@@ -1176,5 +1176,24 @@ tree
 
 桌面通知
 ---
-  notify-send 跑步
-  可以与crontab配合做提醒
+    notify-send 跑步
+    可以与crontab配合做提醒
+
+查找
+---
+
+1. find
+
+    find 地址 -name 文件名
+    find ./ -name settings.py
+    时间 -atime n n天前访问的文件
+    大小 -size n
+    正则 -regex
+
+2. grep
+
+    grep 内容 -ril ./
+
+3. vim command P
+
+    打开vim 点击ctrl + p
