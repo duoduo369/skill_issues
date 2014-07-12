@@ -175,3 +175,37 @@ location的配置规则，最长匹配，如果location里面有多个符合的�
 
 ps：如果需要别的机器访问来测试的话，别忘了修改iptables，把80端口给开出来。
 
+
+server部分配置讲解
+===
+
+root与alias
+---
+
+location 部分为用户请求
+
+    root选项会将 root地址+location地址拼接成一个Linux路径。
+    alias则指定了一个绝对路径，不会拼接location
+
+
+例子：静态文件的路径为`/public/html/index.html`
+
+root选项：
+
+    location /html {
+        root  /public;
+    }
+
+    此时nginx看到/public/html/index.html后，发现有html路径,
+    找到location /html, 因为是root最终Linux路径为
+    root + location ——> /public/html
+
+alias选项：
+
+    location /html {
+        alias  /public/html;
+    }
+
+    此时nginx看到/public/html/index.html后，发现有html路径,
+    找到location /html, 因为是alias,最终Linux路径为alias路径
+    alias ——> /public/html
