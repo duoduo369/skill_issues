@@ -1197,3 +1197,10 @@ tree
 3. vim command P
 
     打开vim 点击ctrl + p
+
+压缩解压
+---
+
+.tar.gz 和 .tgz
+解压：tar zxvf FileName.tar.gz
+压缩：tar zcvf FileName.tar.gz DirName
