@@ -645,3 +645,7 @@ problem: cryptography安装问题
 
      sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 
+python 动态导入 importlib
+---
+有的时候需要使用字符串动态导入一些东西，使用python自带的importlib可以实现这个需求
+这种变态的需求我只遇到过一次，是在以前写教程的时候做的，mark。
