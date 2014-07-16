@@ -653,3 +653,23 @@ python 动态导入 importlib
 ---
 有的时候需要使用字符串动态导入一些东西，使用python自带的importlib可以实现这个需求
 这种变态的需求我只遇到过一次，是在以前写教程的时候做的，mark。
+
+python 脚本退出时执行某方法
+---
+使用atexit
+
+    import atexit
+    import os.path
+    import shutil
+    import tempfile
+
+    def mkdtemp_clean(suffix="", prefix="tmp", dir=None):
+        """Just like mkdtemp, but the directory will be deleted when the process ends."""
+        the_dir = tempfile.mkdtemp(suffix=suffix, prefix=prefix, dir=dir)
+        atexit.register(cleanup_tempdir, the_dir)
+        return the_dir
+
+    def cleanup_tempdir(the_dir):
+        """Called on process exit to remove a temp directory."""
+        if os.path.exists(the_dir):
+            shutil.rmtree(the_dir)
