@@ -673,3 +673,23 @@ python 脚本退出时执行某方法
         """Called on process exit to remove a temp directory."""
         if os.path.exists(the_dir):
             shutil.rmtree(the_dir)
+
+查找文件
+---
+使用[glob](https://docs.python.org/2/library/glob.html)或者[glob2](https://github.com/miracle2k/python-glob2)
+
+glob
+
+    >>> import glob
+    >>> glob.glob('./[0-9].*')
+    ['./1.gif', './2.txt']
+    >>> glob.glob('*.gif')
+    ['1.gif', 'card.gif']
+    >>> glob.glob('?.gif')
+    ['1.gif']
+
+glob2
+
+    >>> import glob2
+    >>> all_header_files = glob2.glob('src/**/*.h')
+    ['src/fs.h', 'src/media/mp3.h', 'src/media/mp3/frame.h', ...]
