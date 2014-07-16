@@ -206,6 +206,10 @@ python 编码规范
     如果开始搞不清楚使用private还是public的时候，设置为private(python没有真正的
     private)
 
+python数据结构时间复杂度
+---
+[官方文档](https://wiki.python.org/moin/TimeComplexity)
+
 按字符处理字符串
 ---
     for c in string:
