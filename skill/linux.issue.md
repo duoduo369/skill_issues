@@ -1204,3 +1204,7 @@ tree
 .tar.gz 和 .tgz
 解压：tar zxvf FileName.tar.gz
 压缩：tar zcvf FileName.tar.gz DirName
+
+mysql暂时关闭外键
+---
+SET foreign_key_checks = 0;
