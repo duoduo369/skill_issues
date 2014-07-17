@@ -1208,3 +1208,32 @@ tree
 mysql暂时关闭外键
 ---
 SET foreign_key_checks = 0;
+
+用户相关
+---
+
+添加用户
+
+    useradd duoduo
+
+添加用户组
+
+    groupadd  duoduo
+
+显示各个组
+
+    groups
+
+添加root权限
+
+    sudo vim /etc/sudoers
+    在root  ALL=(ALL:ALL) ALL下添加
+    duoduo  ALL=(ALL:ALL) ALL
+
+修改密码
+
+    passwd duoduo
+
+查看用户信息
+
+    id
