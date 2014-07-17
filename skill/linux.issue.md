@@ -1245,3 +1245,11 @@ SET foreign_key_checks = 0;
 查看用户信息
 
     id
+
+文件下载
+---
+
+wget 支持断点下载的工具
+
+    wget -c -t 0 -O new_name.tar.gz http://www.cnscn.org/old_name.tar.gz 
+    -c 断点 -t 0 反复尝试  -O 重命名
