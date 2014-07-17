@@ -64,6 +64,13 @@ tmux外
     prefix ? 查看快捷键
 
 
+修改 ~/.tmux.conf如果发现配置没有生效，说明还有tmux进程开着
+
+    ps aux | grep tmux
+
+将tmux有关进程kill后重启tmux就可以了
+
+
 ~/.tmux.conf
 
     unbind C-b
@@ -91,6 +98,7 @@ tmux外
     # bind : to command-prompt like vim
     # this is the default in tmux already
     bind : command-prompt
+
 
 ssh登录服务器
 ---
