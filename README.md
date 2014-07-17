@@ -31,11 +31,12 @@
     这个项目的目的就是为了能随时积累经验，用markdown+git方便将自己的经验点滴积累起来，
     按照不同的类别分类，java,python,git,查找也简单，ctrl+F即可。
 
+    linux可以直接grep XXX -ril ./
+
 怎么使用这个项目
 ---
-    现在我的工作方式就是: 工作,学习，当有新的项目skill的的时候启一个shell,找到这个skill
-    的分类，用我喜欢的文本编辑器(我是vimer)加上这个skill，push到osc@git。
-    查找的时候打开 osc@git,点开项目，找到需要的分类,ctrl+F查找需要的东西。
+    linux可以直接grep XXX -ril ./
+    或者直接在github上找到对应的***.issue.md,ctrl + F 查找XXX
 
 可以写些什么？
 ---
@@ -53,23 +54,15 @@
     2.请使用markdown格式
     3.写一些能帮你节约时间的东西即可
     4.fork代码，发pull request
-    5.索要开发者权限请给我发邮件，duoduo3369@gmail.com
 
 已有issue分类
 ---
 
-    * vim(一切为了效率)
-    * git
-    * zarkpy(10倍于java的一个python web框架,webpy的
-    * 二次开发, 作者有大量互联网外包经验。)
-    * css
-    * linux-server(linux 服务器上的一些issue)
-    * nginx
-    * shell(主要是zsh)
-    * improve(通过一些工具增加你的开发效率)
-    * python
-    * python-script(用到的一些脚本)
-    * spring mvc(个人应该这个部分不会更新)
-    * 各种前端相关issue, coffeescript, nodejs, angular, backbone
+    front   前端有关的东西一般在这
+    git     git相关的东西
+    log     是为了在github显示图片才加的
+    python  python相关，包括技巧工具等
+    skill   不知道如何分类的放这里，有linux之类的
+    tools   一些有用的工具包括vim之类的
 
 [gitbook]: http://duoduo369.github.io/skill_issues/
