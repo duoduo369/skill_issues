@@ -1258,3 +1258,15 @@ wget 支持断点下载的工具
 ---
 在shell里面会输入很多命令，有的时候你想找几百次之前的某条名利，按下`ctrl + r`搜索
 
+
+安装ttf字体
+---
+[fontpalace](http://www.fontpalace.com/)下载喜欢的字体，程序员一般选consolas
+
+    cd 到下载目录后
+
+    sudo cp *.ttf /usr/local/share/fonts
+    cd /usr/local/share/fonts
+    sudo chown root:root *.ttf
+    sudo fc-cache
+
