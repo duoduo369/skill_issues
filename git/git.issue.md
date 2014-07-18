@@ -3,9 +3,13 @@ git相关issue
 
 git书籍
 ---
-progit http://git.oschina.net/progit/
+[新手入门(推荐)](http://gitimmersion.com/lab_01.html)
 
-http://sethrobertson.github.io/GitBestPractices/
+[pro git](http://git.oschina.net/progit/)
+
+[GitBestPractices](http://sethrobertson.github.io/GitBestPractices/)
+
+
 
 zsh增强git
 ---
