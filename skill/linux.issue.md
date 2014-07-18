@@ -1253,3 +1253,8 @@ wget 支持断点下载的工具
 
     wget -c -t 0 -O new_name.tar.gz http://www.cnscn.org/old_name.tar.gz 
     -c 断点 -t 0 反复尝试  -O 重命名
+
+查找之前命令
+---
+在shell里面会输入很多命令，有的时候你想找几百次之前的某条名利，按下`ctrl + r`搜索
+
