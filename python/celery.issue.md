@@ -9,6 +9,8 @@ exchange的类型，queue，等等各种名词要有概念。
 链接
 ---
 
+[django-celery-demo github代码](https://github.com/duoduo369/django_celery_demo)
+
 [django-celery ppt](http://www.slideshare.net/matclayton/django-celery#)
 
 [an-introduction-to-celery ppt](http://www.slideshare.net/idangazit/an-introduction-to-celery)
