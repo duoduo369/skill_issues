@@ -8,14 +8,23 @@ exchange的类型，queue，等等各种名词要有概念。
 
 链接
 ---
+
 [django-celery ppt](http://www.slideshare.net/matclayton/django-celery#)
+
 [an-introduction-to-celery ppt](http://www.slideshare.net/idangazit/an-introduction-to-celery)
+
 [重要的amqp概念](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+
 [介绍1](http://docs.dotcloud.com/tutorials/python/django-celery/)
+
 [celerycam](http://blog.endpoint.com/2012/03/debugging-celery-tasks-in-django.html)
+
 [AMQP协议介绍](http://my.oschina.net/scalewing/blog/169471)
+
 [django-celery配置](http://www.dongwm.com/archives/shi-yong-celeryzhi-shen-ru-celerypei-zhi/)
+
 [django-celery supervisor](http://www.dongwm.com/archives/shi-yong-celeryzhi-liao-jie-celery/)
+
 [celery最佳实践](http://my.oschina.net/siddontang/blog/284107)
 
 google关键词
