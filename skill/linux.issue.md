@@ -1200,7 +1200,10 @@ tree
 
 2. grep
 
+    # 递归查找当前目录所有内容包含"内容"的文件
     grep 内容 -ril ./
+    # 递归查找当前目录所有内容包含"内容"的py文件
+    grep 内容 -ril $(find -name '*.py')
 
 3. vim command P
 
