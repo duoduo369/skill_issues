@@ -231,7 +231,7 @@ git rebase
 git log
 ---
     git log -[数字] 显示几条log
-    git log -p [-数字] #加p显示diff,展开commit
+    git log -p [-数字] #加p显示diff,展开commit, 显示某一次具体commit的log
     git log --stat [-数字] #显示曾改行数
     gitk 图形界面查看git log的节点情况 需要安装
 
