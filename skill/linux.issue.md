@@ -1202,8 +1202,13 @@ tree
 
     # 递归查找当前目录所有内容包含"内容"的文件
     grep 内容 -ril ./
+
+    # 超找当前文件夹下前缀为lms文件中包含"内容"的文件
+    grep 查找 -ril lms*
+
     # 递归查找当前目录所有内容包含"内容"的py文件
     grep 内容 -ril $(find -name '*.py')
+
 
 3. vim command P
 
