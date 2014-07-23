@@ -6,12 +6,14 @@ celery && django-celery
 在使用celery前，首先要对amqp有一个理解，比如什么是exchange,生产者，消费者，worker,
 exchange的类型，queue，等等各种名词要有概念。
 
-链接
+链接,部分连接请自备梯子，尤其是几个ppt，确实精彩
 ---
 
 [django-celery-demo github代码](https://github.com/duoduo369/django_celery_demo)
 
 [django-celery ppt](http://www.slideshare.net/matclayton/django-celery#)
+
+[life-in-a-queue-using-message-queue-with-django ppt](http://www.slideshare.net/tarequeh/life-in-a-queue-using-message-queue-with-django#)
 
 [an-introduction-to-celery ppt](http://www.slideshare.net/idangazit/an-introduction-to-celery)
 
@@ -120,6 +122,11 @@ CELERY_QUEUES 使用更多的queue（不要只用默认的）
         print("doing something here...")
 
 `@task(exchange='exchange name'),指定具体的exchange, 因为一个队列中可能有多个exchange,不制定也用默认的
+
+celery beat
+---
+
+    如果有定时任务需要启动celery beat
 
 使用flower
 ---
