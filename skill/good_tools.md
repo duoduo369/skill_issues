@@ -179,6 +179,11 @@ rest api
 [fabric](http://www.fabfile.org/) ssh工具，可以简单化项目部署
 
 
+无节操视频介绍
+---
+一读
+飞碟说
+
 last
 ===
 [skill_issues](https://github.com/duoduo369/skill_issues) 本文所记录的工具在这里面基本都有详细的使用说明，以及遇到问题的解决方案,具体代码在我其他的项目中也都有实现，需要的化可以看下。
