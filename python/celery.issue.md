@@ -70,6 +70,8 @@ We will see how to automatically run this on dotCloud when
 
 celerycam 激活django admin
 ---
+这个东西的概念是激活一个摄像头，默认是每隔30秒写入django mysql
+
 python manage.py celerycam
 With celerycam running, the Django admin interface is updated as Celery tasks are executed:
 
@@ -134,3 +136,13 @@ celery beat
 使用[flower](https://github.com/mher/flower)来监控你celery的情况
 
 Real-time monitor and web admin for Celery distributed task queue.
+
+启用rabbitmq的可视化管理页面
+---
+    rabbitmq-plugins list
+    rabbitmq-plugins enable rabbitmq_management
+    rabbitmq-plugins enable rabbitmq_management_agent
+    rabbitmq-plugins enable rabbitmq_management_visualiser
+    rabbitmqctl set_user_tags 你的用户 administrator
+
+浏览器打开`http://ip:15672/visualiser/`,用你的用户名密码登陆
