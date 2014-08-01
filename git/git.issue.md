@@ -119,6 +119,9 @@ git ssh_key 用xclip粘贴
     有的时候你会不小心在一个空白节点提交，这时候只要将master移动到head即可
     git branch -f master # 将master分支强制移动到你当前的这个节点
 
+    强制移动某分支(br1)到某次commint(cabc3)
+    git branch -f br1 cabc3
+
 git branch
 ---
     git branch --merged# 查看分支的直接上游
