@@ -1,6 +1,11 @@
 django issue
 ===
 
+awesome系列
+---
+
+https://github.com/rosarior/awesome-django
+
 引入静态文件
 ---
 django 1.6项目新建后static配置不需要更改
