@@ -3,6 +3,9 @@ git相关issue
 
 git书籍
 ---
+
+[learnGitBranching 推荐](http://pcottle.github.io/learnGitBranching/?demo)
+
 [新手入门(推荐)](http://gitimmersion.com/lab_01.html)
 
 [pro git](http://git.oschina.net/progit/)
