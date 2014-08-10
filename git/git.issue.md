@@ -12,7 +12,7 @@ git书籍
 
 [GitBestPractices](http://sethrobertson.github.io/GitBestPractices/)
 
-
+[git-flow备忘清单(只建议看图，不建议用git flow)](http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)
 
 zsh增强git
 ---
