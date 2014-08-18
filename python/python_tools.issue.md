@@ -120,14 +120,15 @@ ipython
     ## arrow down
     "\e[B":history-search-forward
 
-* Inspection variable and functions
+* Inspect variables and functions
 
-    IPython:
-    ```python
-    In [7]: def a():
-    ...:     """ python docs goes here """
-    ...:     print 'Hi'
-    ...:
+IPython:
+
+```python
+In [7]: def a():
+...:     """ python docs goes here """
+...:     print 'Hi'
+...:
 ```
 
 1. `?`, look up the docs
@@ -154,7 +155,20 @@ ipython
             """ python docs goes here """
             print 'Hi'
         ```
+* Reuse variables
 
+Type `_iline#` to reuse the **input** of that variable.
+
+    i.e.
+    ```python
+    In [18]: _i7
+    Out[18]: u'def a():\n    """ python docs goes here """\n    print \'Hi\'\n'
+
+    In [11]: a = 1
+
+    In [12]: _i11
+    Out[12]: u'a = 1'
+    ```
 
 fabric(ssh工具)
 ---
