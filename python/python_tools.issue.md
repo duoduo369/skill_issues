@@ -120,6 +120,42 @@ ipython
     ## arrow down
     "\e[B":history-search-forward
 
+* Inspection variable and functions
+
+    IPython:
+    ```python
+    In [7]: def a():
+    ...:     """ python docs goes here """
+    ...:     print 'Hi'
+    ...:
+```
+
+1. `?`, look up the docs
+    i.e.
+    ``` python
+    In [8]: a?
+    Type:        function
+    String form: <function a at 0x101b7be60>
+    File:        /Users/ldong/GDrive/github/icebucket/ui/app/assets/<ipython-input-7-d7491bd3f1a8>
+    Definition:  a()
+    Docstring:   python docs goes here
+    ```
+
+2. `??`, look up the source code
+    i.e.
+    ``` python
+    In [10]: a??
+    Type:        function
+        String form: <function a at 0x101b7be60>
+        File:        /Users/ldong/GDrive/github/icebucket/ui/app/assets/<ipython-input-7-d7491bd3f1a8>
+        Definition:  a()
+        Source:
+        def a():
+            """ python docs goes here """
+            print 'Hi'
+        ```
+
+
 fabric(ssh工具)
 ---
 
