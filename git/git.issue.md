@@ -252,7 +252,14 @@ git stash
 
 git reflog
 ---
+
     git 的引用日志命令
+
+git blame
+---
+
+    查看某文件每行的修改历史
+    git blame [file_name]
 
 取消对文件的修改
 ---
