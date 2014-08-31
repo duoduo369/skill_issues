@@ -92,3 +92,10 @@ code style
           ;;
       esac
     done
+
+将某个目录下的某类型的文件都搞到一个文件中
+---
+
+例如将所有的py文件copy到一个文件中(例如我想在kindle里面看python-pattern这个项目的所有源代码)
+
+for f in `ls *py`;do cat  $f >> out.py;done;
