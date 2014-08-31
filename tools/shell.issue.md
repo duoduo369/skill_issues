@@ -98,4 +98,6 @@ code style
 
 例如将所有的py文件copy到一个文件中(例如我想在kindle里面看python-pattern这个项目的所有源代码)
 
-for f in `ls *py`;do cat  $f >> out.py;done;
+下面的命令将项目里面所有的文件按照文件名+内容的方式copy到了pattern.txt中
+
+for f in `ls *py`;do echo $f >> pattern.txt; cat $f >> pattern.txt;done;
