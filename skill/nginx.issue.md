@@ -45,3 +45,34 @@ nginx简单的调试
         root /opt/test;
         #index b.html;
     }
+
+url截取(重新)
+---
+location 可以使用@来命名，官方叫法是named location,这种location只能在
+nginx内部使用，一般做跳转.
+
+例如下面的配置就可以将/abc/public/a.html 转换为/public/a.html做到一个url截取的效果
+
+    location /abc {
+        add_header test_nginx 'test';
+        #index b.html;
+        error_page 418 = @inner;return 418;
+    }
+
+    location @inner {
+        root /opt/test;
+        rewrite ^/abc(.+)$ /$1 break;
+        add_header inner 'inner';
+    }
+
+下面这种配置可以做到url的截取,当需要代理到其他地方做负载均衡的时候需要
+
+    location /dontwantprofix {
+        add_header test_nginx 'test';
+        rewrite /dontwantprofix/(.*) /$1  break;
+        proxy_pass   http://test_server;
+        proxy_redirect     off;
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+    }
