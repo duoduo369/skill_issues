@@ -31,3 +31,17 @@ alias选项：
     此时nginx看到/public/html/index.html后，发现有html路径,
     找到location /html, 因为是alias,最终Linux路径为alias路径
     alias ——> /public/html
+
+nginx简单的调试
+---
+
+如果你没有装echo模块的话可以使用add_header来做一些调试打印,例如
+下面的代码就是在请求public的response里面加上了test_nginx则个参数，
+并且值为test,即使是404也会有.打开chrome的调试工具可以在network中
+轻松的看到这个response带的请求
+
+    location /public {
+        add_header test_nginx 'test';
+        root /opt/test;
+        #index b.html;
+    }
