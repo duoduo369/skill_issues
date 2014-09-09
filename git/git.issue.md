@@ -147,6 +147,8 @@ git diff
     @@ -1,4 +1,5 @@  # -1,4 a状态从第一行开始向下4行，  +1,5
     b状态从第一行开始向下5行
 
+    git diff --name-only  xx1  xx2 查看两个commit之间那些文件发生了变化
+
 git add -p
 ---
 
