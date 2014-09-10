@@ -93,6 +93,8 @@ pylint代码评估
 
     pylint task.py # 此时启用了插件
 
+    ps: 如果你的~/为root，需要将~/.pylintrc cp到/etc/pylintrc
+
 ipython
 ---
     * store 保存变量，下次直接载入，方便调试
