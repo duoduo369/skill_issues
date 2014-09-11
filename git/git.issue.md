@@ -272,6 +272,25 @@ git blame
     查看某文件每行的修改历史
     git blame [file_name]
 
+git bisect查找那次提交里面有坏代码
+---
+
+    我们从First commit到HEAD进行查找，
+
+    git bisect start
+    git bisect good f608824
+    git bisect bad master
+
+    这三步的意思是告诉bisect从哪个提交开始(f608824)，到哪个提交结束(master)。
+
+    查看这个节点的代码是不是有错误, git bisect good #bad还是good看你的运行结果
+
+    bisect开始运行，它会自动跳到good和bad的提交之间，让你验证这个提交是否错误的提交。若是错误的，输入git bisect bad，否则输入git bisect good，周而复始，直到准确定位到提交。
+
+    18ed2ac1522a014412d4303ce7c8db39becab076 is the first bad commit
+    githug
+    18ed2ac
+
 取消对文件的修改
 ---
     push之前
