@@ -4,15 +4,17 @@ git相关issue
 git书籍
 ---
 
-[learnGitBranching 推荐](http://pcottle.github.io/learnGitBranching/?demo)
+[Pro Git(必看)](http://git.oschina.net/progit/)
 
-[新手入门(推荐)](http://gitimmersion.com/lab_01.html)
+[github通关攻略](http://lingavin.com/githugtong-guan-gong-lue.html)
 
-[pro git](http://git.oschina.net/progit/)
+[learnGitBranching ](http://pcottle.github.io/learnGitBranching/?demo)
 
-[GitBestPractices](http://sethrobertson.github.io/GitBestPractices/)
+[新手入门](http://gitimmersion.com/lab_01.html)
 
 [git-flow备忘清单(只建议看图，不建议用git flow)](http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)
+
+[GitBestPractices](http://sethrobertson.github.io/GitBestPractices/)
 
 zsh增强git
 ---
@@ -173,6 +175,13 @@ git 抓回远程分支
     git pull
     # 上面两不是重点
     git checkout -b 分支名 远程分支名
+
+git 新建分支
+---
+    经常需要在某个点新建分支
+    1. git br 分支名 commit点
+    2. git co commit点
+       git co -b 分支名
 
 git 删除远程分支
 ---
