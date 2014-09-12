@@ -1278,3 +1278,7 @@ wget 支持断点下载的工具
     sudo chown root:root *.ttf
     sudo fc-cache
 
+查看端口
+---
+
+    netstat -ntlp
