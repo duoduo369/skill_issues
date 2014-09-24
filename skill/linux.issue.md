@@ -721,6 +721,17 @@ https://github.com/carlhuda/janus
 / + n
 gf (例如有个井号注释地址 # /home/duoduo/file.js,在# 后的路径按gf，会打开这个文件)
 
+grep
+---
+
+    grep '需要查的词' -ril ./
+    r表示递归，i表示忽略大小写，l表示只列出文件名
+
+    grep '需要查的词' -ril $(find '*py') 查找所有py文件
+
+    grep -e 'aws$' -r ./
+    -e 表示使用正则
+
 grep增强ack
 ---
 
@@ -737,6 +748,8 @@ ps:janus里面已经安装,使用方法:Ack
 ----
 
     ctrl + r
+
+    history | grep 想要的命令
 
 shell 复制和粘贴
 -----
