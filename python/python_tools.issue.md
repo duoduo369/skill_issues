@@ -58,6 +58,8 @@ pip安装
 
     pip freeze > ~/requirements.txt # 导出已将安装的requirements
 
+    pip install -e 指定本地路径
+
 
 PIL 安装
 ---
