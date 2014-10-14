@@ -151,8 +151,11 @@ git diff
 
     git diff --name-only  xx1  xx2 查看两个commit之间那些文件发生了变化
 
-git add -p
+git add -i
 ---
+    进入 git add的交互模式
+    有的时候对于一个文件不想提交所有的更高，只想提交一段, patch(p) 进入patch模式，选择patch的文件，按照提示操作,或者直接 git add -p
+    有时候不小心add了一个文件，revert进入revert模式，选择文件
 
 git commit
 ---
