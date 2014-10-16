@@ -1295,3 +1295,14 @@ wget 支持断点下载的工具
 ---
 
     netstat -ntlp
+
+linux 更新locale
+---
+
+    sudo apt-get install language-pack-en
+    sudo dpkg-reconfigure locales
+
+    add to ~/.zshrc
+
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
