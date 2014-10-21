@@ -407,3 +407,11 @@ ubuntu下直接用包管理器安装 erlang rabbitmq-server
 由于celery启用的守护进程比较多,建议使用supervisor来管理
 supervisor的使用方式可以见 python_tools.issue.md中查看
 
+简单的将log重定向到某文件
+---
+
+    配一下log https://docs.djangoproject.com/en/1.7/topics/logging/
+
+    需要将标准错误重定向到标准输出 2>$1
+
+    ./manage.py runserver 0.0.0.0:11222 >> /var/log/youlog.log 2>&1 &
