@@ -693,3 +693,15 @@ glob2
     >>> import glob2
     >>> all_header_files = glob2.glob('src/**/*.h')
     ['src/fs.h', 'src/media/mp3.h', 'src/media/mp3/frame.h', ...]
+
+
+编码问题
+---
+将已经是unicode的字符串直接搞成str,就是下面的ss去掉前面的u
+
+    s = '\xe6\x9d\xa8\xe6\xb4\x8b'
+    print s ---> 杨洋
+    ss = u'\xe6\x9d\xa8\xe6\xb4\x8b'
+    print ss ---> æ¨æ´
+
+    print ss.encode('raw_unicode_escape').decode('utf-8') --> 杨洋
