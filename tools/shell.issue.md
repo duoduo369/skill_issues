@@ -101,3 +101,10 @@ code style
 下面的命令将项目里面所有的文件按照文件名+内容的方式copy到了pattern.txt中
 
 for f in `ls *py`;do echo $f >> pattern.txt; cat $f >> pattern.txt;done;
+
+
+bash的{}扩展
+---
+{}中使用','分隔会自动扩展
+
+    cp xxx/{a,b} --> cp xxx/a xxx/b
