@@ -646,6 +646,28 @@ graphite的界面实在是不敢恭维，因此很多人为它写UI，这里选�
     ./graph-index.py
 
 
+
+使用logster做日志监控
+---
+日志监控还是需要的，出了nginx的访问日志之外，对于application的异常等等可能也需要监控，这时候使用[logster](https://github.com/duoduo369/logster),就非常方便了，因为他内置了像graphite发metrics的方法，so easy, 这里给了一个我fork的地址，因为我是一个pythoner，logster默认
+的parser有apache等等，但是没有python的，我写了一个，提了一个patch.
+
+安装:
+
+    git clone git@github.com:duoduo369/logster.git
+    cd logster
+    pip install -e ./
+
+用法:
+    logster  --output=graphite --graphite-host=graphite的ip已经端口 你的parser 日志绝对路径
+    logster  --output=graphite --graphite-host=127.0.0.1:2003 PythonLogster /var/log/adx/adxsterr.log
+
+如果你需要自己定制parser,参照`logster/logster/parsers`下的东西写一个就好。
+
+因为logster自带向graphite发metrics,无须向diamond集成(写Collector),只要起一个定时任务即可。
+
+
+
 Finally
 ---
 
