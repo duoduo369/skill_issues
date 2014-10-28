@@ -1299,10 +1299,12 @@ wget 支持断点下载的工具
 linux 更新locale
 ---
 
-    sudo apt-get install language-pack-en
+    sudo apt-get install language-pack-en-base
     sudo dpkg-reconfigure locales
 
     add to ~/.zshrc
 
     export LC_ALL=en_US.UTF-8
     export LANG=en_US.UTF-8
+
+    source ~/.zshrc
