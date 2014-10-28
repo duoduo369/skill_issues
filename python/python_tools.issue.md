@@ -473,6 +473,7 @@ edx-platform/scripts/run_watch_data.py 中的例子
 开局先贴两个文章，值得一读
 
 [很赞的blog](http://www.dongwm.com/archives/shi-yong-grafanahe-diamondgou-jian-graphitejian-kong-xi-tong/)
+
 [另一篇介绍graphite的文章](https://kevinmccarthy.org/blog/2013/07/18/10-things-i-learned-deploying-graphite/)
 
 恩怨
@@ -487,7 +488,7 @@ log的INFO,ERROR频次，nginx网站的访问数量等等，基本是你需要�
 
 [graphite-web](https://github.com/graphite-project/graphite-web) 大部分的安装方式比较简单，都是用pip就可以安装，但是装完后有个坑,
 [文档](http://graphite.readthedocs.org/en/latest/install-pip.html)中说使用`pip install graphite-web`,但是pip中的graphite-web太老了，
-导致有个cairo,库在ubuntu下打死也装不上，在新的源码中此bug已经修复。我已经提了issue[issue 1004](https://github.com/graphite-project/graphite-web/issues/1004)
+导致有个cairo,库在ubuntu下打死也装不上，在新的源码中此bug已经修复。我已经提了[issue 1004](https://github.com/graphite-project/graphite-web/issues/1004)
 
 因为用的graphite-index,直接拿了他的几张图来看最终效果
 
@@ -503,14 +504,17 @@ log的INFO,ERROR频次，nginx网站的访问数量等等，基本是你需要�
 
 文档需要翻墙，因此贴出主要的安装步骤.
 最好安装到python的virtualenv中，具体virtualenv的使用可以参考[这里](https://github.com/duoduo369/skill_issues/blob/master/python/python_tools.issue.md)
-首先，查看graphite-web的[requirements.txt](https://github.com/graphite-project/graphite-web/blob/master/requirements.txt)，发现需要装一些系统的库, `sudo apt-get install libcairo2-dev`
+首先，查看graphite-web的[requirements.txt](https://github.com/graphite-project/graphite-web/blob/master/requirements.txt)，发现需要装一些系统的库, `sudo apt-get install libcairo2-dev`。
+
 
     pip install https://github.com/graphite-project/ceres/tarball/master
     pip install whisper
     pip install carbon
     pip install graphite-web
 
+
 这里我先贴下最终整个系统搭起来后的各个python库版本, 其中logster是一个做日志监控的东西，先`git clone`的本机，然后`pip install -e logster`项目地址即可
+
 
     Django==1.4.8
     Twisted==11.1.0
@@ -549,11 +553,14 @@ graphite有个服务在2003,2004接口上，你的metrics需要扔到2003上，�
 metrics就是类似这样的字符串 前缀.前缀.前缀....... blabala, graphite就是根据这种东西画图的,具体请看文档，不用在意这些细节,
 因为其他的工具都有封装。
 
-1. 启动carbon, metrics会扔到carbon这个小屋里面
+*. 启动carbon, metrics会扔到carbon这个小屋里面
+
 
     /opt/graphite/bin/carbon-cache.py start
 
-2. 制造一些metrics, 更改host，或者server, 这里只是做测试，之后会用diamond来采集metrics
+
+*. 制造一些metrics, 更改host，或者server, 这里只是做测试，之后会用diamond来采集metrics
+
 
     vim /etc/hosts
     添加 127.0.0.1   graphite, 或者其他的东西
@@ -561,7 +568,8 @@ metrics就是类似这样的字符串 前缀.前缀.前缀....... blabala, graph
     python /opt/graphite/examples/example-client.py
     这些数据存在 /opt/graphite/storage/whisper, 尝试修改example-client.py发点不一样的东西
 
-3. 配置并修改graphite-web的几行代码，启动这个django项目
+
+*. 配置并修改graphite-web的几行代码，启动这个django项目
 
     cp /opt/graphite/webapp/graphite/local_settings.py{.example,}
     python /opt/graphite/webapp/graphite/manage.py syncdb
@@ -586,12 +594,16 @@ metrics就是类似这样的字符串 前缀.前缀.前缀....... blabala, graph
 安装
 ---
 
+
     git clone https://github.com/BrightcoveOS/Diamond.git
     cd Diamond
     pip install -e ./
 
+
 配置并启动
 ---
+
+
     cp /etc/diamond/diamond.conf{.example,}
 
     vim /etc/diamond/diamond.conf
@@ -601,6 +613,7 @@ metrics就是类似这样的字符串 前缀.前缀.前缀....... blabala, graph
 
     service diamond restart
 
+
 给graphite换层皮, graphite-index
 ---
 graphite的界面实在是不敢恭维，因此很多人为它写UI，这里选择豆瓣的[graphite-index](https://github.com/douban/graph-index)
@@ -609,21 +622,29 @@ graphite的界面实在是不敢恭维，因此很多人为它写UI，这里选�
 下载
 ---
 
+
     git clone https://github.com/douban/graph-index.git
     cd graph-index
 
+
 配置
 ---
+
+
     vim config.py
     graphite_url天上你graphite的ip已经端口
     graphite_url = 'http://127.0.0.1:12222'
 
+
 更新metrics
 ---
+
+
     ./update-metrics.py
     crontab -e
     */5 * * * * python 绝对路径到/update-metrics.py
     ./graph-index.py
+
 
 当然，如果你熟悉django，可以把graphite, graphite-index人给gunicorn和supervisor,这不是重点，需要的可以参考我github上的[demo](https://github.com/duoduo369/django_supervisor_gunicorn_demo).
 
