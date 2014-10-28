@@ -646,6 +646,9 @@ graphite的界面实在是不敢恭维，因此很多人为它写UI，这里选�
     ./graph-index.py
 
 
+Finally
+---
+
 当然，如果你熟悉django，可以把graphite, graphite-index人给gunicorn和supervisor,这不是重点，需要的可以参考我github上的[demo](https://github.com/duoduo369/django_supervisor_gunicorn_demo).
 
 至于定制你的diamond Collector,监控你想监控的东西，请自己翻阅文档 (继承Collector,重写collect方法),将写好的Collector放在collectors_path下.
