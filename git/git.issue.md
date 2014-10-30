@@ -338,3 +338,7 @@ git  不使用中文
     # Set Git language to English
     #alias git='LC_ALL=en_US git'
     alias git='LC_ALL=en_GB git'
+
+git强切分支
+---
+   git co -f 其他分支
