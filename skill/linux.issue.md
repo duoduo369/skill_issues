@@ -1167,9 +1167,6 @@ chrome安装SwitchySharp
     Ctrl+Shift+Tab    # 切换到上一个标签页
     Ctrl+W or Ctrl+F4 # 关闭当前标签页或窗口
 
-cp all yes
----
-yes | cp -rf xxx yyy
 
 tree
 ---
@@ -1382,3 +1379,31 @@ awk处理列,只记录简单的分割操作，复杂的话还是用python脚本
 
     df 查看磁盘占中
     du -sh * 递归查看各个文件磁盘大小
+
+    ncdu 需要安装先,比du -sh *快
+
+
+yes输入y
+---
+    很多时候(大部分是删除)时会问你y/n
+    yes XXX 会一直打印XXX,默认是y
+    yes | rm -i *.txt
+    yes | cp -rf xxx yyy
+
+
+tail实时打印
+---
+    查log时需要实时查看
+    tail -f XXX.log
+
+cd - 回到刚才的目录
+---
+    在linux下，有的时候cd会不小心cd到家目录，cd -可以直接返回你刚才的目录
+
+查看进程树
+---
+    pstree -p
+
+bash输入命令时删除最后一个词
+---
+    ctrl + w
