@@ -342,3 +342,9 @@ git  不使用中文
 git强切分支
 ---
    git co -f 其他分支
+
+git安装github的项目
+---
+
+    pip install -e git+https://github.com/duoduo369/django-xadmin.git@0.5.1#egg=django-xadmin
+    git+git的地址@版本号#egg=pip里面的名字
