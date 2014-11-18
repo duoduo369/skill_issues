@@ -415,3 +415,32 @@ supervisor的使用方式可以见 python_tools.issue.md中查看
     需要将标准错误重定向到标准输出 2>$1
 
     ./manage.py runserver 0.0.0.0:11222 >> /var/log/youlog.log 2>&1 &
+
+django i18n
+---
+django会从文件中提出`_()`这种需要翻译的东西丢到po文件中，然后翻译后可以讲po编译为mo.
+以中文为例
+
+    # 时区为上海
+    TIME_ZONE = 'Asia/Shanghai'
+    # 默认中文
+    LANGUAGE_CODE = 'zh-CN'
+    # 语言切换只能从下面的列表选择, 这里是英文和中文
+    LANGUAGES = (
+        ('en', 'English'),
+        ('zh-cn', 'Simplified Chinese'),
+    )
+    # po, mo文件地址
+    LOCALE_PATHS = (
+        os.path.join(BASE_DIR, 'locale'),
+    )
+
+需要手动在项目根目录下建立locale文件夹
+
+建立po文件,注意源码中一定要有`from django.utils.translation import ugettext as _`的需要翻译的东西，否则会报错
+
+当没有任何po时 `./manage.py makemessages -l zh_CN`,建立中文po
+
+更新已有po `./manage.py makemessages -a`
+
+根据翻译后的po生成`./manage.py compilemessages`
