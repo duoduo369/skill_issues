@@ -1306,6 +1306,10 @@ linux 更新locale
 
     source ~/.zshrc
 
+    中文
+    sudo apt-get install language-pack-zh-hans-base
+
+
 sed
 ---
 
