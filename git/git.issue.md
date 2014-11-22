@@ -323,14 +323,6 @@ git 和python
 
     pyflakes检查代码语法
 
-github readme添加图片
----
-    例如在 项目spiders master的logo里面有d3.jpg
-    url 使用**raw.github.com**注意raw
-    ![d3](https://raw.github.com/duoduo369/spiders/master/logo/d3.jpg)
-    规则如下
-    ![alt tag](https://raw.github.com/username/projectname/branch/path/to/img.png)
-
 git  不使用中文
 ---
 ~/.zshrc中添加如下
