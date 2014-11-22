@@ -7,7 +7,10 @@ github相关issue
 
 例如查看[skill_issues](https://github.com/duoduo369/skill_issues/stargazers)的star状况
 
+[查看watched状况](https://github.com/duoduo369/skill_issues/watchers)
+
 [github api](https://developer.github.com/v3/activity/starring/)
+
 
 github readme添加图片
 ---
