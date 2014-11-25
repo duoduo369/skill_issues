@@ -756,3 +756,5 @@ setup.py安装脚本, 找个其他项目参考写一下就可以.
     python setup.py register -r pypitest
     发布到pypi
     python setup.py register -r pypi
+
+[version管理](https://packaging.python.org/en/latest/development.html#single-sourcing-the-version-across-setup-py-and-your-project)
