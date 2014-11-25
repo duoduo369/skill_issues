@@ -424,3 +424,12 @@ vim 编译coffeescript
     call pathogen#infect()
     syntax enable
     filetype plugin indent on
+
+替换
+---
+
+vim正则需要括号括起来并且加斜杠转义, &代表匹配到的东西
+
+为每行后面添加,号`'<,'>s/.*/&,/g`
+
+将 abc变为 self.abc = abc `'<,'>s/\(\w\+\)/self.& = &/g`
