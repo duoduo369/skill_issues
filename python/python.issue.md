@@ -705,3 +705,54 @@ glob2
     print ss ---> æ¨æ´
 
     print ss.encode('raw_unicode_escape').decode('utf-8') --> 杨洋
+
+发布package到pypi
+---
+
+首先发布的[官方文档](https://packaging.python.org/en/latest/distributing.html), [setup.py的文档](https://docs.python.org/2/distutils/setupscript.html)
+
+首先请到[testpypi](https://testpypi.python.org/pypi?%3Aaction=register_form)和[pypi](https://pypi.python.org/pypi?%3Aaction=register_form)注册，注意注册后需要去邮箱激活邮件，那时才算注册成功，否则会401的。
+
+testpypi是你正式发布到pypi的一个测试服务器，可以帮你check你是不是可以成功发布。
+
+pypi发布的配置文件如下，需要将他cp到 ~/.pypirc
+
+    [distutils]
+    index-servers =
+        pypi
+        pypitest
+
+    [pypi]
+    repository = https://pypi.python.org/pypi
+    username = <pypi的用户名>
+    password = <pypi的密码 注意这一行可以不加 跑脚本的时候会让你输入密码>
+
+    [pypitest]
+    repository = https://testpypi.python.org/pypi
+    username = <testpypi的用户名>
+    password = <testpypi的密码 注意这一行可以不加 跑脚本的时候会让你输入密码>
+
+package发布时的文件结构，参考这个[脚手架](https://github.com/mapbox/pyskel)
+
+LICENSE可以用[lice](https://github.com/licenses/lice)生成
+
+setup.cfg 是指明你README的
+
+    [metadata]
+    description-file = README.md
+
+requirements.txt是指你项目的依赖
+
+setup.py安装脚本, 找个其他项目参考写一下就可以.
+
+    注意里面的 download_url
+    例如: download_url='https://github.com/duoduo369/django-paginator-plus/archive/v0.1.tar.gz',
+    你需要在你的git里面打个tag, pypi才能找到下载的路径
+
+发布命令
+
+    python setup.py register -r <这是你.pypirc里面配过的东西>
+    发布到pypitest
+    python setup.py register -r pypitest
+    发布到pypi
+    python setup.py register -r pypi
