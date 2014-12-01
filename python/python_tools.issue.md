@@ -680,3 +680,18 @@ Finally
 
     pip install lice
     lice mit > LICENSE # 这里我选择MIT的LICENSE
+
+安装pycurl
+---
+
+    有的时候不能用requests，而需要用curl，pycurl是python的一层封装
+    pycurl安装时如果ssl backend不同会报错
+
+    import pycurl
+
+    ImportError: pycurl: libcurl link-time ssl backend (openssl) is differ
+    ent from compile-time ssl backend (gnutls)
+
+    pip uninstall pycurl
+    export PYCURL_SSL_LIBRARY=openssl
+    pip install pycurl
