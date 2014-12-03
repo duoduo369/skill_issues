@@ -184,9 +184,6 @@ rest api
 一读
 飞碟说
 
-last
-===
-[skill_issues](https://github.com/duoduo369/skill_issues) 本文所记录的工具在这里面基本都有详细的使用说明，以及遇到问题的解决方案,具体代码在我其他的项目中也都有实现，需要的化可以看下。
-
-
-[本文最新地址](https://github.com/duoduo369/skill_issues/blob/master/skill/good_tools.md) 文章放在git上，博客可能不更新，但是git会
+更优雅的使用chrome的插件
+--
+<http://infinitynewtab.com/>
