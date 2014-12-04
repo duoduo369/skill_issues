@@ -119,3 +119,30 @@ view显示的两种方式
           siteUserCollection: new SiteUserCollection
             site_id: params.id
           region: 'main'
+
+gulp
+---
+
+npm install -g gulp
+
+npm install gulp-util
+
+npm install gulp-coffee
+
+gulpfile.js
+
+    var coffee = require('gulp-coffee');
+    var gulp = require('gulp');
+    var gutil = require('gulp-util');
+
+    gulp.task('coffee', function() {
+      gulp.src('./src/*.coffee')
+      .pipe(coffee({bare: true}).on('error', gutil.log))
+      .pipe(gulp.dest('./public/'))
+    });
+
+    gulp.task('default', function() {
+      gulp.run('coffee')
+    });
+
+运行gulp
