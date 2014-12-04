@@ -732,6 +732,8 @@ grep
     grep -e 'aws$' -r ./
     -e 表示使用正则
 
+    grep -n显示行号 这个比较有用
+
 grep增强ack
 ---
 
