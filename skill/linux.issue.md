@@ -1426,3 +1426,11 @@ bash输入命令时删除最后一个词
     curl ifconfig.me
     windows: telnet cip.cc
     telnet win7 win8需要开启 自行百度
+
+使用sz rz传输文件
+---
+
+    sudo apt-get install lrzsz
+    rz -be 从本地传到服务器
+    sz 从服务器下载到本地
+
