@@ -1422,3 +1422,6 @@ bash输入命令时删除最后一个词
 获取外网IP
 ---
     curl ip.cn
+    curl cip.cc
+    windows: telnet cip.cc
+    telnet win7 win8需要开启 自行百度
