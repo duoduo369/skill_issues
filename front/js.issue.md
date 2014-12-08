@@ -146,3 +146,24 @@ gulpfile.js
     });
 
 运行gulp
+
+bower
+---
+
+bower init 引导生成bower.json
+bower install package --save 安装package并且记录到bower.json中
+bower install https://github.com/OwlFonk/OwlCarousel.git#1.3.2 --save 安装github的文件
+--allow-root允许使用root用户安装
+
+js库
+---
+
+在做一些事情的时候总有一些合适的工具
+
+js工具 [underscore](https://github.com/jashkenas/underscore)
+
+做类似手机销售的宣传页 [fullPage.js](https://github.com/alvarotrigo/fullPage.js)
+
+预先加在一些图片 preload js TODO: add url
+
+浏览器检验  现在在github里面搜了下update browser 暂时没实用过 TODO: add url
