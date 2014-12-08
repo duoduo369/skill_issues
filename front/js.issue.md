@@ -164,6 +164,13 @@ js工具 [underscore](https://github.com/jashkenas/underscore)
 
 做类似手机销售的宣传页 [fullPage.js](https://github.com/alvarotrigo/fullPage.js)
 
-预先加在一些图片 preload js TODO: add url
+预先加载一些图片 preload js TODO: add url
 
-浏览器检验  现在在github里面搜了下update browser 暂时没实用过 TODO: add url
+图片加载完成 [imagesloaded](https://github.com/desandro/imagesloaded)
+
+浏览器检验  现在在github里面搜了下update browser 暂时没实用过 TODO: add url, [有一个推荐](http://viamarte.github.io/modernweb/)
+他还有可视化的东西可以选择然后生成js [连接](http://modernizr.com/)
+
+ie 6-8的一些东西 [Respond](https://github.com/scottjehl/Respond)
+
+鼠标的一些js [mousewheel](https://github.com/jquery/jquery-mousewheel)
