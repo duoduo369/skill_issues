@@ -160,9 +160,9 @@ js库
 
 在做一些事情的时候总有一些合适的工具
 
-js工具 [underscore](https://github.com/jashkenas/underscore)
+[一个各种js demo web](http://www.dowebok.com/)
 
-做类似手机销售的宣传页 [fullPage.js](https://github.com/alvarotrigo/fullPage.js)
+js工具 [underscore](https://github.com/jashkenas/underscore)
 
 预先加载一些图片 preload js TODO: add url
 
@@ -174,3 +174,17 @@ js工具 [underscore](https://github.com/jashkenas/underscore)
 ie 6-8的一些东西 [Respond](https://github.com/scottjehl/Respond)
 
 鼠标的一些js [mousewheel](https://github.com/jquery/jquery-mousewheel)
+
+做类似手机销售的宣传页 [fullPage.js](https://github.com/alvarotrigo/fullPage.js)
+
+滚轮动画 [scrollReveal.js](https://github.com/julianlloyd/scrollReveal.js) [WOW.js](https://github.com/matthieua/WOW)
+
+根据滚轮模糊图片 [crossfade.js](https://github.com/mikefowler/crossfade.js)
+
+轮播 实在太多了 [owl.carousel](https://github.com/OwlFonk/OwlCarousel) [owl.carousel2](https://github.com/OwlFonk/OwlCarousel2)
+
+弹出层 [layer](https://github.com/sentsin/layer)
+
+刮彩票等等 橡皮擦 [jQuery.eraser](https://github.com/boblemarin/jQuery.eraser)
+
+三方评论系统 [多说](http://duoshuo.com/)
