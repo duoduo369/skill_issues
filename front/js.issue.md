@@ -158,6 +158,8 @@ bower install https://github.com/OwlFonk/OwlCarousel.git#1.3.2 --save 安装gith
 js库
 ---
 
+[awesome-javascript](https://github.com/sorrycc/awesome-javascript)
+
 在做一些事情的时候总有一些合适的工具
 
 [一个各种js demo web](http://www.dowebok.com/)
