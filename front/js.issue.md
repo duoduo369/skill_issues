@@ -190,3 +190,5 @@ ie 6-8的一些东西 [Respond](https://github.com/scottjehl/Respond)
 刮彩票等等 橡皮擦 [jQuery.eraser](https://github.com/boblemarin/jQuery.eraser)
 
 三方评论系统 [多说](http://duoshuo.com/)
+
+时间轴 [TimelineJS](https://github.com/NUKnightLab/TimelineJS)
