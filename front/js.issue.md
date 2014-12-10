@@ -183,7 +183,7 @@ ie 6-8的一些东西 [Respond](https://github.com/scottjehl/Respond)
 
 根据滚轮模糊图片 [crossfade.js](https://github.com/mikefowler/crossfade.js)
 
-轮播 实在太多了 [owl.carousel](https://github.com/OwlFonk/OwlCarousel) [owl.carousel2](https://github.com/OwlFonk/OwlCarousel2)
+轮播 实在太多了 [owl.carousel](https://github.com/OwlFonk/OwlCarousel) [owl.carousel2](https://github.com/OwlFonk/OwlCarousel2) [unslider](https://github.com/idiot/unslider) [vegas 可以做一个全屏北京效果 有磨砂](https://github.com/jaysalvat/vegas)
 
 弹出层 [layer](https://github.com/sentsin/layer)
 
@@ -192,3 +192,13 @@ ie 6-8的一些东西 [Respond](https://github.com/scottjehl/Respond)
 三方评论系统 [多说](http://duoshuo.com/)
 
 时间轴 [TimelineJS](https://github.com/NUKnightLab/TimelineJS)
+
+进度条 [progress.js](https://github.com/usablica/progress.js/) [pace](https://github.com/HubSpot/pace)
+
+input动画 [fancyInput](https://github.com/yairEO/fancyInput)
+
+select选择 [select2](http://ivaynberg.github.io/select2/)
+
+提示 [tooltipster](https://github.com/iamceege/tooltipster)
+
+延迟加在图片 [echo](https://github.com/toddmotto/echo)
