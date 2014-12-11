@@ -108,3 +108,15 @@ bash的{}扩展
 {}中使用','分隔会自动扩展
 
     cp xxx/{a,b} --> cp xxx/a xxx/b
+
+判断是否存在
+---
+注意if时 [ ]左右都要有空格
+
+判断文件夹
+
+    if [ -d /opt/python_env/duoduo369 ];then
+
+判断文件
+
+    if [ -e /run/duoduo369-supervisord.pid ] ;then
