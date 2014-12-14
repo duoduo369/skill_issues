@@ -202,3 +202,6 @@ select选择 [select2](http://ivaynberg.github.io/select2/)
 提示 [tooltipster](https://github.com/iamceege/tooltipster)
 
 延迟加在图片 [echo](https://github.com/toddmotto/echo)
+
+视差滚动(Parallax Scrolling) [stellar](https://github.com/markdalgleish/stellar.js)
+[一篇时差滚动插件的文章](http://desiznworld.com/2013/07/free-jquery-parallax-scrolling-plugins.html)
