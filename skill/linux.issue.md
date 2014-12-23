@@ -1434,3 +1434,7 @@ bash输入命令时删除最后一个词
     rz -be 从本地传到服务器
     sz 从服务器下载到本地
 
+curl获得网页header信息
+---
+
+    curl -I www.baidu.com
