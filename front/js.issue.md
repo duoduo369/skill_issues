@@ -166,6 +166,8 @@ js库
 
 js工具 [underscore](https://github.com/jashkenas/underscore)
 
+剪切板[jquery.clipboard](https://github.com/valeriansaliou/jquery.clipboard) [zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)
+
 预先加载一些图片 preload js TODO: add url
 
 图片加载完成 [imagesloaded](https://github.com/desandro/imagesloaded)
