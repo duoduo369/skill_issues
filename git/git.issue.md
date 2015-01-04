@@ -16,6 +16,8 @@ git书籍
 
 [GitBestPractices](http://sethrobertson.github.io/GitBestPractices/)
 
+[高富帅们的Git技巧](http://segmentfault.com/blog/news/1190000002448847)
+
 zsh增强git
 ---
     zsh bug
