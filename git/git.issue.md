@@ -259,6 +259,7 @@ git log
 
 git stash
 ---
+
     储藏修改
     git stash
     git stash list 查看stash列表
@@ -270,6 +271,20 @@ git reflog
 ---
 
     git 的引用日志命令
+
+git grep
+---
+
+    在git的历史里面查找某个字符串
+
+    git grep --help查看下 -n显示行号 -F 强制字符串
+
+    git rev-list --all | xargs git grep -F '搜寻的字符串'
+
+git 删除所有已经合并的本地分支
+---
+
+    git branch --merged | xargs git branch -d
 
 git blame
 ---
