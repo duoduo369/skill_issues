@@ -357,3 +357,12 @@ git安装github的项目
 
     pip install -e git+https://github.com/duoduo369/django-xadmin.git@0.5.1#egg=django-xadmin
     git+git的地址@版本号#egg=pip里面的名字
+
+让分支的历史归零
+---
+
+    这个需求是这样的，例如我有一个前端的branch项目, 想根据不同的分支有完全不同的效果(仅通过配置文件,或者很小其他修改)
+
+    这是我想切一个分支出去但是又不想要原来的那些commit
+
+    git checkout --orphan (branch)
