@@ -1237,6 +1237,13 @@ mysql暂时关闭外键
 ---
 SET foreign_key_checks = 0;
 
+mysql修改密码
+---
+
+    mysql -u root -p
+
+　　mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+
 用户相关
 ---
 
