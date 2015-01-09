@@ -18,6 +18,13 @@ git书籍
 
 [高富帅们的Git技巧](http://segmentfault.com/blog/news/1190000002448847)
 
+
+工具
+---
+
+[github的git工具，shell显示分支](https://windows.github.com/)
+[sourcetreeapp](http://www.sourcetreeapp.com/)
+
 zsh增强git
 ---
     zsh bug
