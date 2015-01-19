@@ -695,3 +695,9 @@ Finally
     pip uninstall pycurl
     export PYCURL_SSL_LIBRARY=openssl
     pip install pycurl
+
+生成ignore文件
+---
+[joe](https://github.com/karan/joe)
+
+    joe python

@@ -56,7 +56,7 @@ git 配置
 
     用户名邮箱
     ---
-    git config --global user.name duoduo
+    git config --global user.name duoduo369
     git config --global user.email duoduo3369@gmail.com
 
     https方式长期存储密码：
