@@ -1449,3 +1449,27 @@ curl获得网页header信息
 ---
 
     curl -I www.baidu.com
+
+
+查看服务器连接
+---
+
+> to get a list of the number of connections you have per ip run,
+
+`netstat -nat | awk {'print $5'} | cut -d ':' -f1 | sort | uniq -c | sort -n`
+
+查看TIME_WAIT
+---
+
+`netstat -an | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'`
+
+    TIME_WAIT 814
+    CLOSE_WAIT 1
+    FIN_WAIT1 1
+    ESTABLISHED 634
+    SYN_RECV 2
+    LAST_ACK 1
+
+常用的三个状态是：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
+
+[文章](http://blog.csdn.net/shootyou/article/details/6622226)
