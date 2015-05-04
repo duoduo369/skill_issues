@@ -97,6 +97,9 @@ pylint代码评估
 
     ps: 如果你的~/为root，需要将~/.pylintrc cp到/etc/pylintrc
 
+    pylint升级后root用户有时候找不到配置,可以再zshch里面配置alias
+    pylint --reports=y --load-plugins pylint_django --disable=E1101,R0904,W0142,W0622,R0201,,E1103,E0712
+
 ipython
 ---
     * store 保存变量，下次直接载入，方便调试
