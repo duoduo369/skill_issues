@@ -1,6 +1,8 @@
 
 切换活内豆瓣源
 ---
+
+
     pip 或者easy_install安装的时候会用国外的源，这个
     东西不时会被墙掉，因此换豆瓣的源
 
@@ -12,6 +14,8 @@
 
 virtualenv
 ---
+
+
     http://www.virtualenv.org
     类似虚拟机的一种环境，控制你python安装的好东西
 
@@ -46,6 +50,8 @@ virtualenv
 
 pip安装
 ---
+
+
     requirements.txt里面有一行一行的需要的代码
     # 例如 
     Django==1.6
@@ -64,6 +70,7 @@ pip安装
 PIL 安装
 ---
 
+
     sudo apt-get install libjpeg62 libjpeg62-dev libfreetype6 libfreetype6-dev
     sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
     sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
@@ -80,6 +87,8 @@ ipython -i XXX.py
 
 pylint代码评估
 ---
+
+
     pylint 比pep8要求更高的python代码分析
 
     pip install pylint
@@ -102,6 +111,8 @@ pylint代码评估
 
 ipython
 ---
+
+
     * store 保存变量，下次直接载入，方便调试
 
     In [1]: l = ['hello',10,'world']
@@ -131,12 +142,10 @@ ipython
 
 IPython:
 
-```python
-In [7]: def a():
-...:     """ python docs goes here """
-...:     print 'Hi'
-...:
-```
+    In [7]: def a():
+    ...:     """ python docs goes here """
+    ...:     print 'Hi'
+    ...:
 
 1. `?`, look up the docs
     i.e.
@@ -187,12 +196,15 @@ fabric命令需要在一个module里面,因此在文件夹里需要有__init__.p
 fab 命令默认找此模块下的`fabfile.py文件`,如果没有这个文件需要使用
 -f 指明脚本路径
 
+
     fab_module
       ├── fabfile.py
       ├── fabfile.pyc
       └── __init__.py
 
+
 fabfile.py
+
 
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
@@ -200,10 +212,12 @@ fabfile.py
     def hello():
         print("Hello world!")
 
+
 可以直接`fab hello`,执行fabfile.py里面的hello方法
 如果没有fabfile.py而是有一个hello.py 则`fab hello -f hello.py`
 
 如果有多个参数得话用`,`隔开,可以直接指明参数,例如下面的代码
+
 
     def hello(name='name', say='hi'):
         print("{name} say:{say}".format(name=name, say=say))
@@ -213,7 +227,9 @@ fabfile.py
     fab hello:1,2
     fab hello:1,say=2 # 与python的用法一样，kwarg要在arg后面
 
+
 demo
+
 
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
@@ -250,6 +266,7 @@ demo
         execute(test_local)
         execute(test_remote)
 
+
 supervisor
 ---
 [supervisor中文博客](http://blog.yangyubo.com/2009/05/14/supervisor-introduce/)
@@ -257,7 +274,9 @@ supervisor
 
 supervisor配置文件,[文档](http://supervisord.org/configuration.html)
 
+
     注释用;
+
 
     [unix_http_server]
     file=/home/duoduo/supervisor/supervisor.sock   ; (the path to the socket file)
@@ -289,6 +308,7 @@ supervisor配置文件,[文档](http://supervisord.org/configuration.html)
 
 ####文件结构
 
+
     ├── demo
     │   ├── stderr.log
     │   └── stdout.log
@@ -297,6 +317,7 @@ supervisor配置文件,[文档](http://supervisord.org/configuration.html)
 
 
 ####supervisord.conf
+
 
     [unix_http_server]
     file=%(here)s/supervisor.sock ; (the path to the socket file)
@@ -330,6 +351,7 @@ supervisor配置文件,[文档](http://supervisord.org/configuration.html)
 运行supervisorctl,进入交互模式，输入help可以看到能用的指令
 
 ###另一个长一点的配置文件
+
 
     ; supervisor config file
 
@@ -405,6 +427,7 @@ supervisor配置文件,[文档](http://supervisord.org/configuration.html)
 
 碰到过不止一次了
 
+
   sudo apt-get install libxslt1-dev libxslt1.1 libxml2-dev libxml2 libssl-dev
 
   pip install lxml
@@ -415,6 +438,7 @@ watchdog监管文件变化
 [watchdog](https://github.com/gorakhargosh/watchdog)
 
 edx-platform/scripts/run_watch_data.py 中的例子
+
 
     #! /usr/bin/env python
 
