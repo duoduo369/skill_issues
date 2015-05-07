@@ -442,3 +442,15 @@ recording模式
 q + 任一a~z 例如 q a, 然后你做一些操作，完成后按q, 那么命令都录制在a这里
 
 使用时 @a即可，如果想重复100次，100@a
+
+ctags快速跳转到函数定义
+---
+
+~/.vimrc.after里面添加
+
+    set tags=tags;/
+    #set tags+=/usr/include/c++
+
+然后到项目根目录下执行`ctags -R`
+
+需要调整到方法定义时在方法或者类名上`ctrl+]`，跳回`ctrl+o`
