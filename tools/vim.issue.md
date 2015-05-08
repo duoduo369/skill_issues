@@ -1,9 +1,7 @@
 vim相关issure
 ===
 
-请下载 janus 节省不必要的配置时间
-
-https://github.com/carlhuda/janus
+请下载 [janus](https://github.com/duoduo369/janus) 节省不必要的配置时间
 
 自定义的配置放在~/.vimrc.after里面
 
