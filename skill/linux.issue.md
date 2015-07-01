@@ -1473,3 +1473,19 @@ curl获得网页header信息
 常用的三个状态是：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
 
 [文章](http://blog.csdn.net/shootyou/article/details/6622226)
+
+linux机器之间不输入密码直接ssh
+---
+例如 机器A想ssh到B，并且不输入密码
+
+对于B机器需要:
+
+vim /etc/ssh/sshd_config, 将下面几行的注释去掉
+
+    PubkeyAuthentication yes
+    PubkeyAuthentication no
+    AuthorizedKeysFile     %h/.ssh/authorized_keys
+
+将A机器的公钥 `~/.ssh/id_rsa.pub`里面的东西粘贴到B的 `~/.ssh/authorized_keys`里
+
+B机器重启ssh服务 `service ssh restart`
