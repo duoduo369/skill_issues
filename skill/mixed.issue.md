@@ -11,3 +11,8 @@
     2）(t + 2)^1.5， 这个是时间因子。t 表示当前时间与文章提交时间间隔的小时数。但为什么要加 2 之后再取 1.5 的幂，似乎就没什么道理可言了，也许是个 trial-and-error 的结果吧。
 
 http://www.cnblogs.com/zhengyun_ustc/archive/2010/12/15/amir.html
+
+unix命令行介绍
+---
+
+[the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
