@@ -373,3 +373,8 @@ git安装github的项目
     这是我想切一个分支出去但是又不想要原来的那些commit
 
     git checkout --orphan (branch)
+
+查出两个commit中的所有作者
+---
+
+    git log 上次上线的tag~..这次的commit号 --pretty=format:"%an" | sort | uniq
