@@ -765,3 +765,12 @@ with open两个或者多个文件
 
     with open('a', 'w') as a, open('b', 'w') as b:
         do_something()
+
+Mysql-python==1.2.4安装问题
+===
+
+有的时候装不上 问题是卡在了 distribute这里, 需要一个一个装下面的东西
+
+1. setuptools==0.9.8
+2. distribute==0.6.29
+3. Mysql-python==1.2.4
