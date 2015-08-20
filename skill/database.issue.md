@@ -51,3 +51,9 @@ show tables;
 
 查找
 select * from XXX where xx=xx limit x;
+
+查看mysql使用的是哪个配置文件
+---
+
+whichi mysqld
+/usr/sbin/mysqld --verbose --help | grep -A 1 'Default options'
