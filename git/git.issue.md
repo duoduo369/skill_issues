@@ -331,6 +331,7 @@ git bisect查找那次提交里面有坏代码
     git tag -a v0.1 -m "标签描述 -m和描述可以不写"
     git push origin v0.1  # 手动push标签才可以push到服务器
     git push origin --tags # push所有标签
+    git push origin :refs/tags/tag名字 # 删除远端tag
 
 git自带web
 ---
