@@ -1235,7 +1235,7 @@ tree
 
 .tar.gz 和 .tgz
 解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
+压缩：tar zcvf FileName.tar.gz DirName // 压缩参数加上 p可以保持权限，解压后cp -p可以保持权限不变
 
 mysql暂时关闭外键
 ---
