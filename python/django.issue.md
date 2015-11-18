@@ -444,3 +444,12 @@ django会从文件中提出`_()`这种需要翻译的东西丢到po文件中，�
 更新已有po `./manage.py makemessages -a`
 
 根据翻译后的po生成`./manage.py compilemessages`
+
+Beautiful Code in Django
+---
+
+* Fat Models, Utility Modules, Thin Views, Stupid Templates
+* 变量balance_sheet_decrease 而不是bsd或者bal_s_d
+* import 按照 1.标准库 2.django库 3.三方库 4.本地app模块的顺序导入
+
+

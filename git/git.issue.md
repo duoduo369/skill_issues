@@ -127,6 +127,9 @@ git ssh_key 用xclip粘贴
     alias xclip='xclip -selection clipboard'
     cat ~/.ssh/id_rsa.pub | xclip
 
+    mac 使用
+    pbcopy < ~/.ssh/id_rsa.pub
+
 
 把master移动到HEAD
 ---

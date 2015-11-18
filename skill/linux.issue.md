@@ -1489,3 +1489,5 @@ vim /etc/ssh/sshd_config, 将下面几行的注释去掉
 将A机器的公钥 `~/.ssh/id_rsa.pub`里面的东西粘贴到B的 `~/.ssh/authorized_keys`里
 
 B机器重启ssh服务 `service ssh restart`
+
+mac方法: http://www.zhihu.com/question/30640159
