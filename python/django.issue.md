@@ -452,4 +452,8 @@ Beautiful Code in Django
 * 变量balance_sheet_decrease 而不是bsd或者bal_s_d
 * import 按照 1.标准库 2.django库 3.三方库 4.本地app模块的顺序导入
 
+class里面method怎么打装饰器
+---
+一个正常的装饰器是需要用method_decorator才能打在class上的
+from django.utils.decorators import method_decorator
 
