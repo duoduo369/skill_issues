@@ -137,6 +137,12 @@ celery beat
 
 Real-time monitor and web admin for Celery distributed task queue.
 
+./manage.py celery flower --port=5555
+
+有的时候需要某个特定的版本
+https://github.com/mher/flower/issues/282
+flower==0.7.3 tornado==3.2.2
+
 启用rabbitmq的可视化管理页面
 ---
     rabbitmq-plugins list
