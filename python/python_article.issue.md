@@ -14,3 +14,5 @@ python资源|文章
 [Django中内置的权限控制 共5篇](http://www.cnblogs.com/esperyong/archive/2012/12/20/2825909.html)
 
 [学习脚本 python_koans](https://github.com/gregmalcolm/python_koans)
+
+[xss等漏洞](http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90)
