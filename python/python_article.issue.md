@@ -16,3 +16,5 @@ python资源|文章
 [学习脚本 python_koans](https://github.com/gregmalcolm/python_koans)
 
 [xss等漏洞](http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90)
+
+[python富文本xss漏洞的一个解决方案](https://github.com/phith0n/python-xss-filter)
