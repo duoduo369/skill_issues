@@ -187,3 +187,14 @@ rest api
 更优雅的使用chrome的插件
 --
 <http://infinitynewtab.com/>
+
+局域网打洞微信测试
+---
+ngrok 注意用1.x版本
+
+例如 ittun.com的服务, 有个ngrok.conf
+
+    server_addr: "ittun.com:44433"
+    trust_host_root_certs: false
+
+./ngrok -config=ngrok.conf -subdomain=自定义的二级域名 80
