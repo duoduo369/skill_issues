@@ -1491,3 +1491,9 @@ vim /etc/ssh/sshd_config, 将下面几行的注释去掉
 B机器重启ssh服务 `service ssh restart`
 
 mac方法: http://www.zhihu.com/question/30640159
+
+xshell中文乱码
+---
+
+在Xshell中[file]-> [open] -> 在打开的session中选择连接的那个，点击properties ->[Terminal]，在右边translation中选择UTF-8，再重新连接服务器即可。
+[原文](http://blog.csdn.net/choice_jj/article/details/8020278)
