@@ -17,6 +17,23 @@ http://npm.taobao.org/
 
 https://github.com/WINTR/gulp-frontend-scaffold
 
+install
+---
+
+    cnpm install -g gulp bower
+    git clone https://github.com/WINTR/gulp-frontend-scaffold.git && cd gulp-frontend-scaffold
+    cnpm install # 然而这个项目并不好用，里面有的东西无法安装了，我fork了一份重新装了一下
+    # https://github.com/duoduo369/gulp-frontend-scaffold,
+    # 由于有的时候npm bower会很慢，所以直接把bower npm装的东西丢到git了
+    cnpm cache clean -f
+    cnpm install -g n
+    n stable
+
+用法看Readme有介绍, 大体贴两条
+
+* For development: `gulp dev` then navigate to http://localhost:3000 (or IP address).
+* For deploy: `gulp build`
+
 跟着文件学习
 
 gulpfile.coffee
@@ -256,3 +273,33 @@ gulp.tasks.server
     Port 35729 is already in use by another process
 
     https://github.com/toddmotto/fireshell/issues/39
+
+gulp.tasks.watch
+---
+
+> 开发的时候文件变更马上编译 自动reload什么的
+
+    gulp      = require 'gulp'
+    plugins   = require('gulp-load-plugins')()
+    config    = require "../config.coffee"
+
+    #--------------------------------------------------------
+    # Watch for changes and reload
+    #--------------------------------------------------------
+
+    gulp.task "watch", ->
+      gulp.watch "#{config.sourcePath}/#{config.cssDirectory}/**/*.{styl,sass,scss,css}", ["stylesheets"]
+      gulp.watch "#{config.sourcePath}/#{config.imagesDirectory}/**/*", ["copy-images"]
+      gulp.watch "#{config.sourcePath}/#{config.jsDirectory}/**/*.{coffee,js}", ["javascripts"]
+      gulp.watch "bower.json", ["bower"]
+
+      plugins.livereload.listen()
+
+      gulp.watch "#{config.publicPath}/**/*", (e) ->
+        plugins.livereload.changed(e.path)
+
+      return
+
+[gulp.watch](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb): 监控文件，并且在文件变化时执行哪些task
+
+[gulp-livereload](https://github.com/vohof/gulp-livereload): 修改后不用刷新浏览器自动加载
