@@ -492,3 +492,17 @@ django单测让request过middleware
             # process and test the request
             response = cheese_flavors(request)
             self.assertContains(response, "bleah!")
+
+
+django1.8的bug
+---
+
+django 1.8.8有个严重的bug
+当你第一次migrate的时候，由于没有user表其他有user外键的表先跑会抛异常
+
+    django.db.utils.IntegrityError: (1215, 'Cannot add foreign key constraint')
+
+需要先跑auth的migrate
+
+  python manage.py migrate auth
+  python manage.py migrate
