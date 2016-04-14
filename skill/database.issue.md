@@ -57,3 +57,9 @@ select * from XXX where xx=xx limit x;
 
 whichi mysqld
 /usr/sbin/mysqld --verbose --help | grep -A 1 'Default options'
+
+
+mongo可视化工具
+---
+
+https://robomongo.org
