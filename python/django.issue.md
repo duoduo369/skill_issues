@@ -506,3 +506,21 @@ django 1.8.8有个严重的bug
 
   python manage.py migrate auth
   python manage.py migrate
+
+更新上面说的话，其实并不是，需要全部先makemigration一次就好了
+
+
+继承抽象类后修改某个字段
+----
+
+    class BaseMessage(models.Model):
+        is_public = models.BooleanField(default=False)
+        # some more fields...
+
+        class Meta:
+            abstract = True
+
+    class Message(BaseMessage):
+        # some fields...
+    Message._meta.get_field('is_public').default = True
+
