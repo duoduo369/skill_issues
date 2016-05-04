@@ -76,3 +76,24 @@ nginx内部使用，一般做跳转.
         proxy_set_header   X-Real-IP        $remote_addr;
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
     }
+
+
+缩略图
+---
+
+使用try_file，找不到缩略图的时候给原图
+
+
+    root /data/public;
+
+    location @bbs_thumbnail_rewrite {
+      rewrite ^/bbs/(.*)_thumbnail(.*)$ /bbs/$1$2 last;
+    }
+
+    location ~ ^/bbs/(?P<file>.*) {
+      try_files /bbs/$file @bbs_thumbnail_rewrite;
+    }
+
+    location ~ ^/(?P<file>.*) {
+      root /data/public;-
+    }
