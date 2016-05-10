@@ -524,3 +524,20 @@ django 1.8.8有个严重的bug
         # some fields...
     Message._meta.get_field('is_public').default = True
 
+
+south migrate的默认值问题
+----
+
+当你添加一列并且设置default的时候，如果多台机器上线会出问题，因为django
+处理default是用python的方式做的，而不是数据表上有这个default
+
+例如, 下面是south migration一个脚本的一行，他是添加了floor_number并且设置默认值为0
+
+      db.add_column('bbs_comment', 'floor_number',
+                    self.gf('django.db.models.fields.PositiveIntegerField')(default=0),
+                    keep_default=False)
+
+执行后发现mysql的列里面floor_number并没有默认值，多台机器上线时未上线机器用到这张表存记录的
+时候会报错。
+
+解决方案 `keep_default=True`,会给数据库设置默认值
