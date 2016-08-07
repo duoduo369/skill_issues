@@ -541,3 +541,7 @@ south migrate的默认值问题
 时候会报错。
 
 解决方案 `keep_default=True`,会给数据库设置默认值
+
+django date字段 跟python字段相减
+---
+TypeError: can't subtract offset-naive and offset-aware datetimes
