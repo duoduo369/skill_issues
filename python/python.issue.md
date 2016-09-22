@@ -774,3 +774,8 @@ Mysql-python==1.2.4安装问题
 1. setuptools==0.9.8
 2. distribute==0.6.29
 3. Mysql-python==1.2.4
+
+flake8
+===
+
+flake8的配置是放在 `~/.config/flake8`这个位置的，尴尬的是一开始加了`.`
