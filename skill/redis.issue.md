@@ -19,9 +19,21 @@ redis不是关系型的数据库，但是可以通过某些命名规则在当做
 
     类名:id --> 来创建对应的集合
 
+zrange切片
+---
+
+[文档](http://redis.io/commands/zrange)
+
+[文档](http://www.runoob.com/redis/sorted-sets-zrange.html)
+
+ZRANGE key start stop [WITHSCORES]
+[start:stop] 例如 0 2取出3个元素，闭区间，负数时则表示倒数第几个元素
+逆序用 ZREVRANGE
+
 scan遍历元素
 ---
-[scan](http://redis.io/commands/scan)
+[文档](http://redis.io/commands/scan)
+
 类似命令: SSCAN, HSCAN, ZSCAN
 
 sscan每次执行会返回两个值, 一个时下次scan的cursor位置，一个时这次scan到接结果

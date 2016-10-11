@@ -728,3 +728,73 @@ Finally
 [joe](https://github.com/karan/joe)
 
     joe python
+
+
+buildout
+---
+
+[buildout](https://github.com/buildout/buildout)
+另一种管理python环境的方式(virtualenv), 有编译的一些操作，可以生成命令
+[文章](https://lxneng.com/posts/192)
+
+以[文档](http://www.buildout.org/en/latest/docs/usecase_singlemod.html)为例
+
+执行完bin/buildout后会有下面的目录
+
+```
+├── CHANGES.txt
+├── LICENSE.txt
+├── Makefile
+├── PKG-INFO
+├── README.txt
+├── TODO.txt
+├── bin
+├── bootstrap.py
+├── buildout.cfg
+├── develop-eggs
+├── eggs
+├── ez_setup.py
+├── ez_setup.pyc
+├── parts
+├── setup.cfg
+├── setup.py
+└── src
+```
+
+buildout.cfg, 可以看到定义的`parts=`,可以定义下面的配置段儿
+```
+[buildout]
+develop = .
+parts =
+  xprompt
+  test
+
+[xprompt]
+recipe = zc.recipe.egg:scripts
+eggs = xanalogica.tumbler
+interpreter = xprompt
+
+[test]
+recipe = zc.recipe.testrunner
+eggs = xanalogica.tumbler
+```
+
+全新项目
+```
+cd newproject
+buildout init
+wget -O bootstrap.py https://bootstrap.pypa.io/bootstrap-buildout.py
+python bootstrap.py
+
+vim buildout.cfg
+将下面的东西加到 [buildout] 段, 可以新建一个versions.cfg来做以前pip时requirements.txt的作用
+
+    show-picked-versions=true
+    extends = versions.cfg
+    update-versions-file = versions.cfg
+    versions = versions
+
+vim versions.cfg
+[versions]
+ipython = 5.1.0
+```
