@@ -12,6 +12,12 @@
 
 http://www.cnblogs.com/zhengyun_ustc/archive/2010/12/15/amir.html
 
+基于赞成票，反对票的投票算法
+---
+基于用户投票的排名算法（五）：威尔逊区间
+
+http://www.oschina.net/question/12_45051?sort=time&p=1
+
 unix命令行介绍
 ---
 
