@@ -398,6 +398,11 @@ python解析
     c = {i for i,j in enumerate(range(5))}
     ==> set([0, 1, 2, 3, 4])
 
+filter为真的list
+----
+
+    filter(None, [0,1,2,3,None,4,False]) == [1, 2, 3, 4]
+
 
 property
 ---
