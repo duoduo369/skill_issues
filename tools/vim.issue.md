@@ -323,6 +323,26 @@ https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets
                 )ENGINE=InnoDB; ''' 
             ${0}
 
+
+log print 调试
+
+    snippet le
+        logging.error(${0:msg})
+
+    # conflict with lambda=ld, therefor we change into Logger.debuG
+    snippet lg
+        import logging
+
+    snippet lw
+        logging.warning(${0:msg})
+
+    snippet lc
+        logging.critical(${0:msg})
+
+    snippet li
+        logging.info(${0:msg})
+
+
 单词大小写转化
 ---
     1.选中单词 ctrl + v  w 

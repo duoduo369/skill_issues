@@ -1497,3 +1497,11 @@ xshell中文乱码
 
 在Xshell中[file]-> [open] -> 在打开的session中选择连接的那个，点击properties ->[Terminal]，在右边translation中选择UTF-8，再重新连接服务器即可。
 [原文](http://blog.csdn.net/choice_jj/article/details/8020278)
+
+录制shell
+---
+http://showterm.io/
+
+处理json
+---
+[jq](https://stedolan.github.io/jq/)
