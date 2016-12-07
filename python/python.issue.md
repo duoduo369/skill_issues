@@ -788,3 +788,17 @@ flake8
 ===
 
 flake8的配置是放在 `~/.config/flake8`这个位置的，尴尬的是一开始加了`.`
+
+
+时间戳
+---
+
+有些地方时间存储是用时间戳来做的,查数据的时候经常需要转换，贴在这倒是复制粘贴替换即可
+
+```
+import time
+from datetime import datetime
+time.mktime(datetime(2016, 9, 1).timetuple())
+# 时间戳转为日期
+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(1480571811))
+```

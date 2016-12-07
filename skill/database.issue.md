@@ -63,3 +63,11 @@ mongo可视化工具
 ---
 
 https://robomongo.org
+
+
+用explain语法分析mysql语句执行，看是否能命中缓存等
+---
+就是在正常的sql前面加上explain即可
+
+https://www.sitepoint.com/using-explain-to-write-better-mysql-queries/
+
