@@ -802,3 +802,9 @@ time.mktime(datetime(2016, 9, 1).timetuple())
 # 时间戳转为日期
 time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(1480571811))
 ```
+
+
+exception 带错误堆栈
+---
+
+`logging.error(e, exc_info=True)`
