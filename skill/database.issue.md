@@ -71,3 +71,26 @@ https://robomongo.org
 
 https://www.sitepoint.com/using-explain-to-write-better-mysql-queries/
 
+
+海量数据时offset limit的问题
+----
+即使字段加索引，如果select多个字段时offset依然会很慢，需要分两步走
+先把id查出来，然后根据id用in查属性，这是因为id会命中一些filesort
+例如
+
+```
+select a.id, a.attr1, a.attr2 from my_table as a
+where a.attr1 = 'xx'
+limit 25000000, 10
+```
+
+```
+select a.id from my_table as a
+where a.attr1 = 'xx'
+limit 25000000, 10
+
+select a.id, a.attr1, a.attr2 from my_table as a
+where a.id in (刚刚查出来的)
+```
+
+
