@@ -6,3 +6,5 @@ star后并没有一个注释的功能，很多项目mark就忘记了
 
 
 [html清洗，第一眼让我想起了zhihu的ztext](https://github.com/mozilla/bleach)
+
+[python可以更好的查看异常](https://github.com/Qix-/better-exceptions)

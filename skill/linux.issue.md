@@ -1445,6 +1445,11 @@ bash输入命令时删除最后一个词
     rz -be 从本地传到服务器
     sz 从服务器下载到本地
 
+
+mac需要配置，方法可以百度 mac rzbe
+
+https://github.com/mmastrac/iterm2-zmodem
+
 curl获得网页header信息
 ---
 
