@@ -1510,3 +1510,15 @@ http://showterm.io/
 处理json
 ---
 [jq](https://stedolan.github.io/jq/)
+
+https://stedolan.github.io/jq/manual/#Basicfilters
+
+    {
+        data: [{
+            'metioin_me': 0
+        }]
+    }
+
+jq '.data[0].mention_me'
+
+jq '.data | length'
