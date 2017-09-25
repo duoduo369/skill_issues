@@ -545,3 +545,18 @@ south migrate的默认值问题
 django date字段 跟python字段相减
 ---
 TypeError: can't subtract offset-naive and offset-aware datetimes
+
+
+django 请求多个同名 key 的问题
+----
+
+QueryDict 由于是用 MultiValueDict 实现的，当同名 param 传递多次时，使用 getlist 可以取出来
+```
+    >>> d = MultiValueDict({'name': ['Adrian', 'Simon'], 'position': ['Developer']})
+    >>> d['name']
+    'Simon'
+    >>> d.getlist('name')
+    ['Adrian', 'Simon']
+    >>> d.getlist('doesnotexist')
+    []
+```
