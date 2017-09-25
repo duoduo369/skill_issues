@@ -808,3 +808,9 @@ exception 带错误堆栈
 ---
 
 `logging.error(e, exc_info=True)`
+
+
+程序退出执行某个方法
+---
+用 atexit 的 register 方法
+import atexit
