@@ -560,3 +560,49 @@ QueryDict 由于是用 MultiValueDict 实现的，当同名 param 传递多次�
     >>> d.getlist('doesnotexist')
     []
 ```
+
+手写 django migration
+---
+
+[文档](https://docs.djangoproject.com/en/1.11/ref/migration-operations/#runpython)
+
+[demo](https://github.com/edx/edx-val/blob/master/edxval/migrations/0002_data__default_profiles.py)
+
+
+    # -*- coding: utf-8 -*-
+    from __future__ import unicode_literals
+
+    from django.db import migrations, models
+
+
+    DEFAULT_PROFILES = [
+        "desktop_mp4",
+        "desktop_webm",
+        "mobile_high",
+        "mobile_low",
+        "youtube",
+    ]
+
+
+    def create_default_profiles(apps, schema_editor):
+        """ Add default profiles """
+        Profile = apps.get_model("edxval", "Profile")
+        for profile in DEFAULT_PROFILES:
+            Profile.objects.get_or_create(profile_name=profile)
+
+
+    def delete_default_profiles(apps, schema_editor):
+        """ Remove default profiles """
+        Profile = apps.get_model("edxval", "Profile")
+        Profile.objects.filter(profile_name__in=DEFAULT_PROFILES).delete()
+
+
+    class Migration(migrations.Migration):
+
+        dependencies = [
+            ('edxval', '0001_initial'),
+        ]
+
+        operations = [
+            migrations.RunPython(create_default_profiles, delete_default_profiles),
+        ]
