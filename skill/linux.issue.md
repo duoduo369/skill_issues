@@ -1522,3 +1522,25 @@ https://stedolan.github.io/jq/manual/#Basicfilters
 jq '.data[0].mention_me'
 
 jq '.data | length'
+
+unix /etc/passwd 解释
+---
+
+[wiki](https://en.wikipedia.org/wiki/Passwd#Password_file)
+jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/jsmith:/bin/sh
+
+* User name: the string a user would type in when logging into the operating system: the logname. Must be unique across users listed in the file.
+* Information used to validate a user's password; in most modern uses, this field is usually set to "x" (or "*", or some other indicator) with the actual password information being stored in a separate shadow password file. On Linux systems, setting this field to an asterisk ("*") is a common way to disable direct logins to an account while still preserving its name, while another possible value is "*NP*" which indicates to use an NIS server to obtain the password.[2] Without password shadowing in effect, this field would typically contain a cryptographic hash of the user's password (in combination with a salt).
+* user identifier number, used by the operating system for internal purposes. It need not be unique.
+* group identifier number, which identifies the primary group of the user; all files that are created by this user may initially be accessible to this group.
+* Gecos field, commentary that describes the person or account. Typically, this is a set of comma-separated values including the user's full name and contact details.
+* Path to the user's home directory.
+* Program that is started every time the user logs into the system. For an interactive user, this is usually one of the system's command line interpreters (shells).
+
+
+所以最后一个东西是用户登录后执行的玩意儿，一般为各种 shell 例如`/bin/bsh、/bin/zsh`
+但是还有 `/usr/sbin/nologin、/bin/false` 这些东西
+[这个回答](https://serverfault.com/questions/519215/what-is-the-difference-between-sbin-nologin-and-bin-false)
+解释了一堆，简单说就是 nologin 会打一个信息，false 则啥事儿不干
+
+
