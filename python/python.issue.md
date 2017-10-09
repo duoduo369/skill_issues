@@ -814,3 +814,9 @@ exception 带错误堆栈
 ---
 用 atexit 的 register 方法
 import atexit
+
+查询一个对象是否可以迭代
+---
+
+    from collections import Iterable
+    isinstance(x, Iterable)
