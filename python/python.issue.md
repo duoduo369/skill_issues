@@ -847,3 +847,26 @@ python calendar 日期转化
         "Gregorian calendar date for the given ISO year, week and day"
         year_start = iso_year_start(iso_year)
         return year_start + datetime.timedelta(days=iso_day-1, weeks=iso_week-1)
+
+分段遍历 list
+---
+
+一段超级常用的代码
+
+    def iter_items(items, interval):
+      """
+
+      :param items: 要遍历的集合
+      :param interval: 每次遍历的元素的数量
+      :return:
+      """
+      if interval < 1:
+          return
+
+      start = 0
+      items_len = len(items)
+      while True:
+          if start >= items_len:
+              break
+          yield items[start:start + interval]
+          start += interval
