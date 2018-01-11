@@ -606,3 +606,15 @@ QueryDict 由于是用 MultiValueDict 实现的，当同名 param 传递多次�
         operations = [
             migrations.RunPython(create_default_profiles, delete_default_profiles),
         ]
+
+django orm使用 in 的顺序排序 order by with in
+---
+
+https://chriskief.com/2015/01/13/sort-django-query-order-by-using-values-within-in/
+
+    In [46]: ids=[3,2,1,5]
+
+    In [47]: users =User.objects.filter(id__in=ids).extra(
+        ...:     select={'manual': 'FIELD(id,%s)' % ','.join(map(str, ids))},
+        ...:     order_by=['manual']
+    ...: )
