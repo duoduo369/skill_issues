@@ -1241,12 +1241,18 @@ mysql暂时关闭外键
 ---
 SET foreign_key_checks = 0;
 
-mysql修改密码
+mysql修改密码 mysql创建用户
 ---
 
     mysql -u root -p
 
-　　mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+    mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+
+    CREATE USER 'username'@'%' IDENTIFIED BY '123456';
+    GRANT ALL ON databasename.tablename TO 'username'@'host';
+    flush privileges;
+
+    GRANT ALL ON databasename.* TO 'saas'@'%';
 
 用户相关
 ---
