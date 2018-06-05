@@ -618,3 +618,25 @@ https://chriskief.com/2015/01/13/sort-django-query-order-by-using-values-within-
         ...:     select={'manual': 'FIELD(id,%s)' % ','.join(map(str, ids))},
         ...:     order_by=['manual']
     ...: )
+
+单表支持emoji
+---
+utf8mb4
+
+https://exana.io/community/a-helping-hand/2016/08/23/django-utf8mb4-selected-columns.html
+```
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('message', '0003_auto_20180508_2235'),
+    ]   
+
+    operations = [ 
+        migrations.RunSQL(
+                sql = [ 
+                    'ALTER TABLE message_messagecontent MODIFY content longtext CHARSET utf8mb4 COLLATE utf8mb4_unicode_ci'
+                ],  
+            reverse_sql=['ALTER TABLE message_messagecontent MODIFY content longtext']
+        )
+    ]
+```
