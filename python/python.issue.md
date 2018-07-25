@@ -870,3 +870,7 @@ python calendar 日期转化
               break
           yield items[start:start + interval]
           start += interval
+
+gevent 安装
+---
+pip install --upgrade setuptools
