@@ -51,6 +51,22 @@ virtualenv
     参考自
     http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
+virtualenvwrapper
+===
+
+sudo pip install virtualenvwrapper
+
+vim ~/.zshrc
+
+    export WORKON_HOME=~/venv
+    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python"
+    source /usr/local/bin/virtualenvwrapper.sh
+
+即使之前 ~/venv下建立了对应的virtualenv也没关系,执行下面的命令会补全部分脚本
+
+mkvirtualenv your_venv_name
+workon your_venv_name
+
 pip安装
 ---
 
