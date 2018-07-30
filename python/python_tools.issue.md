@@ -97,6 +97,12 @@ PIL 安装
 
     pip install PIL  --allow-unverified PIL --allow-all-external
 
+pip 在zsh下tab补全
+---
+
+pip completion --zsh >> ~/.zprofile
+source ~/.zprofile
+
 
 用交互模式执行脚本
 ---
