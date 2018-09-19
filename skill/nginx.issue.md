@@ -97,3 +97,11 @@ nginx内部使用，一般做跳转.
     location ~ ^/(?P<file>.*) {
       root /data/public;-
     }
+
+
+多域名配置导致www配置失效的问题
+---
+主域添加 default_server
+
+listen 80 default_server;
+listen [::]:80 default_server;
