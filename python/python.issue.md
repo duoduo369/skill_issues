@@ -874,3 +874,11 @@ python calendar 日期转化
 gevent 安装
 ---
 pip install --upgrade setuptools
+
+supervisor更新配置
+----
+conf文件更新后需要执行
+
+reread, 然后执行update, 这样不需要重启进程
+
+直接执行reload也可以，不过需要重启进程
