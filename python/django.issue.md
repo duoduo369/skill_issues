@@ -619,6 +619,16 @@ https://chriskief.com/2015/01/13/sort-django-query-order-by-using-values-within-
         ...:     order_by=['manual']
     ...: )
 
+上面的方法在单测时可能比较麻烦，提供内存排序的方法
+
+def get_result_in_query_order(query_set, query_ids, query_key='id'):
+    mapper = {getattr(each, query_key):each for each in query_set}
+    result = []
+    for _id in query_ids:
+        if _id in mapper:
+            result.append(mapper[_id])
+    return result
+
 单表支持emoji
 ---
 utf8mb4
