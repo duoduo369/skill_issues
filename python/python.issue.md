@@ -718,7 +718,13 @@ glob2
 
 首先请到[testpypi](https://testpypi.python.org/pypi?%3Aaction=register_form)和[pypi](https://pypi.python.org/pypi?%3Aaction=register_form)注册，注意注册后需要去邮箱激活邮件，那时才算注册成功，否则会401的。
 
+
+https://packaging.python.org/guides/using-testpypi/
+
+https://packaging.python.org/guides/migrating-to-pypi-org/
+
 testpypi是你正式发布到pypi的一个测试服务器，可以帮你check你是不是可以成功发布。
+
 
 pypi发布的配置文件如下，需要将他cp到 ~/.pypirc
 
@@ -733,7 +739,7 @@ pypi发布的配置文件如下，需要将他cp到 ~/.pypirc
     password = <pypi的密码 注意这一行可以不加 跑脚本的时候会让你输入密码>
 
     [pypitest]
-    repository = https://testpypi.python.org/pypi
+    repository = https://test.pypi.org/legacy/
     username = <testpypi的用户名>
     password = <testpypi的密码 注意这一行可以不加 跑脚本的时候会让你输入密码>
 
@@ -756,11 +762,17 @@ setup.py安装脚本, 找个其他项目参考写一下就可以.
 
 发布命令
 
-    python setup.py register -r <这是你.pypirc里面配过的东西>
+    2018年12月7日发现发布方式变了，需要使用 twine
+    pip install twine
+
+    将你的包编译
+    python setup.py sdist bdist_wheel
+
     发布到pypitest
-    python setup.py register -r pypitest
+    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
     发布到pypi
-    python setup.py register -r pypi
+    twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
 还有一种方式
 
