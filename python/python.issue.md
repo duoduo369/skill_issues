@@ -894,3 +894,12 @@ conf文件更新后需要执行
 reread, 然后执行update, 这样不需要重启进程
 
 直接执行reload也可以，不过需要重启进程
+
+
+celery 版本问题
+----
+celery==3.1.25对 gevent 有依赖 bug
+需要首先
+pip install celery[gevent] zsh 的话pip install celery\[gevent\]
+然后
+pip install gevent<1.3 zsh 的话 pip install gevent\<1.3
