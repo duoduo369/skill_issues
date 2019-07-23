@@ -1550,3 +1550,10 @@ jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8910,(234)555-0044,email:/home/j
 解释了一堆，简单说就是 nologin 会打一个信息，false 则啥事儿不干
 
 
+sql pro 多跳板机链接
+---
+ssh -L 9906:0.0.0.0:9906 ubuntu@跳板机1
+ssh -L 9906:生产mysql服务器ip:3306 ubuntu@跳板机2
+
+然后mysql 客户端把 mysql 链接配置配好即可 mysql -h127.0.0.1 -P 9906 -uhermes -p
+注意 shell 要开着, 可以 -g -f -N 后台执行或者双 tmux 解决
