@@ -93,4 +93,7 @@ select a.id, a.attr1, a.attr2 from my_table as a
 where a.id in (刚刚查出来的)
 ```
 
+创建 utf8 数据库
+---
 
+    CREATE DATABASE IF NOT EXISTS yourdbname DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
