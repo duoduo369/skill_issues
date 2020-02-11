@@ -22,3 +22,9 @@ unix命令行介绍
 ---
 
 [the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
+
+
+google搜索某站点内容
+---
+Google输入 site:站点域名 xxx 值得你拥有
+
