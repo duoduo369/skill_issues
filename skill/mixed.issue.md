@@ -28,3 +28,23 @@ google搜索某站点内容
 ---
 Google输入 site:站点域名 xxx 值得你拥有
 
+
+macos 升级导致git不可用
+---
+
+    xcode-select --install
+    xcode-select: note: install requested for command line developer tools
+
+
+macos 升级后导致 vagrant不可用
+----
+
+    1. 去vagrant官网下载最新vagrant重新安装
+    2. 去virtualbox官网下载最新virtualbox重新安装
+    3. 启动vagrant他会让跟新插件
+    4. vagrant up
+
+    如果不行可能要执行下面的
+    * vagrant plugin install vagrant-vbguest
+    找到之前的box文件重新添加 vagrant box add def devstack.box
+
