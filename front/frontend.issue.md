@@ -303,3 +303,63 @@ gulp.tasks.watch
 [gulp.watch](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpwatchglob--opts-tasks-or-gulpwatchglob--opts-cb): 监控文件，并且在文件变化时执行哪些task
 
 [gulp-livereload](https://github.com/vohof/gulp-livereload): 修改后不用刷新浏览器自动加载
+
+
+MAC升级Nodejs和Npm到最新版
+---
+https://www.jianshu.com/p/71c82fc63522
+
+第一步，先查看本机node.js版本：
+
+node -v
+
+第二步，清除node.js的cache：
+
+sudo npm cache clean -f
+
+第三步，安装 n 工具，这个工具是专门用来管理node.js版本的，别怀疑这个工具的名字，是他是他就是他，他的名字就是 "n"
+
+sudo npm install -g n
+
+第四步，安装最新版本的node.js
+
+sudo n stable
+
+第五步，再次查看本机的node.js版本：
+
+node -v
+
+第六步，更新npm到最新版：
+
+$ sudo npm install npm@latest -g
+
+
+npm
+---
+淘宝源
+
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+npm init -y 初始化项目
+npm i element-ui -S  # i = install -S = --save-dev
+
+
+vue
+---
+安装chrome开发者插件 [vue-devtools](https://github.com/vuejs/vue-devtools#vue-devtools)
+
+安装vue-cli
+    npm install -g @vue/cli-service-global
+    npm install -g @vue/cli
+
+    安装完会有一个提示, 类似
+    /usr/local/Cellar/node/0.12.0/bin/vue -> /usr/local/Cellar/node/0.12.0/lib/node_modules/@vue/cli/bin/vue.js
+
+    如果, mac zsh: command not found: vue
+    vim ~/.zshrc
+    export PATH="$PATH:/usr/local/Cellar/node/0.12.0/bin/"
+
+创建项目
+
+    vue create 项目名称
+    vue add element 添加某插件

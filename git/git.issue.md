@@ -84,6 +84,7 @@ git 配置
     git config --global alias.br branch  # 注意 后面命令的引号可以不写
     git config --global alias.cm commit
     git config --global alias.stash-unapply '!git stash show -p | git apply -R'
+    git config --global alias.amt '!git add . && git commit --amend'
 
 
     工作机器个人项目的配置
