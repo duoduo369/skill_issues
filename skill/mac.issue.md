@@ -10,3 +10,17 @@ brew services start mysql
 ssh-key copy
 ---
 cat ~/.ssh/id_rsa.pub | pbcopy
+
+
+mac 开放某个端口例如1234
+---
+
+		sudo vim /etc/pf.conf
+
+		# Open port 1234 for TCP on all interfaces
+		pass in proto tcp from any to any port 1234
+		# You can limit the ip addresses .. replace any with allowed addresses ..
+
+
+		sudo pfctl -f /etc/pf.conf
+		重启电脑
