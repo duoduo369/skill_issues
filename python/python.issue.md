@@ -903,3 +903,10 @@ celery==3.1.25对 gevent 有依赖 bug
 pip install celery[gevent] zsh 的话pip install celery\[gevent\]
 然后
 pip install gevent<1.3 zsh 的话 pip install gevent\<1.3
+
+
+ipython editor to vim
+---
+
+    ipython profile create
+    vim ~/.ipython/profile_default/ipython_config.py
