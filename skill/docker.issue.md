@@ -3,6 +3,21 @@
 
 去官网下载一个桌面，注册账号登录
 
+国内 docker 镜像加速
+----
+
+编辑文件/etc/docker/daemon.json，若没有该文件则手动创建
+
+		{
+
+			"registry-mirrors": [
+				"https://registry.docker-cn.com",
+				"http://hub-mirror.c.163.com",
+				"https://docker.mirrors.ustc.edu.cn"
+			]
+		}
+
+service docker restart
 
 docker image
 ---
