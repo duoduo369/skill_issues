@@ -14,3 +14,13 @@ docker image
 
     导入
     docker load<ubuntu.tar
+
+
+通过 Dockerfile 构建
+---
+    docker build -t="duoduo3369/etl" .
+
+启动 shell
+---
+
+    docker run -i -t duoduo3369/etl /bin/bash
