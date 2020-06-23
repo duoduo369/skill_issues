@@ -39,3 +39,14 @@ docker image
 ---
 
     docker run -i -t duoduo3369/etl /bin/bash
+
+
+cp docker 文件
+---
+
+对应image需要启动起来
+
+    docker run -i -t 01e651890836 /bin/bash
+
+    docker ps # 找到对应的 CONTAINER ID
+    docker cp CONTAINER ID:/opt/xx.zip .
