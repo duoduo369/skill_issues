@@ -6,7 +6,7 @@
 国内 docker 镜像加速
 ----
 
-编辑文件/etc/docker/daemon.json，若没有该文件则手动创建
+编辑文件/etc/docker/daemon.json，若没有该文件则手动创建, mac 在 `~/.docker/daemon.json`
 
 		{
 
@@ -17,7 +17,10 @@
 			]
 		}
 
+
 service docker restart
+
+mac直接点击docker上面的restart按钮
 
 docker image
 ---
