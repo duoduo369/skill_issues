@@ -12,7 +12,7 @@ hadoop.md
 本地安装
 ---
 
-解压后倒入环境变量
+解压后导入环境变量
 
     export HADOOP_HOME="/opt/projects/libs/hadoop-2.8.5"
     export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
@@ -24,3 +24,24 @@ hadoop.md
 首次使用HDFS, 需要格式化
 
     hdfs namenode -format
+
+启动守护进程
+
+    start-all.sh
+
+配置
+--
+
+    https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html
+
+概念
+---
+
+    namenode 管理节点
+    datanode 工作节点
+
+ls
+---
+
+    hadoop fs -ls /data/iponweb/click/
+    hdfs dfs -ls /path
