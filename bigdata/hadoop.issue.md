@@ -34,6 +34,30 @@ hadoop.md
 
     https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html
 
+vim hdfs-site.xml
+
+		<property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    <property>
+    <name>dfs.namenode.name.dir</name>
+      <value>file:/opt/projects/hadoop/hdfs/nn</value>
+    </property>
+    <property>
+      <name>fs.checkpoint.dir</name>
+      <value>file:/opt/projects/hadoop/hdfs/snn</value>
+    </property>
+    <property>
+      <name>fs.checkpoint.edits.dir</name>
+      <value>file:/opt/projects/hadoop/hdfs/snn</value>
+    </property>
+    <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>file:/opt/projects/hadoop/hdfs/dn</value>
+    </property>
+
+
 概念
 ---
 
