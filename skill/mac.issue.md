@@ -24,3 +24,14 @@ mac 开放某个端口例如1234
 
 		sudo pfctl -f /etc/pf.conf
 		重启电脑
+
+
+允许局域网中的xshell ssh mac
+---
+
+    Mac的系统偏好设置 > 共享 > 打开远程登录和远程管理
+
+
+使用BetterTouchTool 增强touch bar
+---
+    https://www.folivora.ai/
