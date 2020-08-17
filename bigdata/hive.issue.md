@@ -86,3 +86,43 @@ mysql 创建表
 
     hive
 
+
+使用外部表
+---
+
+当一个目录下有一堆相同类型的csv时, 似乎需要制定文件夹而不是某个csv，LOCATION默认是hdfs，与hdfs:///testhive 类似
+
+	CREATE EXTERNAL TABLE IF NOT EXISTS hive_test(
+		  Id1 STRING, Id2 STRING, Id3 STRING, Name STRING)
+		  ROW FORMAT DELIMITED
+		  FIELDS TERMINATED BY ','
+		  STORED AS TEXTFILE
+		  LOCATION '/testhive';
+
+这样可以直接select *
+
+
+拷贝一个表的内容
+---
+例如需要拷贝的表为 hive_test
+
+1. 观察表结构
+
+    show create table hive_test;
+
+2. 将第一步的result表名字改成要拷贝的表名创建hive表, 例如 export_hive_test
+
+3. 插入数据
+
+    insert into export_hive_test select * from hive_test;
+
+
+bash执行hive短句
+----
+
+    hive -S -e 'show create table hive_test'
+
+bash通过文件执行sql
+---
+
+    hive -f /tmp/hive_test.sql
