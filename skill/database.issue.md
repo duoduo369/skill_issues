@@ -58,6 +58,8 @@ select * from XXX where xx=xx limit x;
 whichi mysqld
 /usr/sbin/mysqld --verbose --help | grep -A 1 'Default options'
 
+mysql --verbose --help | grep my.cnf
+
 
 mongo可视化工具
 ---
