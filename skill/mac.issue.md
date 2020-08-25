@@ -35,3 +35,9 @@ mac 开放某个端口例如1234
 使用BetterTouchTool 增强touch bar
 ---
     https://www.folivora.ai/
+
+
+sublime 等打开因此文件
+---
+
+打开时在 finder 选择文件时按下 `cmd + shift + .` 即可显示隐藏文件

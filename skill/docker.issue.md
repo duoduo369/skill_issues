@@ -58,7 +58,8 @@ cp docker 文件
 
 对应image需要启动起来
 
-    docker run -i -t 01e651890836 /bin/bash
+    docker run -it 01e651890836 /bin/bash
+    docker exec -it 69d1 /bin/bash
 
     docker ps # 找到对应的 CONTAINER ID
     docker cp CONTAINER ID:/opt/xx.zip .
@@ -77,6 +78,12 @@ cp docker 文件
     docker image prune
 
 
+清除所有不在run的container
+---
+
+    docker container prune
+
+
 docker run
 ---
 
@@ -93,3 +100,41 @@ https://github.com/docker/for-mac/issues/3785
 2.3.0.4 删除 ~/.docker/config.json 里面的的
 
     "credsStore" : "desktop",
+
+
+创建column
+---
+
+    docker volume create archer-mysql
+    docker volumn ls
+    docker volume inspect archer-mysql
+
+
+创建 network
+---
+
+    docker network create -d bridge
+
+docker run挂载git项目
+---
+cd 到宿主机的git项目中, 例如下面的命令会将当前目录挂载到 /opt/etl, 并且workdir为 /opt/etl
+
+	docker run -it --rm --name etl -v "$PWD":/opt/etl -w /opt/etl duoduo3369/etl /bin/bash
+
+注意，/opt/默认不在mac的分享目录中, 需要按照下面的提示在docker图形界面里面设置一下
+
+docker: Error response from daemon: Mounts denied:
+The path /opt/projects/exome/etl
+is not shared from OS X and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> File Sharing.
+See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.
+
+
+k8s
+---
+
+mac 安装
+
+根据这个项目来 https://github.com/AliyunContainerService/k8s-for-docker-desktop
+
+!注意，一定要看看自己docker的k8s是哪个版本，在下载这个项目的对应分支去安装
