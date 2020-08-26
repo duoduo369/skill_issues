@@ -41,3 +41,16 @@ sublime 等打开因此文件
 ---
 
 打开时在 finder 选择文件时按下 `cmd + shift + .` 即可显示隐藏文件
+
+
+mac 截图
+---
+
+    mkdir ~/Documents/capture
+    defaults write com.apple.screencapture location ~/Documents/capture
+    killall SystemUIServer
+
+
+最大化窗口切换
+---
+    非手势的情况下 ctrl + 键盘左右键
