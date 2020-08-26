@@ -5,7 +5,7 @@
 
 ![issue](https://raw.github.com/duoduo369/skill_issues/master/logo/issue.png)
 
-##[gitbook阅读][gitbook]
+##[gitbook阅读](https://duoduo3369.gitbook.io/skill_issues/)
 
 为什么要有这个东西？
 ---
