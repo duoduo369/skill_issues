@@ -68,3 +68,17 @@ mac 截图
 浏览器tab切换
 ---
     ctrl + tab
+
+npm 安装错误 No Xcode or CLT version detected!
+---
+
+尝试用如下命令进行修复 `xcode-select --install` 系统提示如下信息
+
+    xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+
+而事实上并没有所谓的"Software Update"可以更新
+
+正确姿势
+
+    sudo rm -rf $(xcode-select -print-path)
+    xcode-select --install

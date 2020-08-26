@@ -768,7 +768,7 @@ shell 复制和粘贴
 shell增强
 ---
 
-安装zsh,并且配置zshrc
+安装zsh,并且配置zshrc(废弃, 建议oh-my-zsh)
 ---
     #color{{{
     autoload colors
@@ -1557,3 +1557,15 @@ ssh -L 9906:生产mysql服务器ip:3306 ubuntu@跳板机2
 
 然后mysql 客户端把 mysql 链接配置配好即可 mysql -h127.0.0.1 -P 9906 -uhermes -p
 注意 shell 要开着, 可以 -g -f -N 后台执行或者双 tmux 解决
+
+
+zsh 出现 Ignore insecure directories and continue [y] or abort compinit [n]?
+---
+
+https://github.com/zsh-users/zsh-completions/issues/433
+
+    for f in $(compaudit);do sudo chown $(whoami):admin $f;done;
+
+    cd /usr/local/share/
+
+    sudo chmod -R 755 zsh
