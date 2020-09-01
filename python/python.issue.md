@@ -910,3 +910,9 @@ ipython editor to vim
 
     ipython profile create
     vim ~/.ipython/profile_default/ipython_config.py
+
+
+使用三方镜像快速安装一个包
+----
+
+    pip install ipython -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
