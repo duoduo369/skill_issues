@@ -1569,3 +1569,25 @@ https://github.com/zsh-users/zsh-completions/issues/433
     cd /usr/local/share/
 
     sudo chmod -R 755 zsh
+
+内网穿透
+---
+
+将本地 8000 端口映射到外网，需要一个云服务器
+
+[参照](https://medium.com/the-software-reliever/expose-localhost-to-the-public-www-with-a-vps-nginx-and-ssh-tunneling-daefc0275757)
+
+本机执行
+
+	ssh -f -N -T -R 9000(服务器端口):localhost:3000 服务器user@<服务器ip>
+
+服务器nginx
+
+	server {
+		listen 80;
+		location / {
+			 proxy_pass http://127.0.0.1:9000;
+		}
+	}
+
+访问服务器 nginx 对应 ip 即可, 如果有域名则可以顺便加个dns.
