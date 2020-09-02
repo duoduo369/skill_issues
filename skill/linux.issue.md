@@ -1591,3 +1591,11 @@ https://github.com/zsh-users/zsh-completions/issues/433
 	}
 
 访问服务器 nginx 对应 ip 即可, 如果有域名则可以顺便加个dns.
+
+
+另外，如果服务器出现 Warning: remote port forwarding failed for listen port xxx
+
+可以考虑两种方案:
+
+    1. ssh 的服务器user用root
+    2. 服务器 netstat -ntlp 查看端口是否有之前没断掉的ssh链接，如果有kill
