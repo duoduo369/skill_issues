@@ -650,3 +650,11 @@ class Migration(migrations.Migration):
         )
     ]
 ```
+
+django shell python tab出现一些奇怪的log
+---
+
+    https://github.com/ipython/ipython/issues/10946
+
+    import logging
+    logging.getLogger('parso.python.diff').disabled = True
