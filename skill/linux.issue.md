@@ -1599,3 +1599,18 @@ https://github.com/zsh-users/zsh-completions/issues/433
 
     1. ssh 的服务器user用root
     2. 服务器 netstat -ntlp 查看端口是否有之前没断掉的ssh链接，如果有kill
+
+ssh 添加 config文件管理不同的ssh key
+===
+
+.ssh中可以添加 config 文件使用不同的id_rsa
+
+    Host baidu
+        HostName www.baidu.com
+        User baidu
+        IdentityFile ~/.ssh/baidu
+        ProxyJump baidu-inner
+    Host ssh_test_server
+        HostName 123.123.123.123
+        User sshuser
+        IdentityFile ~/.ssh/ssh_test_server_id
