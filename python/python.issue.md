@@ -529,6 +529,38 @@ groupby的用法
     for k, g in gb:
         result[k].extend(list(g))
 
+例如获取一个已经排序的list的每个group的最新一条
+
+	import itertools
+	import operator
+	data = [ 
+		{"group_key": 1, "value": 1}, 
+		{"group_key": 1, "value": 2}, 
+		{"group_key": 1, "value": 3}, 
+		{"group_key": 2, "value": 4}, 
+		{"group_key": 2, "value": 3}, 
+		{"group_key": 2, "value": 2}, 
+		{"group_key": 3, "value": 5}, 
+		{"group_key": 3, "value": 6}, 
+		{"group_key": 3, "value": 4}, 
+	]
+
+	def get_group_first_data(ordered_data, group_by_func):
+		for unused, row_iter in itertools.groupby(ordered_data, group_by_func):
+			first_data = next(row_iter)
+			yield first_data
+
+
+	result = list(get_group_first_data(data, lambda x: x['group_key']))
+
+	result的结果是:
+
+	[
+		{'group_key': 1, 'value': 1},
+		{'group_key': 2, 'value': 4},
+	 	{'group_key': 3, 'value': 5}
+	]
+
 wraps
 ---
 使用wrap写装饰器的时候会把doc之类的东西带上
