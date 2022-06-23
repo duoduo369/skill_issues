@@ -171,6 +171,16 @@ django group_by
     groups = group_by(assign_to, 'group')
     取出的是一个列表groups = [1L, 3L, 4L]
 
+
+django group by取最后一条
+---
+
+	from django.db.models import Max
+	annotate_data = Comment.objects.filter(item_type=item_type, item_id__in=item_ids).values('item_type', 'item_id').annotate(last_id=Max('id')).order_by('item_type', 'item_id')
+	annotate_data_mapper = {each['item_id']: each['last_id'] for each in annotate_data}
+	comments = Comment.objects.prefetch_related('user').filter(id__in=annotate_data_mapper.values())
+
+
 django admin使用自己的用户系统
 ---
 
