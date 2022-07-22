@@ -823,3 +823,13 @@ vim versions.cfg
 [versions]
 ipython = 5.1.0
 ```
+
+pyenv 管理多个版本的python
+---
+
+    brew update
+    brew install pyenv
+
+安装3.6.10
+
+    pyenv install 3.6.10
