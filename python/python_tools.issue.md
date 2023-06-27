@@ -833,3 +833,22 @@ pyenv 管理多个版本的python
 安装3.6.10
 
     pyenv install 3.6.10
+
+
+
+
+cut video
+----
+
+    from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+    video_file = "/Users/duoduo3369/Movies/0fda7286-77a4-4d7f-a704-07f1c8a87e9b.mp4"
+    output_base_path = "/Users/duoduo3369/Movies/audios"
+
+    # time in seconds
+    end1 = 60 * 2
+
+    start2 = 60 * 3 + 52
+    end2 = start2 + 60
+
+    ffmpeg_extract_subclip(video_file, 0, end1, targetname='{}/chunk1.mp4'.format(output_base_path))
+    ffmpeg_extract_subclip(video_file, start2, end2, targetname='{}/chunk2.mp4'.format(output_base_path))
