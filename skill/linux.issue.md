@@ -1614,3 +1614,9 @@ ssh 添加 config文件管理不同的ssh key
         HostName 123.123.123.123
         User sshuser
         IdentityFile ~/.ssh/ssh_test_server_id
+
+ssh免密登录
+====
+本地使用ssh-keygen生成公钥之后
+
+cat ~/.ssh/id_rsa.pub | ssh user@host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
