@@ -1,7 +1,8 @@
 
-切换活内豆瓣源
+切换python源
 ---
 
+old way
 
     pip 或者easy_install安装的时候会用国外的源，这个
     东西不时会被墙掉，因此换豆瓣的源
@@ -14,6 +15,12 @@
 
     [install]
     trusted-host=pypi.douban.com
+
+new
+
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+
+
 
 virtualenv
 ---
